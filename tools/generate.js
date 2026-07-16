@@ -10,7 +10,6 @@
 
 import { computePitches } from "../src/core/voicing.js";
 import { fretsForSet } from "../src/core/fretboard.js";
-import { difficultyForSpan } from "../src/core/difficulty.js";
 
 // chordScale canónico por modo (etiquetas de función: 9/11/13, nunca 2/4/6).
 const MODE_SCALES = {
@@ -56,12 +55,12 @@ const total = family37Play.length + family6Play.length;
 const sin3 = all.filter((d) => d.includes("7") && !d.includes("3"));
 const sin3Play = sin3.filter(playable);
 
-// ── histograma de dificultad sobre el universo CON 3ra (3+7 ∪ familia 6) ──
+// ── histograma de SPAN FÍSICO sobre el universo CON 3ra (3+7 ∪ familia 6) ──
+// El span mide dificultad FÍSICA (estiramiento). NO se mapea a los colores del
+// manuscrito: esos son juicio de gusto del autor y se transcriben, no se derivan.
 const con3 = [...family37Play, ...family6Play];
-const dist = { normal: 0, hard: 0, veryHard: 0 };
 const spanHist = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 };
-for (const d of con3) { spanHist[bestSpan(d)]++; dist[difficultyForSpan(bestSpan(d))]++; }
-const pct = (n) => ((n / con3.length) * 100).toFixed(1) + "%";
+for (const d of con3) { spanHist[bestSpan(d)]++; }
 
 console.log(`modo: ${mode}   chordScale: ${chordScale.join(" ")}`);
 console.log("");
@@ -72,8 +71,5 @@ console.log(`  |total|             : ${total}`);
 console.log("");
 console.log(`aparte — sin 3ra (contiene 7, no 3) tocables: ${sin3Play.length}`);
 console.log("");
-console.log(`dificultad sobre universo CON 3ra (${con3.length} voicings):`);
+console.log(`span físico sobre universo CON 3ra (${con3.length} voicings) — NO es dificultad-color:`);
 console.log(`  span:  0:${spanHist[0]} 1:${spanHist[1]} 2:${spanHist[2]} 3:${spanHist[3]} 4:${spanHist[4]} 5:${spanHist[5]} 6:${spanHist[6]} 7:${spanHist[7]}`);
-console.log(`  normal   (0-4): ${dist.normal}  ${pct(dist.normal)}`);
-console.log(`  hard     (5-6): ${dist.hard}  ${pct(dist.hard)}`);
-console.log(`  veryHard (7)  : ${dist.veryHard}  ${pct(dist.veryHard)}`);

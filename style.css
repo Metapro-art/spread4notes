@@ -182,19 +182,77 @@ main { padding: 16px; }
   opacity: .4;
 }
 .voicing.learned .ord { color: var(--dim); opacity: .5; }
-.voicing.learned .check {
+
+/* insignias esquina superior derecha */
+.voicing .badge {
   position: absolute;
-  top: 5px; right: 7px;
+  top: 4px; right: 6px;
   font-size: 12px;
-  color: var(--text);
-  opacity: .7;
+  line-height: 1;
+  font-family: var(--sans);
 }
+.voicing .badge.check { color: var(--text); opacity: .75; }
+.voicing .badge.warn { color: var(--ink); opacity: .8; }
+.voicing .badge.review {
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--dim);
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+}
+
+/* recomendación vs advertencia: el rojo (warn) lleva borde punteado de aviso */
+.voicing.warn { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ink) 35%, transparent); }
+
+/* opcional (entre paréntesis en el manuscrito): se puede omitir → borde punteado
+   y paréntesis tipográficos alrededor del stack */
+.voicing.optional { border-style: dashed; }
+.voicing:not(.hl-yellow):not(.hl-orange):not(.hl-red):not(.hl-blue).optional { border-color: var(--dim); }
+.voicing .paren { color: var(--dim); font-weight: 500; opacity: .7; font-size: 13px; }
+.voicing .paren.l { margin-top: -2px; }
+
+/* needsReview: no se esconde, sigue clickeable, pero se marca claramente y
+   NO usa el color de dato (para no confundir con dificultad). */
+.voicing.review {
+  background: repeating-linear-gradient(-45deg, var(--surface) 0 8px, var(--surface-hi) 8px 16px);
+  color: var(--dim);
+  border: 1px solid var(--dim);
+  border-style: dashed;
+  box-shadow: none;
+}
+.voicing.review .ord { color: var(--dim); opacity: .9; }
+.voicing.review .deg { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--dim) 60%, transparent); }
 
 /* el cursor: próximo sin marcar */
 .voicing.cursor {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
+
+/* ---------- intro (portada) ---------- */
+.intro { margin: 0 0 16px; }
+.intro details {
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 2px 14px;
+}
+.intro summary {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+  list-style: none;
+}
+.intro summary::-webkit-details-marker { display: none; }
+.intro summary::before { content: "›"; color: var(--dim); transition: transform .15s ease; }
+.intro details[open] summary::before { transform: rotate(90deg); }
+.intro .intro-title { font-weight: 600; font-size: 15px; }
+.intro .intro-hint { color: var(--dim); font-size: 12px; }
+.intro p { margin: 0 0 10px; color: var(--text); font-size: 14px; max-width: 62ch; }
+.intro .intro-links { color: var(--dim); font-family: var(--mono); font-size: 12.5px; }
+
+.legend .lg.warn { color: var(--text); }
 
 .empty {
   color: var(--dim);

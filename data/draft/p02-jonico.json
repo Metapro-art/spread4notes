@@ -88,7 +88,8 @@
     848,
     1025
    ],
-   "sixthForSeventh": true
+   "sixthForSeventh": true,
+   "optional": true
   },
   {
    "id": "ion-s1-04",
@@ -143,7 +144,9 @@
    "yBand": [
     848,
     1025
-   ]
+   ],
+   "needsReview": true,
+   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
   },
   {
    "id": "ion-s1-07",
@@ -162,7 +165,9 @@
     848,
     1025
    ],
-   "sixthForSeventh": true
+   "sixthForSeventh": true,
+   "needsReview": true,
+   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
   },
   {
    "id": "ion-s1-08",
@@ -234,7 +239,9 @@
    "yBand": [
     848,
     1025
-   ]
+   ],
+   "needsReview": true,
+   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
   },
   {
    "id": "ion-s1-12",
@@ -271,7 +278,9 @@
     848,
     1025
    ],
-   "sixthForSeventh": true
+   "sixthForSeventh": true,
+   "needsReview": true,
+   "reviewReason": "grados repetidos (13 aparece dos veces) — probable error de lectura"
   },
   {
    "id": "ion-s1-14",
@@ -1351,7 +1360,8 @@
    "yBand": [
     1400,
     1595
-   ]
+   ],
+   "optional": true
   },
   {
    "id": "ion-s4-17",

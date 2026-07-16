@@ -28,14 +28,16 @@ Una **app de estudio**, no un visor del manuscrito. Responde una sola pregunta: 
 - Click = **"ya me lo sé"**: el voicing se apaga y retrocede; el progreso persiste en `localStorage`.
 - La barra **Continuar** salta al primer voicing sin marcar — la respuesta literal a "¿por cuál voy?".
 
-El escaneo (`scans/`) es la fuente de la transcripción, **no se le muestra al usuario**. La app filtra a los voicings que pasan `tools/validate.js`; los que fallan quedan en `data/draft/` para corregir, no se estudian.
+El escaneo (`scans/`) es la fuente de la transcripción, **no se le muestra al usuario**. **Nada se esconde:** todas las columnas transcritas se muestran; las que el validador rechaza salen marcadas `needsReview` (trama diagonal, tachado) y siguen siendo clickeables. Las opcionales (entre paréntesis en el manuscrito) se distinguen con borde punteado y paréntesis.
 
 ## Herramientas (`tools/`, Node, sin dependencias)
 
 ```bash
 node tools/generate.js --mode ionian          # enumera el universo legal jónico
 node tools/validate.js data/draft/p02-jonico.json   # valida una transcripción
-node tools/slice.js --systems scans/p02-jonico.png scans/systems   # regenera recortes de sistema
-node tools/colors.js scans/p02-jonico.png      # detecta resaltados por hue
+node tools/columns.js scans/p02-jonico.png     # detección estructural: cuenta columnas por sistema
+node tools/colors.js scans/p02-jonico.png      # resaltado por color, un registro por columna
+node tools/arcs.js data/draft/p02-jonico.json  # checksum de flechas vs. conducción derivada
+node tools/slice.js --systems scans/p02-jonico.png scans/systems   # recortes de sistema
 node tests/regression.test.js                  # tests de regresión del motor
 ```

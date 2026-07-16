@@ -130,17 +130,27 @@ Cada voicing lleva **un solo** campo de color: `highlight`, con el color **obser
 
 `null` = sin resaltado. Nada de `difficulty`, `betterWithStringSkip`, ni ningún rótulo de significado en `/data/`. Si mañana el autor decide que el amarillo ya no quiere decir "difícil", cambia **una línea** de código, no 450 registros.
 
-El **significado** vive en `src/core/legend.js` (`LEGEND`), fuera de los datos:
+El **significado** vive en `src/core/legend.js` (`LEGEND`), fuera de los datos. Leyenda **definitiva del autor**:
 
-| highlight (observado) | LEGEND (significado) |
-|---|---|
-| `yellow` | Difícil |
-| `orange` | Muy difícil |
-| `red` | Muy muy difícil |
-| `blue` | Locrio ♮9 |
-| `null` | (sin resaltado) |
+| highlight (observado) | LEGEND (significado) | eje |
+|---|---|---|
+| `yellow` | Chévere | recomendación (gusto) |
+| `orange` | Buenísimo | recomendación (gusto) |
+| `red` | Difícil en cuerdas contiguas — mejor saltando cuerda | advertencia (física) |
+| `blue` | Locrio ♮9 | modo |
+| `null` | (sin resaltado) | — |
+
+**Amarillo y naranja NO son dificultad.** Son juicio de **gusto** del autor: recomendaciones ("suena chévere / buenísimo"), no advertencias. **Rojo es la única advertencia.** Azul solo existe en locrio. La UI presenta amarillo/naranja como recomendación y rojo como advertencia — **nunca al revés** (ver `LEGEND_KIND`).
+
+### Los colores se TRANSCRIBEN, no se derivan
+
+El color mide **gusto** (juicio humano); el `span` mide **dificultad física** (estiramiento). Son ejes distintos y **no se derivan uno del otro**. El intento anterior (`src/core/difficulty.js`, span→dificultad) predecía la cosa equivocada y **fue borrado**. El `highlight` sale del escaneo por muestreo de píxeles (`tools/colors.js`), columna por columna; nada lo calcula.
 
 Mismo principio para el bit de decodificación del locrio: el **azul** desambigua `9` = `♮9` frente al `b9` por defecto — pero eso ya no se guarda como color, **se absorbe en `degrees`** al transcribir (el grado resuelto lo lleva `degrees`, no un tag aparte). El `highlight: "blue"` que sí sobrevive es la observación literal, y `LEGEND` lo lee como "Locrio ♮9".
+
+### El color se une por columna, no por totales
+
+`tools/colors.js` emite **un registro por columna resaltada** `{system, color, x, y}` (no totales). Cada registro se une al voicing por proximidad de X ⇒ cada voicing recibe su `highlight`. Cuadre esperado en p02: **amarillo 29 · naranja 12 · rojo 3**. Si el detector no da eso, hay error en el join o columnas sin transcribir: **se reporta, no se maquilla.**
 
 ### Si se pierde una llave
 
@@ -150,22 +160,21 @@ Un azul mal leído produce un `b9` donde va un `♮9`. **El validador NO lo dete
 
 `no3rd`, `no7th`, `has5th`, `hasNatural9`, `has#11`, etc. Son propiedades derivadas. **No crear campos para ellas en `/data/`.** Si la leyenda de una página parece contradecir esto (p. ej. la página del jónico rotula un color como "sin 3ra"), ignórala: el dato ya está en los 4 grados.
 
-El `highlight` es **ground truth para calibrar** las heurísticas de `span` y de salto de cuerda, no al revés. Si la heurística contradice el resaltado, gana el resaltado y se ajusta la heurística.
+El `highlight` **no** calibra ninguna heurística de `span`: gusto y dificultad física son ejes independientes (ver arriba). El `highlight` se transcribe y se muestra tal cual.
 
 ### Locrio ♮9 no es una excepción: es un modo
 
 El locrio ♮9 (6to modo de la menor melódica, `1 9 b3 11 b5 b13 b7`) es una escala de acorde distinta con función armónica propia (m7b5 en II-V menor). Los voicings azules van en el **mismo archivo** que el locrio para preservar `order`, pero la UI los expone como sub-toggle `♮9` dentro de Locrio. Se identifican porque `degrees` contiene `"9"` en vez de `"b9"` — **derivable, sin tag**.
 
-### Arcos de conducción melódica — NO se transcriben
+### Arcos (flechas) — SÍ se transcriben, como CHECKSUM
 
-Los arcos del manuscrito conectan **siempre la misma voz entre columnas contiguas** (columna *n* → columna *n+1*). No hay cruces de voces. Por lo tanto son **100% derivables** de `order` + `degrees`:
+Los arcos del manuscrito conectan **la misma voz entre columnas contiguas** (columna *n* → columna *n+1*); no hay cruces de voces. Se transcriben por voicing, top→bottom:
 
-```js
-// voz i de la columna n → voz i de la columna n+1
-const motion = (a, b) => { /* "same" | "up" | "down", en semitonos */ };
+```json
+"arcsToNext": [false, true, false, false]   // ¿hay flecha desde cada voz hacia la columna n+1?
 ```
 
-No crear campo `voiceLeading` en `/data/`. Calcularlo en `src/core/`.
+Luego se **mide** (no se asume) la hipótesis: *hay flecha ⟺ esa voz cambió de grado entre la columna n y la n+1*. Se reporta total, cumple, no cumple, y la lista de los que no. Cada incumplimiento es un **error de lectura** — **no se corrige**, se reporta. Si cumple >95%, los arcos son un checksum redundante y se dice explícitamente (entonces sí se pueden derivar de `order`+`degrees` en `src/core/` y dejar de transcribir). Herramienta: `tools/arcs.js`.
 
 ---
 
@@ -179,6 +188,35 @@ Consecuencias operativas para la transcripción:
 - Total ≈ 25–30 strips en todo el estudio.
 - El muestreo de color (`tools/colors.js`) funciona bien pese al JPEG: los resaltados son manchas grandes frente a los artefactos de compresión.
 - **Toda lectura de visión pasa por `tools/validate.js` antes de entrar a `/data/`.** Un dígito mal leído casi siempre produce un voicing que no existe en el universo legal generado, y salta solo.
+
+### Conteo declarado por el autor — HECHO DURO
+
+Cada modo lleva un **número de columnas contado por el autor sobre su propia página**. Es ground truth: **manda sobre cualquier medición automática.** La transcripción de un modo **no está completa** hasta que el conteo por sistema coincide exacto.
+
+| modo | columnas declaradas |
+|---|---|
+| **Jónico** | **85** |
+| Dórico / Eólico | (pendiente de contar) |
+| Mixolidio | (pendiente) |
+| Lidio | (pendiente) |
+| Locrio | (pendiente) |
+
+Estado p02 (jónico): transcritas **77**; faltan **~8** (evidencia de color: naranja da 10 transcritas vs. 12 declaradas). **No se inventan columnas para cuadrar el número** — se leen del escaneo o se reporta el faltante.
+
+### Estructura primero, lectura después (evita perder columnas en la costura)
+
+Causa raíz del faltante anterior: se leyó cada sistema en recortes **solapados** y se reconcilió a ojo; las columnas en la costura se perdieron (~2–3 por sistema). El arreglo:
+
+1. **Detecta las X de las columnas ANTES de leer nada** (`tools/columns.js`): la fila de la voz superior tiene exactamente un dígito por columna — se cuenta ahí (los arcos están más abajo y no puentean esa fila).
+2. **Reporta el conteo por sistema.** Tiene que sumar el declarado. Si no suma, **PARA y dilo** — no se lee con un conteo que no cierra.
+3. **Recorta CADA columna por su X**, individualmente. Ninguna columna partida entre dos recortes. **Nunca más recortes solapados por píxeles.**
+4. Lee columna por columna.
+
+> Nota honesta (turno actual): en este JPEG a ~170 ppi ni la proyección de tinta ni el muestreo de color llegan a verificar 85 (dan ~70 y 42–44). El faltante es real y está corroborado por el color, pero el conteo exacto **no es verificable con este escaneo**. Se necesita un escaneo mejor o que el autor marque las X.
+
+### Nada se esconde (`needsReview`)
+
+**Toda** columna entra a `/data/`, incluidas las que el validador rechaza. Una columna rechazada lleva `"needsReview": true` y `"reviewReason"` con el motivo; **no desaparece de la vista del autor.** En la app, las `needsReview` se distinguen visualmente y **siguen siendo clickeables**. (El validador es la fuente del motivo; ver invariante #1.)
 
 ---
 
@@ -211,6 +249,9 @@ Consecuencias operativas para la transcripción:
 - `order` — la secuencia del manuscrito. **Es el valor pedagógico del estudio** (la conducción melódica de cada voz). Nunca reordenar por defecto; el orden alterno es opt-in del usuario.
 - `intervals` — derivado; se recalcula y valida en CI. Si no coincide con `degrees`, el build falla.
 - `highlight` — color **observado** en el escaneo (`yellow` | `orange` | `red` | `blue` | `null`), literal, sin interpretar. Su significado vive en `src/core/legend.js`, no aquí.
+- `optional` — `true` si la columna está entre paréntesis `( )` en el manuscrito ("se puede omitir por su complejidad"). Observado, literal.
+- `arcsToNext` — `[bool,bool,bool,bool]` top→bottom: flechas de conducción hacia la columna n+1. Transcrito como checksum (ver arriba).
+- `needsReview` / `reviewReason` — la columna existe en el manuscrito pero el validador la rechaza (p. ej. grados repetidos por error de lectura). **No se esconde**; entra con el motivo y sigue visible/clickeable.
 - `system` / `column` — coordenada en el escaneo, para auditar contra la imagen.
 
 ---
@@ -219,7 +260,7 @@ Consecuencias operativas para la transcripción:
 
 1. Todo `degrees` tiene exactamente 4 elementos, todos pertenecen a `chordScale` o a `alternates` del modo, sin repetidos.
 2. `intervals` recalculado === `intervals` guardado.
-3. Cada voicing es **físicamente posible**: `span < 8` en al menos un juego de cuerdas. (Antes decía `span <= 5`; DEROGADO — el span **clasifica** la dificultad, no excluye. Ver `src/core/difficulty.js`.)
+3. Cada voicing es **físicamente posible**: `span < 8` en al menos un juego de cuerdas. (Antes decía `span <= 5`; DEROGADO — el span mide **dificultad física**, cosa distinta del gusto que miden los colores; no excluye.) Un voicing que no cumple entra a `/data/` con `needsReview`, no se descarta.
 4. `order` es una permutación de `1..N` sin huecos ni duplicados.
 5. No hay voicings duplicados dentro de un modo.
 6. Todo voicing cumple la regla del modo (ej.: mixolidio siempre contiene `3` y `b7`).
@@ -236,19 +277,21 @@ spread4notes/
   style.css
   src/
     core/            # teoría pura, CERO DOM. degrees.js voicing.js fretboard.js
-                     # difficulty.js stringskip.js voiceleading.js
-    ui/              # fretboard-svg.js mode-picker.js voicing-grid.js player.js
-    main.js
+                     # legend.js (significado de colores) voiceleading.js
+    ui/              # (por venir)
+    main.js          # app de estudio (Fase 2)
   data/
-    modes.json
-    voicings/*.json
+    intro.json       # portada (p01), intro del capítulo
+    draft/*.json     # transcripciones sin verificar
+    voicings/*.json  # transcripciones verificadas
   tools/
-    transcriber/     # herramienta local de captura (Fase 1)
-    validate.js      # invariantes, corre en CI
+    validate.js      # invariantes, corre en CI (importable en navegador)
     generate.js      # enumera el universo legal por modo
-    colors.js        # extrae el resaltado por muestreo de píxeles
-    slice.js         # recorta y escala los strips de sistema desde scans/
-  scans/             # PNG por página, 1400×1650 @170ppi. Fuente de verdad.
+    columns.js       # detección estructural de columnas (cuenta antes de leer)
+    colors.js        # resaltado por muestreo de píxeles, UN registro por columna
+    arcs.js          # checksum de flechas vs. conducción derivada
+    slice.js         # recorta y escala strips desde scans/
+  scans/             # PNG por página, 1400×1650 @170ppi. Fuente, NUNCA se muestra.
   CLAUDE.md
 ```
 
