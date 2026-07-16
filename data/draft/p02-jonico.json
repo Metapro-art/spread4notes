@@ -1,0 +1,1448 @@
+{
+ "mode": "ionian",
+ "verified": false,
+ "source": "scans/p02-jonico.png",
+ "chordScale": [
+  "1",
+  "9",
+  "3",
+  "5",
+  "13",
+  "7"
+ ],
+ "systemCrop": {
+  "x0": 40,
+  "x1": 1360,
+  "scale": 3,
+  "bands": {
+   "1": [
+    848,
+    1025
+   ],
+   "2": [
+    1030,
+    1225
+   ],
+   "3": [
+    1218,
+    1408
+   ],
+   "4": [
+    1400,
+    1595
+   ]
+  }
+ },
+ "note": "Transcripcion completa p02, Fase 1. Decisiones A/B/C aplicadas. NO corregida.",
+ "voicings": [
+  {
+   "id": "ion-s1-01",
+   "order": 1,
+   "system": 1,
+   "column": 1,
+   "degrees": [
+    "1",
+    "7",
+    "13",
+    "3"
+   ],
+   "color": "yellow",
+   "xEst": 337,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-02",
+   "order": 2,
+   "system": 1,
+   "column": 2,
+   "degrees": [
+    "1",
+    "7",
+    "5",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 391,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-03",
+   "order": 3,
+   "system": 1,
+   "column": 3,
+   "degrees": [
+    "1",
+    "13",
+    "5",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 445,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-04",
+   "order": 4,
+   "system": 1,
+   "column": 4,
+   "degrees": [
+    "1",
+    "7",
+    "3",
+    "9"
+   ],
+   "color": "yellow",
+   "xEst": 499,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-05",
+   "order": 5,
+   "system": 1,
+   "column": 5,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "9"
+   ],
+   "color": "none",
+   "xEst": 553,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-06",
+   "order": 6,
+   "system": 1,
+   "column": 6,
+   "degrees": [
+    "1",
+    "7",
+    "3",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 607,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-07",
+   "order": 7,
+   "system": 1,
+   "column": 7,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 661,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-08",
+   "order": 8,
+   "system": 1,
+   "column": 8,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "7"
+   ],
+   "color": "yellow",
+   "xEst": 715,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-09",
+   "order": 9,
+   "system": 1,
+   "column": 9,
+   "degrees": [
+    "1",
+    "5",
+    "3",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 769,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-10",
+   "order": 10,
+   "system": 1,
+   "column": 10,
+   "degrees": [
+    "1",
+    "3",
+    "9",
+    "7"
+   ],
+   "color": "orange",
+   "xEst": 823,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-11",
+   "order": 11,
+   "system": 1,
+   "column": 11,
+   "degrees": [
+    "1",
+    "3",
+    "1",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 877,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-12",
+   "order": 12,
+   "system": 1,
+   "column": 12,
+   "degrees": [
+    "1",
+    "7",
+    "3",
+    "13"
+   ],
+   "color": "yellow",
+   "xEst": 931,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-13",
+   "order": 13,
+   "system": 1,
+   "column": 13,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "13"
+   ],
+   "color": "none",
+   "xEst": 985,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-14",
+   "order": 14,
+   "system": 1,
+   "column": 14,
+   "degrees": [
+    "1",
+    "5",
+    "3",
+    "13"
+   ],
+   "color": "none",
+   "xEst": 1039,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-15",
+   "order": 15,
+   "system": 1,
+   "column": 15,
+   "degrees": [
+    "1",
+    "3",
+    "9",
+    "13"
+   ],
+   "color": "orange",
+   "xEst": 1093,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-16",
+   "order": 16,
+   "system": 1,
+   "column": 16,
+   "degrees": [
+    "1",
+    "3",
+    "7",
+    "13"
+   ],
+   "color": "orange",
+   "xEst": 1147,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-17",
+   "order": 17,
+   "system": 1,
+   "column": 17,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "5"
+   ],
+   "color": "none",
+   "xEst": 1201,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s1-18",
+   "order": 18,
+   "system": 1,
+   "column": 18,
+   "degrees": [
+    "1",
+    "3",
+    "7",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 1255,
+   "yBand": [
+    848,
+    1025
+   ]
+  },
+  {
+   "id": "ion-s1-19",
+   "order": 19,
+   "system": 1,
+   "column": 19,
+   "degrees": [
+    "1",
+    "3",
+    "13",
+    "5"
+   ],
+   "color": "none",
+   "xEst": 1309,
+   "yBand": [
+    848,
+    1025
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s2-01",
+   "order": 20,
+   "system": 2,
+   "column": 1,
+   "degrees": [
+    "7",
+    "13",
+    "3",
+    "9"
+   ],
+   "color": "yellow",
+   "xEst": 105,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-02",
+   "order": 21,
+   "system": 2,
+   "column": 2,
+   "degrees": [
+    "7",
+    "5",
+    "3",
+    "9"
+   ],
+   "color": "orange",
+   "xEst": 171,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-03",
+   "order": 22,
+   "system": 2,
+   "column": 3,
+   "degrees": [
+    "7",
+    "13",
+    "3",
+    "1"
+   ],
+   "color": "yellow",
+   "xEst": 237,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-04",
+   "order": 23,
+   "system": 2,
+   "column": 4,
+   "degrees": [
+    "7",
+    "5",
+    "3",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 303,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-05",
+   "order": 24,
+   "system": 2,
+   "column": 5,
+   "degrees": [
+    "7",
+    "3",
+    "9",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 369,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-06",
+   "order": 25,
+   "system": 2,
+   "column": 6,
+   "degrees": [
+    "7",
+    "5",
+    "3",
+    "13"
+   ],
+   "color": "yellow",
+   "xEst": 435,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-07",
+   "order": 26,
+   "system": 2,
+   "column": 7,
+   "degrees": [
+    "7",
+    "3",
+    "9",
+    "13"
+   ],
+   "color": "orange",
+   "xEst": 501,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-08",
+   "order": 27,
+   "system": 2,
+   "column": 8,
+   "degrees": [
+    "7",
+    "3",
+    "1",
+    "13"
+   ],
+   "color": "none",
+   "xEst": 567,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-09",
+   "order": 28,
+   "system": 2,
+   "column": 9,
+   "degrees": [
+    "7",
+    "13",
+    "3",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 633,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-10",
+   "order": 29,
+   "system": 2,
+   "column": 10,
+   "degrees": [
+    "7",
+    "3",
+    "9",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 699,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-11",
+   "order": 30,
+   "system": 2,
+   "column": 11,
+   "degrees": [
+    "7",
+    "3",
+    "1",
+    "5"
+   ],
+   "color": "none",
+   "xEst": 765,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-12",
+   "order": 31,
+   "system": 2,
+   "column": 12,
+   "degrees": [
+    "7",
+    "3",
+    "13",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 831,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-13",
+   "order": 32,
+   "system": 2,
+   "column": 13,
+   "degrees": [
+    "7",
+    "9",
+    "1",
+    "3"
+   ],
+   "color": "orange",
+   "xEst": 897,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-14",
+   "order": 33,
+   "system": 2,
+   "column": 14,
+   "degrees": [
+    "13",
+    "5",
+    "3",
+    "7"
+   ],
+   "color": "yellow",
+   "xEst": 963,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-15",
+   "order": 34,
+   "system": 2,
+   "column": 15,
+   "degrees": [
+    "13",
+    "3",
+    "9",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 1029,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-16",
+   "order": 35,
+   "system": 2,
+   "column": 16,
+   "degrees": [
+    "13",
+    "3",
+    "1",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 1095,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s2-17",
+   "order": 36,
+   "system": 2,
+   "column": 17,
+   "degrees": [
+    "13",
+    "3",
+    "9",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 1161,
+   "yBand": [
+    1030,
+    1225
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s2-18",
+   "order": 37,
+   "system": 2,
+   "column": 18,
+   "degrees": [
+    "13",
+    "3",
+    "1",
+    "5"
+   ],
+   "color": "none",
+   "xEst": 1227,
+   "yBand": [
+    1030,
+    1225
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s2-19",
+   "order": 38,
+   "system": 2,
+   "column": 19,
+   "degrees": [
+    "13",
+    "3",
+    "7",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 1293,
+   "yBand": [
+    1030,
+    1225
+   ]
+  },
+  {
+   "id": "ion-s3-01",
+   "order": 39,
+   "system": 3,
+   "column": 1,
+   "degrees": [
+    "13",
+    "5",
+    "1",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 90,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-02",
+   "order": 40,
+   "system": 3,
+   "column": 2,
+   "degrees": [
+    "13",
+    "5",
+    "7",
+    "3"
+   ],
+   "color": "orange",
+   "xEst": 160,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-03",
+   "order": 41,
+   "system": 3,
+   "column": 3,
+   "degrees": [
+    "5",
+    "3",
+    "9",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 230,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-04",
+   "order": 42,
+   "system": 3,
+   "column": 4,
+   "degrees": [
+    "5",
+    "3",
+    "1",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 300,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-05",
+   "order": 43,
+   "system": 3,
+   "column": 5,
+   "degrees": [
+    "5",
+    "3",
+    "9",
+    "13"
+   ],
+   "color": "yellow",
+   "xEst": 370,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-06",
+   "order": 44,
+   "system": 3,
+   "column": 6,
+   "degrees": [
+    "5",
+    "1",
+    "7",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 440,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-07",
+   "order": 45,
+   "system": 3,
+   "column": 7,
+   "degrees": [
+    "5",
+    "9",
+    "13",
+    "3"
+   ],
+   "color": "yellow",
+   "xEst": 510,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-08",
+   "order": 46,
+   "system": 3,
+   "column": 8,
+   "degrees": [
+    "5",
+    "1",
+    "13",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 580,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-09",
+   "order": 47,
+   "system": 3,
+   "column": 9,
+   "degrees": [
+    "5",
+    "3",
+    "7",
+    "9"
+   ],
+   "color": "yellow",
+   "xEst": 650,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-10",
+   "order": 48,
+   "system": 3,
+   "column": 10,
+   "degrees": [
+    "5",
+    "3",
+    "13",
+    "9"
+   ],
+   "color": "yellow",
+   "xEst": 720,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-11",
+   "order": 49,
+   "system": 3,
+   "column": 11,
+   "degrees": [
+    "5",
+    "7",
+    "3",
+    "9"
+   ],
+   "color": "none",
+   "xEst": 790,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-12",
+   "order": 50,
+   "system": 3,
+   "column": 12,
+   "degrees": [
+    "3",
+    "9",
+    "7",
+    "5"
+   ],
+   "color": "orange",
+   "xEst": 860,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-13",
+   "order": 51,
+   "system": 3,
+   "column": 13,
+   "degrees": [
+    "3",
+    "9",
+    "13",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 930,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-14",
+   "order": 52,
+   "system": 3,
+   "column": 14,
+   "degrees": [
+    "3",
+    "1",
+    "7",
+    "5"
+   ],
+   "color": "none",
+   "xEst": 1000,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-15",
+   "order": 53,
+   "system": 3,
+   "column": 15,
+   "degrees": [
+    "3",
+    "1",
+    "13",
+    "5"
+   ],
+   "color": "yellow",
+   "xEst": 1070,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-16",
+   "order": 54,
+   "system": 3,
+   "column": 16,
+   "degrees": [
+    "3",
+    "1",
+    "7",
+    "9"
+   ],
+   "color": "orange",
+   "xEst": 1140,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s3-17",
+   "order": 55,
+   "system": 3,
+   "column": 17,
+   "degrees": [
+    "3",
+    "1",
+    "13",
+    "9"
+   ],
+   "color": "none",
+   "xEst": 1210,
+   "yBand": [
+    1218,
+    1408
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s3-18",
+   "order": 56,
+   "system": 3,
+   "column": 18,
+   "degrees": [
+    "3",
+    "7",
+    "5",
+    "9"
+   ],
+   "color": "none",
+   "xEst": 1280,
+   "yBand": [
+    1218,
+    1408
+   ]
+  },
+  {
+   "id": "ion-s4-01",
+   "order": 57,
+   "system": 4,
+   "column": 1,
+   "degrees": [
+    "3",
+    "13",
+    "5",
+    "9"
+   ],
+   "color": "yellow",
+   "xEst": 75,
+   "yBand": [
+    1400,
+    1595
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s4-02",
+   "order": 58,
+   "system": 4,
+   "column": 2,
+   "degrees": [
+    "3",
+    "7",
+    "13",
+    "1"
+   ],
+   "color": "orange",
+   "xEst": 135,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-03",
+   "order": 59,
+   "system": 4,
+   "column": 3,
+   "degrees": [
+    "3",
+    "7",
+    "5",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 195,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-04",
+   "order": 60,
+   "system": 4,
+   "column": 4,
+   "degrees": [
+    "3",
+    "13",
+    "5",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 255,
+   "yBand": [
+    1400,
+    1595
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s4-05",
+   "order": 61,
+   "system": 4,
+   "column": 5,
+   "degrees": [
+    "3",
+    "7",
+    "9",
+    "1"
+   ],
+   "color": "yellow",
+   "xEst": 315,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-06",
+   "order": 62,
+   "system": 4,
+   "column": 6,
+   "degrees": [
+    "3",
+    "13",
+    "9",
+    "1"
+   ],
+   "color": "yellow",
+   "xEst": 375,
+   "yBand": [
+    1400,
+    1595
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s4-07",
+   "order": 63,
+   "system": 4,
+   "column": 7,
+   "degrees": [
+    "3",
+    "1",
+    "13",
+    "7"
+   ],
+   "color": "yellow",
+   "xEst": 435,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-08",
+   "order": 64,
+   "system": 4,
+   "column": 8,
+   "degrees": [
+    "3",
+    "1",
+    "5",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 495,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-09",
+   "order": 65,
+   "system": 4,
+   "column": 9,
+   "degrees": [
+    "3",
+    "13",
+    "5",
+    "7"
+   ],
+   "color": "yellow",
+   "xEst": 555,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-10",
+   "order": 66,
+   "system": 4,
+   "column": 10,
+   "degrees": [
+    "3",
+    "13",
+    "9",
+    "7"
+   ],
+   "color": "yellow",
+   "xEst": 615,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-11",
+   "order": 67,
+   "system": 4,
+   "column": 11,
+   "degrees": [
+    "9",
+    "7",
+    "13",
+    "3"
+   ],
+   "color": "yellow",
+   "xEst": 675,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-12",
+   "order": 68,
+   "system": 4,
+   "column": 12,
+   "degrees": [
+    "9",
+    "7",
+    "5",
+    "3"
+   ],
+   "color": "none",
+   "xEst": 735,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-13",
+   "order": 69,
+   "system": 4,
+   "column": 13,
+   "degrees": [
+    "9",
+    "7",
+    "3",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 795,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-14",
+   "order": 70,
+   "system": 4,
+   "column": 14,
+   "degrees": [
+    "9",
+    "13",
+    "3",
+    "1"
+   ],
+   "color": "none",
+   "xEst": 855,
+   "yBand": [
+    1400,
+    1595
+   ],
+   "sixthForSeventh": true
+  },
+  {
+   "id": "ion-s4-15",
+   "order": 71,
+   "system": 4,
+   "column": 15,
+   "degrees": [
+    "9",
+    "13",
+    "3",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 915,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-16",
+   "order": 72,
+   "system": 4,
+   "column": 16,
+   "degrees": [
+    "9",
+    "13",
+    "1",
+    "7"
+   ],
+   "color": "redpink",
+   "xEst": 975,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-17",
+   "order": 73,
+   "system": 4,
+   "column": 17,
+   "degrees": [
+    "9",
+    "7",
+    "13",
+    "1"
+   ],
+   "color": "redpink",
+   "xEst": 1035,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-18",
+   "order": 74,
+   "system": 4,
+   "column": 18,
+   "degrees": [
+    "9",
+    "7",
+    "5",
+    "1"
+   ],
+   "color": "redpink",
+   "xEst": 1095,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-19",
+   "order": 75,
+   "system": 4,
+   "column": 19,
+   "degrees": [
+    "9",
+    "5",
+    "3",
+    "7"
+   ],
+   "color": "none",
+   "xEst": 1155,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-20",
+   "order": 76,
+   "system": 4,
+   "column": 20,
+   "degrees": [
+    "9",
+    "7",
+    "3",
+    "13"
+   ],
+   "color": "yellow",
+   "xEst": 1215,
+   "yBand": [
+    1400,
+    1595
+   ]
+  },
+  {
+   "id": "ion-s4-21",
+   "order": 77,
+   "system": 4,
+   "column": 21,
+   "degrees": [
+    "9",
+    "5",
+    "3",
+    "13"
+   ],
+   "color": "yellow",
+   "xEst": 1275,
+   "yBand": [
+    1400,
+    1595
+   ],
+   "sixthForSeventh": true
+  }
+ ]
+}
