@@ -46,7 +46,7 @@
     "13",
     "3"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 337,
    "yBand": [
     848,
@@ -64,7 +64,7 @@
     "5",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 391,
    "yBand": [
     848,
@@ -82,7 +82,7 @@
     "5",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 445,
    "yBand": [
     848,
@@ -101,7 +101,7 @@
     "3",
     "9"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 499,
    "yBand": [
     848,
@@ -119,7 +119,7 @@
     "3",
     "9"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 553,
    "yBand": [
     848,
@@ -138,7 +138,7 @@
     "3",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 607,
    "yBand": [
     848,
@@ -156,7 +156,7 @@
     "3",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 661,
    "yBand": [
     848,
@@ -175,7 +175,7 @@
     "3",
     "7"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 715,
    "yBand": [
     848,
@@ -193,7 +193,7 @@
     "3",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 769,
    "yBand": [
     848,
@@ -211,7 +211,7 @@
     "9",
     "7"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 823,
    "yBand": [
     848,
@@ -229,7 +229,7 @@
     "1",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 877,
    "yBand": [
     848,
@@ -247,7 +247,7 @@
     "3",
     "13"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 931,
    "yBand": [
     848,
@@ -265,7 +265,7 @@
     "3",
     "13"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 985,
    "yBand": [
     848,
@@ -284,7 +284,7 @@
     "3",
     "13"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1039,
    "yBand": [
     848,
@@ -303,7 +303,7 @@
     "9",
     "13"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 1093,
    "yBand": [
     848,
@@ -322,7 +322,7 @@
     "7",
     "13"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 1147,
    "yBand": [
     848,
@@ -340,7 +340,7 @@
     "3",
     "5"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1201,
    "yBand": [
     848,
@@ -359,7 +359,7 @@
     "7",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1255,
    "yBand": [
     848,
@@ -377,7 +377,7 @@
     "13",
     "5"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1309,
    "yBand": [
     848,
@@ -396,7 +396,7 @@
     "3",
     "9"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 105,
    "yBand": [
     1030,
@@ -414,7 +414,7 @@
     "3",
     "9"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 171,
    "yBand": [
     1030,
@@ -432,7 +432,7 @@
     "3",
     "1"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 237,
    "yBand": [
     1030,
@@ -450,7 +450,7 @@
     "3",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 303,
    "yBand": [
     1030,
@@ -468,7 +468,7 @@
     "9",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 369,
    "yBand": [
     1030,
@@ -486,7 +486,7 @@
     "3",
     "13"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 435,
    "yBand": [
     1030,
@@ -504,7 +504,7 @@
     "9",
     "13"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 501,
    "yBand": [
     1030,
@@ -522,7 +522,7 @@
     "1",
     "13"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 567,
    "yBand": [
     1030,
@@ -540,7 +540,7 @@
     "3",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 633,
    "yBand": [
     1030,
@@ -558,7 +558,7 @@
     "9",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 699,
    "yBand": [
     1030,
@@ -576,7 +576,7 @@
     "1",
     "5"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 765,
    "yBand": [
     1030,
@@ -594,7 +594,7 @@
     "13",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 831,
    "yBand": [
     1030,
@@ -612,7 +612,7 @@
     "1",
     "3"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 897,
    "yBand": [
     1030,
@@ -630,7 +630,7 @@
     "3",
     "7"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 963,
    "yBand": [
     1030,
@@ -648,7 +648,7 @@
     "9",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1029,
    "yBand": [
     1030,
@@ -666,7 +666,7 @@
     "1",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1095,
    "yBand": [
     1030,
@@ -684,7 +684,7 @@
     "9",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1161,
    "yBand": [
     1030,
@@ -703,7 +703,7 @@
     "1",
     "5"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1227,
    "yBand": [
     1030,
@@ -722,7 +722,7 @@
     "7",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1293,
    "yBand": [
     1030,
@@ -740,7 +740,7 @@
     "1",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 90,
    "yBand": [
     1218,
@@ -759,7 +759,7 @@
     "7",
     "3"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 160,
    "yBand": [
     1218,
@@ -777,7 +777,7 @@
     "9",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 230,
    "yBand": [
     1218,
@@ -795,7 +795,7 @@
     "1",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 300,
    "yBand": [
     1218,
@@ -813,7 +813,7 @@
     "9",
     "13"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 370,
    "yBand": [
     1218,
@@ -832,7 +832,7 @@
     "7",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 440,
    "yBand": [
     1218,
@@ -850,7 +850,7 @@
     "13",
     "3"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 510,
    "yBand": [
     1218,
@@ -869,7 +869,7 @@
     "13",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 580,
    "yBand": [
     1218,
@@ -888,7 +888,7 @@
     "7",
     "9"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 650,
    "yBand": [
     1218,
@@ -906,7 +906,7 @@
     "13",
     "9"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 720,
    "yBand": [
     1218,
@@ -925,7 +925,7 @@
     "3",
     "9"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 790,
    "yBand": [
     1218,
@@ -943,7 +943,7 @@
     "7",
     "5"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 860,
    "yBand": [
     1218,
@@ -961,7 +961,7 @@
     "13",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 930,
    "yBand": [
     1218,
@@ -980,7 +980,7 @@
     "7",
     "5"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1000,
    "yBand": [
     1218,
@@ -998,7 +998,7 @@
     "13",
     "5"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1070,
    "yBand": [
     1218,
@@ -1017,7 +1017,7 @@
     "7",
     "9"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 1140,
    "yBand": [
     1218,
@@ -1035,7 +1035,7 @@
     "13",
     "9"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1210,
    "yBand": [
     1218,
@@ -1054,7 +1054,7 @@
     "5",
     "9"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1280,
    "yBand": [
     1218,
@@ -1072,7 +1072,7 @@
     "5",
     "9"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 75,
    "yBand": [
     1400,
@@ -1091,7 +1091,7 @@
     "13",
     "1"
    ],
-   "color": "orange",
+   "highlight": "orange",
    "xEst": 135,
    "yBand": [
     1400,
@@ -1109,7 +1109,7 @@
     "5",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 195,
    "yBand": [
     1400,
@@ -1127,7 +1127,7 @@
     "5",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 255,
    "yBand": [
     1400,
@@ -1146,7 +1146,7 @@
     "9",
     "1"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 315,
    "yBand": [
     1400,
@@ -1164,7 +1164,7 @@
     "9",
     "1"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 375,
    "yBand": [
     1400,
@@ -1183,7 +1183,7 @@
     "13",
     "7"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 435,
    "yBand": [
     1400,
@@ -1201,7 +1201,7 @@
     "5",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 495,
    "yBand": [
     1400,
@@ -1219,7 +1219,7 @@
     "5",
     "7"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 555,
    "yBand": [
     1400,
@@ -1237,7 +1237,7 @@
     "9",
     "7"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 615,
    "yBand": [
     1400,
@@ -1255,7 +1255,7 @@
     "13",
     "3"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 675,
    "yBand": [
     1400,
@@ -1273,7 +1273,7 @@
     "5",
     "3"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 735,
    "yBand": [
     1400,
@@ -1291,7 +1291,7 @@
     "3",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 795,
    "yBand": [
     1400,
@@ -1309,7 +1309,7 @@
     "3",
     "1"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 855,
    "yBand": [
     1400,
@@ -1328,7 +1328,7 @@
     "3",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 915,
    "yBand": [
     1400,
@@ -1346,7 +1346,7 @@
     "1",
     "7"
    ],
-   "color": "redpink",
+   "highlight": "red",
    "xEst": 975,
    "yBand": [
     1400,
@@ -1364,7 +1364,7 @@
     "13",
     "1"
    ],
-   "color": "redpink",
+   "highlight": "red",
    "xEst": 1035,
    "yBand": [
     1400,
@@ -1382,7 +1382,7 @@
     "5",
     "1"
    ],
-   "color": "redpink",
+   "highlight": "red",
    "xEst": 1095,
    "yBand": [
     1400,
@@ -1400,7 +1400,7 @@
     "3",
     "7"
    ],
-   "color": "none",
+   "highlight": null,
    "xEst": 1155,
    "yBand": [
     1400,
@@ -1418,7 +1418,7 @@
     "3",
     "13"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1215,
    "yBand": [
     1400,
@@ -1436,7 +1436,7 @@
     "3",
     "13"
    ],
-   "color": "yellow",
+   "highlight": "yellow",
    "xEst": 1275,
    "yBand": [
     1400,

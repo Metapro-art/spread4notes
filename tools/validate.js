@@ -7,8 +7,8 @@
 // — el span clasifica, no excluye. Aquí se sustituye por "físicamente posible"
 // (span<8 en los tres juegos).
 
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+// Node-only builtins (node:fs, node:url) se cargan con import() dinámico dentro
+// del bloque CLI, para que este módulo también se pueda importar en el navegador.
 import { SEMITONE } from "../src/core/degrees.js";
 import { computePitches } from "../src/core/voicing.js";
 import { fretsForSet } from "../src/core/fretboard.js";
@@ -43,8 +43,9 @@ export function validateVoicing(d, mode) {
   return reasons;
 }
 
-// CLI
-if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+// CLI (solo en Node; en el navegador `process` no existe)
+if (typeof process !== "undefined" && process.argv[1] && process.argv[1] === (await import("node:url")).fileURLToPath(import.meta.url)) {
+  const { readFileSync } = await import("node:fs");
   const path = process.argv[2];
   if (!path) { console.error("uso: node tools/validate.js <transcription.json>"); process.exit(1); }
   const doc = JSON.parse(readFileSync(path, "utf8"));

@@ -120,21 +120,27 @@ Base: **3 + 7 + T + T** (bottom-up), donde T = tensión disponible o nota estruc
 
 ## Colores (resaltados del manuscrito)
 
-**Los colores NO son datos. Son llaves de decodificación.** Existen porque el manuscrito escribe dígitos crudos; una vez que la transcripción produce grados resueltos (`b9` vs `9`), la mayoría de los colores queda redundante y **desaparece del esquema**.
+### Regla permanente: `/data/` guarda lo que se ve, nunca lo que significa
 
-Pero durante la Fase 1 son **obligatorios**: sin ellos, ciertos dígitos son indescifrables. **No se pueden ignorar en la transcripción "porque ya no los necesitamos" — se necesitan para poder no necesitarlos.**
+Cada voicing lleva **un solo** campo de color: `highlight`, con el color **observado** en el escaneo, literal y sin interpretar:
 
-| color | rol | destino en `/data/` |
-|---|---|---|
-| **azul** (locrio) | **Llave.** Desambigua `9` = `♮9` frente al `b9` por defecto. **Único portador de ese bit.** | ninguno — se absorbe en `degrees` |
-| **verde** (lidio) | **Llave (probable).** Desambigua `5` = `♮5` frente a `#5`. Si resulta ser solo una observación de contenido, se descarta igual. | ninguno — se absorbe en `degrees` |
-| amarillo | Juicio del autor. Difícil (estiramiento). | `difficulty: "hard"` |
-| naranja | Juicio del autor. Muy difícil (estiramiento). | `difficulty: "veryHard"` |
-| rojo / rosa | Juicio del autor. Incómodo en cuerdas contiguas; se toca mejor saltando cuerda. **Eje independiente de `difficulty`** — pueden coexistir. | `betterWithStringSkip: true` |
+```
+"highlight": "yellow" | "orange" | "red" | "blue" | null
+```
 
-Regla mnemotécnica: **azul y verde se absorben; amarillo, naranja y rojo sobreviven.** Los que sobreviven son juicios humanos que ningún dígito contiene. Los que se absorben son información que sí cabe en `degrees`.
+`null` = sin resaltado. Nada de `difficulty`, `betterWithStringSkip`, ni ningún rótulo de significado en `/data/`. Si mañana el autor decide que el amarillo ya no quiere decir "difícil", cambia **una línea** de código, no 450 registros.
 
-`( )` alrededor de una columna ⇒ `optional: true` ("se puede omitir por su complejidad").
+El **significado** vive en `src/core/legend.js` (`LEGEND`), fuera de los datos:
+
+| highlight (observado) | LEGEND (significado) |
+|---|---|
+| `yellow` | Difícil |
+| `orange` | Muy difícil |
+| `red` | Muy muy difícil |
+| `blue` | Locrio ♮9 |
+| `null` | (sin resaltado) |
+
+Mismo principio para el bit de decodificación del locrio: el **azul** desambigua `9` = `♮9` frente al `b9` por defecto — pero eso ya no se guarda como color, **se absorbe en `degrees`** al transcribir (el grado resuelto lo lleva `degrees`, no un tag aparte). El `highlight: "blue"` que sí sobrevive es la observación literal, y `LEGEND` lo lee como "Locrio ♮9".
 
 ### Si se pierde una llave
 
@@ -144,7 +150,7 @@ Un azul mal leído produce un `b9` donde va un `♮9`. **El validador NO lo dete
 
 `no3rd`, `no7th`, `has5th`, `hasNatural9`, `has#11`, etc. Son propiedades derivadas. **No crear campos para ellas en `/data/`.** Si la leyenda de una página parece contradecir esto (p. ej. la página del jónico rotula un color como "sin 3ra"), ignórala: el dato ya está en los 4 grados.
 
-`difficulty` y `betterWithStringSkip` son juicios del autor y son **ground truth para calibrar** las heurísticas de `span` y de salto de cuerda, no al revés. Si la heurística contradice el resaltado, gana el resaltado y se ajusta la heurística.
+El `highlight` es **ground truth para calibrar** las heurísticas de `span` y de salto de cuerda, no al revés. Si la heurística contradice el resaltado, gana el resaltado y se ajusta la heurística.
 
 ### Locrio ♮9 no es una excepción: es un modo
 
@@ -192,9 +198,7 @@ Consecuencias operativas para la transcripción:
       "order": 1,
       "degrees": ["1", "11", "b7", "b5"],
       "intervals": [7, 7, 4],
-      "difficulty": "normal",
-      "betterWithStringSkip": true,
-      "optional": false,
+      "highlight": "red",
       "system": 1,
       "column": 1,
       "inManuscript": true
@@ -206,6 +210,7 @@ Consecuencias operativas para la transcripción:
 - `degrees` — top→bottom, **grados resueltos** (no dígitos crudos). **Campo canónico.** Todo lo demás es derivado o metadato.
 - `order` — la secuencia del manuscrito. **Es el valor pedagógico del estudio** (la conducción melódica de cada voz). Nunca reordenar por defecto; el orden alterno es opt-in del usuario.
 - `intervals` — derivado; se recalcula y valida en CI. Si no coincide con `degrees`, el build falla.
+- `highlight` — color **observado** en el escaneo (`yellow` | `orange` | `red` | `blue` | `null`), literal, sin interpretar. Su significado vive en `src/core/legend.js`, no aquí.
 - `system` / `column` — coordenada en el escaneo, para auditar contra la imagen.
 
 ---

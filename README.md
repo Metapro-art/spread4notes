@@ -2,9 +2,9 @@
 
 Un estudio de contrapunto y conducción melódica, desarrollado sobre voicings spread de 4 notas para guitarra (manuscrito de Juan D. Arango, `scans/`).
 
-## Levantar el visor local
+## Levantar la app local
 
-El visor (`index.html`) usa ES modules nativos y `fetch`, así que **debe servirse por HTTP** — abrirlo con `file://` no funciona (los módulos y el JSON no cargan).
+La app (`index.html`) usa ES modules nativos y `fetch`, así que **debe servirse por HTTP** — abrirla con `file://` no funciona (los módulos y el JSON no cargan).
 
 ```bash
 npx serve -l 3000 .
@@ -18,16 +18,17 @@ Alternativa sin npx:
 python -m http.server 3000
 ```
 
-### Qué hace el visor
+### Qué es
 
-- Selector de sistema (S1–S4) de la página `p02-jonico`.
-- Arriba: el recorte del escaneo del sistema (`scans/systems/`).
-- Abajo: las columnas transcritas de ese sistema, alineadas bajo su columna del escaneo.
-- Cada columna aceptada: mástil SVG (juego `6543`, raíz Do) + los 4 grados resueltos. Click = suena (Tone.js por CDN); botones **bloque** / **arpegiado**.
-- Cada columna: veredicto `ok` / `mal`, guardado en `localStorage`. Botón **descargar veredictos.json**.
-- Las columnas rechazadas por `tools/validate.js` salen en rojo, sin mástil, con su recorte a 6×.
+Una **app de estudio**, no un visor del manuscrito. Responde una sola pregunta: *¿por cuál voy?*
 
-Los datos son `data/draft/p02-jonico.json` (`verified: false` — transcripción sin verificar; el visor existe para juzgarla de oído).
+- **Capítulos = modos** (Jónico, Dórico, Eólico, Mixolidio, Lidio, Locrio). Hoy solo Jónico tiene datos (73 voicings estudiables); los demás van visibles y vacíos.
+- Dentro del capítulo, los voicings van en el orden exacto de `order` (la conducción melódica del estudio) — **nunca se reordenan**.
+- Cada voicing es un botón: los 4 grados apilados, la voz más aguda arriba. Su color = dificultad (`src/core/legend.js`). Los colores de dificultad son lo único saturado de la pantalla.
+- Click = **"ya me lo sé"**: el voicing se apaga y retrocede; el progreso persiste en `localStorage`.
+- La barra **Continuar** salta al primer voicing sin marcar — la respuesta literal a "¿por cuál voy?".
+
+El escaneo (`scans/`) es la fuente de la transcripción, **no se le muestra al usuario**. La app filtra a los voicings que pasan `tools/validate.js`; los que fallan quedan en `data/draft/` para corregir, no se estudian.
 
 ## Herramientas (`tools/`, Node, sin dependencias)
 
