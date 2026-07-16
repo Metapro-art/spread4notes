@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>spread4notes — visor p02 (jónico)</title>
+<style>
+  :root { --bg:#fafafa; --fg:#1a1a1a; --mut:#777; --line:#ddd; --card:#fff; --ok:#1a7f37; --bad:#c8102e; --accent:#0969da; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:14px/1.4 system-ui,sans-serif; }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:.6rem 1rem; z-index:5; }
+  header h1 { font-size:1rem; margin:0 0 .4rem; }
+  .row { display:flex; gap:.4rem; align-items:center; flex-wrap:wrap; }
+  button { font:inherit; padding:.3rem .6rem; border:1px solid var(--line); background:var(--card); color:var(--fg); border-radius:5px; cursor:pointer; }
+  button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .sys-btn.active { background:var(--fg); color:var(--bg); }
+  .mut { color:var(--mut); }
+  main { overflow-x:auto; padding:1rem; }
+  .stage { position:relative; width:1980px; }
+  .stage img.scan { width:1980px; display:block; border:1px solid var(--line); background:#fff; }
+  .cols { position:relative; height:340px; margin-top:6px; }
+  .col { position:absolute; top:0; width:78px; transform:translateX(-50%); text-align:center; }
+  .card { border:1px solid var(--line); border-radius:6px; background:var(--card); padding:4px 2px; cursor:pointer; }
+  .card:hover { border-color:var(--accent); }
+  .card.reject { border-color:var(--bad); background:#fff5f6; cursor:default; }
+  .deg { font-family:ui-monospace,monospace; font-weight:600; font-size:12px; margin:2px 0; }
+  .col.reject .deg { color:var(--bad); }
+  .col small { display:block; color:var(--mut); font-size:10px; }
+  .verdict { display:flex; gap:2px; margin-top:3px; justify-content:center; }
+  .verdict button { padding:2px 6px; font-size:11px; }
+  .verdict button.ok.sel { background:var(--ok); color:#fff; border-color:var(--ok); }
+  .verdict button.mal.sel { background:var(--bad); color:#fff; border-color:var(--bad); }
+  .reject img { width:64px; height:auto; border:1px solid var(--bad); border-radius:3px; }
+  svg { display:block; margin:0 auto; }
+  .chip { font-size:10px; padding:1px 4px; border-radius:3px; background:#eee; color:#555; }
+</style>
+</head>
+<body>
+<header>
+  <h1>spread4notes — visor p02 (jónico) · <span class="mut">draft, verified:false · juzga con el oído</span></h1>
+  <div class="row">
+    <span class="mut">sistema:</span>
+    <span id="sysbtns"></span>
+    <span style="width:1rem"></span>
+    <span class="mut">modo audio:</span>
+    <button id="mode-block" class="on">bloque</button>
+    <button id="mode-arp">arpegiado</button>
+    <span style="width:1rem"></span>
+    <button id="download">descargar veredictos.json</button>
+    <span id="status" class="mut"></span>
+  </div>
+</header>
+<main>
+  <div class="stage">
+    <img class="scan" id="scan" alt="sistema">
+    <div class="cols" id="cols"></div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<script type="module">
+import { SEMITONE } from "./src/core/degrees.js";
+import { computePitches, computeIntervals } from "./src/core/voicing.js";
+import { fretsForSet } from "./src/core/fretboard.js";
+
+const ROOT_PC = 0;          // Do
+const ROOT_MIDI_AUDIO = 48; // C3 para reproducir
+const SET = "6543";
+const STORE = "veredictos-p02";
+const ALLOWED = new Set(["1","9","3","5","13","7"]);
+const RAW = new Set(["2","4","6"]);
+
+// validación en navegador (misma regla que tools/validate.js)
+function rejectReasons(d) {
+  const r = [];
+  if (d.length !== 4) r.push("no 4 grados");
+  if (d.some(g => RAW.has(g))) r.push("dígito crudo (B)");
+  if (d.some(g => !ALLOWED.has(g) && !RAW.has(g))) r.push("fuera de modo");
+  if (r.length) return r;
+  const p = d.map(g => SEMITONE[g]);
+  if (new Set(p).size !== 4) r.push("pitch duplicado");
+  if (!(d.includes("7") || d.includes("13"))) r.push("sin 7 ni 6→13");
+  if (r.length) return r;
+  const span = Math.min(...["6543","5432","4321"].map(s => fretsForSet(computePitches(d), s, 0).span));
+  if (span >= 8) r.push("span>=8 imposible");
+  return r;
+}
+
+// mástil SVG vertical (juego 6543, raíz Do). pitches top→bottom.
+function fretboardSVG(degrees) {
+  const pitches = computePitches(degrees);
+  const { frets } = fretsForSet(pitches, SET, ROOT_PC); // grave→agudo
+  const lo = Math.min(...frets), hi = Math.max(...frets);
+  const rows = Math.max(hi - lo, 1) + 1;
+  const W = 74, xS = [12, 30, 48, 66], rowH = 26, top = 16, H = top + rows * rowH + 6;
+  let s = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+  // cuerdas
+  for (const x of xS) s += `<line x1="${x}" y1="${top}" x2="${x}" y2="${top + rows * rowH}" stroke="#bbb"/>`;
+  // trastes + números
+  for (let f = 0; f <= rows; f++) {
+    const y = top + f * rowH;
+    s += `<line x1="8" y1="${y}" x2="70" y2="${y}" stroke="#ddd"/>`;
+    if (f < rows) s += `<text x="2" y="${y + rowH / 2 + 3}" font-size="8" fill="#999">${lo + f}</text>`;
+  }
+  // puntos (grave→agudo → strings 6,5,4,3 izq→der)
+  const names = ["6","5","4","3"];
+  frets.forEach((fr, i) => {
+    const y = top + (fr - lo) * rowH + rowH / 2;
+    s += `<circle cx="${xS[i]}" cy="${y}" r="8" fill="#1a1a1a"/>`;
+    s += `<text x="${xS[i]}" y="${y + 3}" font-size="8" fill="#fff" text-anchor="middle">${degrees[3 - i]}</text>`;
+  });
+  s += `<g font-size="7" fill="#aaa" text-anchor="middle">` + xS.map((x, i) => `<text x="${x}" y="${top + rows * rowH + 5}">${names[i]}</text>`).join("") + `</g>`;
+  return s + `</svg>`;
+}
+
+let doc, mode = "block", synth;
+const verdicts = JSON.parse(localStorage.getItem(STORE) || "{}");
+
+function midiOf(pitch) { return ROOT_MIDI_AUDIO + pitch; }
+async function play(degrees) {
+  if (!synth) { await Tone.start(); synth = new Tone.PolySynth(Tone.Synth).toDestination(); }
+  const pitches = [...computePitches(degrees)].reverse(); // grave→agudo
+  const notes = pitches.map(p => Tone.Frequency(midiOf(p), "midi").toNote());
+  const now = Tone.now();
+  if (mode === "block") synth.triggerAttackRelease(notes, "2n", now);
+  else notes.forEach((n, i) => synth.triggerAttackRelease(n, "8n", now + i * 0.28));
+}
+
+function setVerdict(id, v) {
+  verdicts[id] = v;
+  localStorage.setItem(STORE, JSON.stringify(verdicts));
+  render();
+}
+
+function render() {
+  const sys = +document.querySelector(".sys-btn.active").dataset.s;
+  document.getElementById("scan").src = `scans/systems/p02-s${sys}.png`;
+  const crop = doc.systemCrop, span = crop.x1 - crop.x0, W = 1980;
+  const cols = document.getElementById("cols");
+  cols.innerHTML = "";
+  const vs = doc.voicings.filter(v => v.system === sys);
+  for (const v of vs) {
+    const left = ((v.xEst - crop.x0) / span) * W;
+    const rej = rejectReasons(v.degrees);
+    const d = document.createElement("div");
+    d.className = "col" + (rej.length ? " reject" : "");
+    d.style.left = left + "px";
+    const cur = verdicts[v.id] || "";
+    if (rej.length) {
+      d.innerHTML = `<div class="card reject">
+        <img src="scans/systems/reject-${v.id}.png" alt="${v.id}">
+        <div class="deg">${v.degrees.join(" ")}</div>
+        <small>${rej[0]}</small></div>`;
+    } else {
+      d.innerHTML = `<div class="card" data-play="1">${fretboardSVG(v.degrees)}
+        <div class="deg">${v.degrees.join("·")}${v.sixthForSeventh ? ' <span class="chip">6→7</span>' : ''}</div></div>`;
+      d.querySelector(".card").addEventListener("click", () => play(v.degrees));
+    }
+    d.innerHTML += `<small>#${v.column} ${v.color !== "none" ? v.color : ""}</small>
+      <div class="verdict">
+        <button class="ok ${cur === 'ok' ? 'sel' : ''}" data-v="ok">ok</button>
+        <button class="mal ${cur === 'mal' ? 'sel' : ''}" data-v="mal">mal</button>
+      </div>`;
+    d.querySelectorAll(".verdict button").forEach(b => b.addEventListener("click", () => setVerdict(v.id, b.dataset.v)));
+    cols.appendChild(d);
+  }
+  const done = vs.filter(v => verdicts[v.id]).length;
+  document.getElementById("status").textContent = `${done}/${vs.length} juzgadas · ${Object.keys(verdicts).length} en total`;
+}
+
+function initSys() {
+  const c = document.getElementById("sysbtns");
+  [1, 2, 3, 4].forEach((s, i) => {
+    const b = document.createElement("button");
+    b.className = "sys-btn" + (i === 0 ? " active" : "");
+    b.dataset.s = s; b.textContent = "S" + s;
+    b.addEventListener("click", () => { document.querySelectorAll(".sys-btn").forEach(x => x.classList.remove("active")); b.classList.add("active"); render(); });
+    c.appendChild(b);
+  });
+}
+
+document.getElementById("mode-block").addEventListener("click", () => { mode = "block"; document.getElementById("mode-block").classList.add("on"); document.getElementById("mode-arp").classList.remove("on"); });
+document.getElementById("mode-arp").addEventListener("click", () => { mode = "arp"; document.getElementById("mode-arp").classList.add("on"); document.getElementById("mode-block").classList.remove("on"); });
+document.getElementById("download").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify({ page: "p02-jonico", verdicts }, null, 2)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "veredictos.json"; a.click();
+});
+
+(async () => {
+  doc = await (await fetch("data/draft/p02-jonico.json")).json();
+  initSys();
+  render();
+})();
+</script>
+</body>
+</html>
