@@ -15,6 +15,7 @@
   --red: #eb5757;
   --blue: #56a3e8;
   --purple: #ac82e6;
+  --green: #86c440;
 
   --verify: #58c2a3;     /* estado "verificado": calmo, NO es un color de dato */
   --ink: #16181b;        /* texto sobre los colores de dato */
@@ -101,6 +102,13 @@ button.primary:focus-visible, button.ghost:focus-visible { outline: 2px solid va
 
 /* ---------- main / variantes / leyenda / intro ---------- */
 main { padding: 16px; }
+
+/* descripción del capítulo (transcrita del manuscrito) */
+.chapter-desc {
+  margin: 0 0 14px; color: var(--text); font-size: 13.5px; line-height: 1.5;
+  padding: 10px 12px; border: 1px solid var(--edge); border-radius: 10px;
+  background: var(--surface); max-width: 70ch;
+}
 
 /* toggle Dórico / Eólico / −Δ7 (relabela el grado escrito; mismos datos) */
 .variants { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; }

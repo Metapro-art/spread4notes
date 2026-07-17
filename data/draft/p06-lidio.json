@@ -1,0 +1,2310 @@
+{
+ "mode": "lydian",
+ "verified": false,
+ "source": "scans/p06-lidio.png",
+ "chordScale": [
+  "1",
+  "9",
+  "3",
+  "#11",
+  "5",
+  "13",
+  "7"
+ ],
+ "alternates": {
+  "5": "#5",
+  "7": "b7"
+ },
+ "declared": 141,
+ "note": "Lidio (p06-p07, PDF con verde). Lectura best-effort verified:false. 11->#11, 6->13, 7->7 natural. Regla: todo voicing lleva #11. verde=tiene 5ta (derivado). Sistemas 2 y 6 mas densos (verde encima) = menor confianza en voces medias. Sistema 7 viene de p07. Faltan ~6 para 141 (miscount en densos).",
+ "voicings": [
+  {
+   "id": "lyd-s1-01",
+   "order": 1,
+   "system": 1,
+   "column": 1,
+   "degrees": [
+    "1",
+    "7",
+    "#11",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-02",
+   "order": 2,
+   "system": 1,
+   "column": 2,
+   "degrees": [
+    "1",
+    "7",
+    "#11",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-03",
+   "order": 3,
+   "system": 1,
+   "column": 3,
+   "degrees": [
+    "1",
+    "13",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-04",
+   "order": 4,
+   "system": 1,
+   "column": 4,
+   "degrees": [
+    "1",
+    "5",
+    "#11",
+    "7"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-05",
+   "order": 5,
+   "system": 1,
+   "column": 5,
+   "degrees": [
+    "1",
+    "#11",
+    "3",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-06",
+   "order": 6,
+   "system": 1,
+   "column": 6,
+   "degrees": [
+    "1",
+    "#11",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-07",
+   "order": 7,
+   "system": 1,
+   "column": 7,
+   "degrees": [
+    "1",
+    "#11",
+    "7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-08",
+   "order": 8,
+   "system": 1,
+   "column": 8,
+   "degrees": [
+    "1",
+    "#11",
+    "3",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-09",
+   "order": 9,
+   "system": 1,
+   "column": 9,
+   "degrees": [
+    "1",
+    "#11",
+    "9",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-10",
+   "order": 10,
+   "system": 1,
+   "column": 10,
+   "degrees": [
+    "1",
+    "3",
+    "9",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-11",
+   "order": 11,
+   "system": 1,
+   "column": 11,
+   "degrees": [
+    "7",
+    "13",
+    "#11",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-12",
+   "order": 12,
+   "system": 1,
+   "column": 12,
+   "degrees": [
+    "7",
+    "13",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-13",
+   "order": 13,
+   "system": 1,
+   "column": 13,
+   "degrees": [
+    "7",
+    "5",
+    "#11",
+    "1"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-14",
+   "order": 14,
+   "system": 1,
+   "column": 14,
+   "degrees": [
+    "7",
+    "#11",
+    "3",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-15",
+   "order": 15,
+   "system": 1,
+   "column": 15,
+   "degrees": [
+    "7",
+    "#11",
+    "9",
+    "1"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-16",
+   "order": 16,
+   "system": 1,
+   "column": 16,
+   "degrees": [
+    "7",
+    "5",
+    "#11",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-17",
+   "order": 17,
+   "system": 1,
+   "column": 17,
+   "degrees": [
+    "7",
+    "#11",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-18",
+   "order": 18,
+   "system": 1,
+   "column": 18,
+   "degrees": [
+    "7",
+    "#11",
+    "9",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s1-19",
+   "order": 19,
+   "system": 1,
+   "column": 19,
+   "degrees": [
+    "7",
+    "#11",
+    "3",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-01",
+   "order": 20,
+   "system": 2,
+   "column": 1,
+   "degrees": [
+    "7",
+    "#11",
+    "9",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-02",
+   "order": 21,
+   "system": 2,
+   "column": 2,
+   "degrees": [
+    "7",
+    "#11",
+    "1",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-03",
+   "order": 22,
+   "system": 2,
+   "column": 3,
+   "degrees": [
+    "7",
+    "#11",
+    "13",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-04",
+   "order": 23,
+   "system": 2,
+   "column": 4,
+   "degrees": [
+    "7",
+    "5",
+    "9",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-05",
+   "order": 24,
+   "system": 2,
+   "column": 5,
+   "degrees": [
+    "7",
+    "3",
+    "9",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-06",
+   "order": 25,
+   "system": 2,
+   "column": 6,
+   "degrees": [
+    "7",
+    "9",
+    "1",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-07",
+   "order": 26,
+   "system": 2,
+   "column": 7,
+   "degrees": [
+    "13",
+    "#11",
+    "3",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-08",
+   "order": 27,
+   "system": 2,
+   "column": 8,
+   "degrees": [
+    "13",
+    "#11",
+    "9",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-09",
+   "order": 28,
+   "system": 2,
+   "column": 9,
+   "degrees": [
+    "13",
+    "#11",
+    "3",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-10",
+   "order": 29,
+   "system": 2,
+   "column": 10,
+   "degrees": [
+    "13",
+    "#11",
+    "9",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-11",
+   "order": 30,
+   "system": 2,
+   "column": 11,
+   "degrees": [
+    "13",
+    "#11",
+    "1",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-12",
+   "order": 31,
+   "system": 2,
+   "column": 12,
+   "degrees": [
+    "13",
+    "5",
+    "3",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-13",
+   "order": 32,
+   "system": 2,
+   "column": 13,
+   "degrees": [
+    "13",
+    "5",
+    "9",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-14",
+   "order": 33,
+   "system": 2,
+   "column": 14,
+   "degrees": [
+    "13",
+    "5",
+    "1",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-15",
+   "order": 34,
+   "system": 2,
+   "column": 15,
+   "degrees": [
+    "13",
+    "3",
+    "9",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-16",
+   "order": 35,
+   "system": 2,
+   "column": 16,
+   "degrees": [
+    "13",
+    "3",
+    "1",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-17",
+   "order": 36,
+   "system": 2,
+   "column": 17,
+   "degrees": [
+    "13",
+    "3",
+    "7",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-18",
+   "order": 37,
+   "system": 2,
+   "column": 18,
+   "degrees": [
+    "13",
+    "9",
+    "1",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-19",
+   "order": 38,
+   "system": 2,
+   "column": 19,
+   "degrees": [
+    "13",
+    "9",
+    "7",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-20",
+   "order": 39,
+   "system": 2,
+   "column": 20,
+   "degrees": [
+    "13",
+    "9",
+    "#11",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s2-21",
+   "order": 40,
+   "system": 2,
+   "column": 21,
+   "degrees": [
+    "5",
+    "#11",
+    "9",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-01",
+   "order": 41,
+   "system": 3,
+   "column": 1,
+   "degrees": [
+    "5",
+    "#11",
+    "1",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-02",
+   "order": 42,
+   "system": 3,
+   "column": 2,
+   "degrees": [
+    "5",
+    "#11",
+    "7",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-03",
+   "order": 43,
+   "system": 3,
+   "column": 3,
+   "degrees": [
+    "5",
+    "3",
+    "9",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-04",
+   "order": 44,
+   "system": 3,
+   "column": 4,
+   "degrees": [
+    "5",
+    "3",
+    "1",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-05",
+   "order": 45,
+   "system": 3,
+   "column": 5,
+   "degrees": [
+    "5",
+    "3",
+    "7",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-06",
+   "order": 46,
+   "system": 3,
+   "column": 6,
+   "degrees": [
+    "5",
+    "3",
+    "13",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-07",
+   "order": 47,
+   "system": 3,
+   "column": 7,
+   "degrees": [
+    "5",
+    "9",
+    "1",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-08",
+   "order": 48,
+   "system": 3,
+   "column": 8,
+   "degrees": [
+    "5",
+    "9",
+    "7",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-09",
+   "order": 49,
+   "system": 3,
+   "column": 9,
+   "degrees": [
+    "5",
+    "9",
+    "13",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-10",
+   "order": 50,
+   "system": 3,
+   "column": 10,
+   "degrees": [
+    "5",
+    "1",
+    "7",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-11",
+   "order": 51,
+   "system": 3,
+   "column": 11,
+   "degrees": [
+    "5",
+    "1",
+    "13",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-12",
+   "order": 52,
+   "system": 3,
+   "column": 12,
+   "degrees": [
+    "5",
+    "#11",
+    "9",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-13",
+   "order": 53,
+   "system": 3,
+   "column": 13,
+   "degrees": [
+    "5",
+    "#11",
+    "1",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-14",
+   "order": 54,
+   "system": 3,
+   "column": 14,
+   "degrees": [
+    "5",
+    "#11",
+    "7",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-15",
+   "order": 55,
+   "system": 3,
+   "column": 15,
+   "degrees": [
+    "5",
+    "#11",
+    "13",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-16",
+   "order": 56,
+   "system": 3,
+   "column": 16,
+   "degrees": [
+    "5",
+    "#11",
+    "1",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-17",
+   "order": 57,
+   "system": 3,
+   "column": 17,
+   "degrees": [
+    "5",
+    "#11",
+    "7",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-18",
+   "order": 58,
+   "system": 3,
+   "column": 18,
+   "degrees": [
+    "5",
+    "#11",
+    "13",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-19",
+   "order": 59,
+   "system": 3,
+   "column": 19,
+   "degrees": [
+    "5",
+    "3",
+    "#11",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-20",
+   "order": 60,
+   "system": 3,
+   "column": 20,
+   "degrees": [
+    "5",
+    "1",
+    "#11",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-21",
+   "order": 61,
+   "system": 3,
+   "column": 21,
+   "degrees": [
+    "5",
+    "7",
+    "#11",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-22",
+   "order": 62,
+   "system": 3,
+   "column": 22,
+   "degrees": [
+    "5",
+    "13",
+    "#11",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-23",
+   "order": 63,
+   "system": 3,
+   "column": 23,
+   "degrees": [
+    "#11",
+    "3",
+    "9",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s3-24",
+   "order": 64,
+   "system": 3,
+   "column": 24,
+   "degrees": [
+    "#11",
+    "3",
+    "1",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-01",
+   "order": 65,
+   "system": 4,
+   "column": 1,
+   "degrees": [
+    "#11",
+    "3",
+    "7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-02",
+   "order": 66,
+   "system": 4,
+   "column": 2,
+   "degrees": [
+    "#11",
+    "9",
+    "1",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-03",
+   "order": 67,
+   "system": 4,
+   "column": 3,
+   "degrees": [
+    "#11",
+    "9",
+    "7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-04",
+   "order": 68,
+   "system": 4,
+   "column": 4,
+   "degrees": [
+    "#11",
+    "3",
+    "9",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-05",
+   "order": 69,
+   "system": 4,
+   "column": 5,
+   "degrees": [
+    "#11",
+    "3",
+    "1",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-06",
+   "order": 70,
+   "system": 4,
+   "column": 6,
+   "degrees": [
+    "#11",
+    "3",
+    "7",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-07",
+   "order": 71,
+   "system": 4,
+   "column": 7,
+   "degrees": [
+    "#11",
+    "9",
+    "1",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-08",
+   "order": 72,
+   "system": 4,
+   "column": 8,
+   "degrees": [
+    "#11",
+    "9",
+    "7",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-09",
+   "order": 73,
+   "system": 4,
+   "column": 9,
+   "degrees": [
+    "#11",
+    "9",
+    "13",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-10",
+   "order": 74,
+   "system": 4,
+   "column": 10,
+   "degrees": [
+    "#11",
+    "1",
+    "7",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-11",
+   "order": 75,
+   "system": 4,
+   "column": 11,
+   "degrees": [
+    "#11",
+    "1",
+    "13",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-12",
+   "order": 76,
+   "system": 4,
+   "column": 12,
+   "degrees": [
+    "#11",
+    "9",
+    "1",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-13",
+   "order": 77,
+   "system": 4,
+   "column": 13,
+   "degrees": [
+    "#11",
+    "9",
+    "7",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-14",
+   "order": 78,
+   "system": 4,
+   "column": 14,
+   "degrees": [
+    "#11",
+    "1",
+    "7",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-15",
+   "order": 79,
+   "system": 4,
+   "column": 15,
+   "degrees": [
+    "#11",
+    "1",
+    "13",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-16",
+   "order": 80,
+   "system": 4,
+   "column": 16,
+   "degrees": [
+    "#11",
+    "7",
+    "13",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-17",
+   "order": 81,
+   "system": 4,
+   "column": 17,
+   "degrees": [
+    "#11",
+    "9",
+    "5",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-18",
+   "order": 82,
+   "system": 4,
+   "column": 18,
+   "degrees": [
+    "#11",
+    "1",
+    "5",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-19",
+   "order": 83,
+   "system": 4,
+   "column": 19,
+   "degrees": [
+    "#11",
+    "7",
+    "5",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-20",
+   "order": 84,
+   "system": 4,
+   "column": 20,
+   "degrees": [
+    "#11",
+    "13",
+    "5",
+    "3"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s4-21",
+   "order": 85,
+   "system": 4,
+   "column": 21,
+   "degrees": [
+    "#11",
+    "3",
+    "1",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-01",
+   "order": 86,
+   "system": 5,
+   "column": 1,
+   "degrees": [
+    "#11",
+    "3",
+    "7",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-02",
+   "order": 87,
+   "system": 5,
+   "column": 2,
+   "degrees": [
+    "#11",
+    "3",
+    "13",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-03",
+   "order": 88,
+   "system": 5,
+   "column": 3,
+   "degrees": [
+    "#11",
+    "3",
+    "5",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-04",
+   "order": 89,
+   "system": 5,
+   "column": 4,
+   "degrees": [
+    "#11",
+    "1",
+    "7",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-05",
+   "order": 90,
+   "system": 5,
+   "column": 5,
+   "degrees": [
+    "#11",
+    "1",
+    "13",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-06",
+   "order": 91,
+   "system": 5,
+   "column": 6,
+   "degrees": [
+    "#11",
+    "7",
+    "13",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-07",
+   "order": 92,
+   "system": 5,
+   "column": 7,
+   "degrees": [
+    "#11",
+    "7",
+    "5",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-08",
+   "order": 93,
+   "system": 5,
+   "column": 8,
+   "degrees": [
+    "#11",
+    "1",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-09",
+   "order": 94,
+   "system": 5,
+   "column": 9,
+   "degrees": [
+    "#11",
+    "7",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-10",
+   "order": 95,
+   "system": 5,
+   "column": 10,
+   "degrees": [
+    "#11",
+    "13",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-11",
+   "order": 96,
+   "system": 5,
+   "column": 11,
+   "degrees": [
+    "#11",
+    "7",
+    "9",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-12",
+   "order": 97,
+   "system": 5,
+   "column": 12,
+   "degrees": [
+    "#11",
+    "13",
+    "9",
+    "1"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-13",
+   "order": 98,
+   "system": 5,
+   "column": 13,
+   "degrees": [
+    "3",
+    "9",
+    "1",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-14",
+   "order": 99,
+   "system": 5,
+   "column": 14,
+   "degrees": [
+    "3",
+    "9",
+    "7",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-15",
+   "order": 100,
+   "system": 5,
+   "column": 15,
+   "degrees": [
+    "3",
+    "9",
+    "13",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-16",
+   "order": 101,
+   "system": 5,
+   "column": 16,
+   "degrees": [
+    "3",
+    "1",
+    "7",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-17",
+   "order": 102,
+   "system": 5,
+   "column": 17,
+   "degrees": [
+    "3",
+    "1",
+    "13",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-18",
+   "order": 103,
+   "system": 5,
+   "column": 18,
+   "degrees": [
+    "3",
+    "9",
+    "5",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-19",
+   "order": 104,
+   "system": 5,
+   "column": 19,
+   "degrees": [
+    "3",
+    "1",
+    "5",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s5-20",
+   "order": 105,
+   "system": 5,
+   "column": 20,
+   "degrees": [
+    "3",
+    "7",
+    "5",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-01",
+   "order": 106,
+   "system": 6,
+   "column": 1,
+   "degrees": [
+    "3",
+    "7",
+    "#11",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-02",
+   "order": 107,
+   "system": 6,
+   "column": 2,
+   "degrees": [
+    "3",
+    "13",
+    "#11",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-03",
+   "order": 108,
+   "system": 6,
+   "column": 3,
+   "degrees": [
+    "3",
+    "5",
+    "#11",
+    "9"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-04",
+   "order": 109,
+   "system": 6,
+   "column": 4,
+   "degrees": [
+    "3",
+    "9",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-05",
+   "order": 110,
+   "system": 6,
+   "column": 5,
+   "degrees": [
+    "3",
+    "7",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-06",
+   "order": 111,
+   "system": 6,
+   "column": 6,
+   "degrees": [
+    "3",
+    "13",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-07",
+   "order": 112,
+   "system": 6,
+   "column": 7,
+   "degrees": [
+    "3",
+    "5",
+    "#11",
+    "1"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-08",
+   "order": 113,
+   "system": 6,
+   "column": 8,
+   "degrees": [
+    "3",
+    "9",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-09",
+   "order": 114,
+   "system": 6,
+   "column": 9,
+   "degrees": [
+    "3",
+    "1",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-10",
+   "order": 115,
+   "system": 6,
+   "column": 10,
+   "degrees": [
+    "3",
+    "13",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-11",
+   "order": 116,
+   "system": 6,
+   "column": 11,
+   "degrees": [
+    "3",
+    "5",
+    "#11",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-12",
+   "order": 117,
+   "system": 6,
+   "column": 12,
+   "degrees": [
+    "9",
+    "1",
+    "7",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-13",
+   "order": 118,
+   "system": 6,
+   "column": 13,
+   "degrees": [
+    "9",
+    "1",
+    "13",
+    "#11"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-14",
+   "order": 119,
+   "system": 6,
+   "column": 14,
+   "degrees": [
+    "9",
+    "1",
+    "5",
+    "#11"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-15",
+   "order": 120,
+   "system": 6,
+   "column": 15,
+   "degrees": [
+    "9",
+    "1",
+    "#11",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-16",
+   "order": 121,
+   "system": 6,
+   "column": 16,
+   "degrees": [
+    "9",
+    "7",
+    "#11",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-17",
+   "order": 122,
+   "system": 6,
+   "column": 17,
+   "degrees": [
+    "9",
+    "13",
+    "#11",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-18",
+   "order": 123,
+   "system": 6,
+   "column": 18,
+   "degrees": [
+    "9",
+    "7",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-19",
+   "order": 124,
+   "system": 6,
+   "column": 19,
+   "degrees": [
+    "9",
+    "13",
+    "#11",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s6-20",
+   "order": 125,
+   "system": 6,
+   "column": 20,
+   "degrees": [
+    "9",
+    "5",
+    "#11",
+    "1"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-01",
+   "order": 126,
+   "system": 7,
+   "column": 1,
+   "degrees": [
+    "9",
+    "1",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-02",
+   "order": 127,
+   "system": 7,
+   "column": 2,
+   "degrees": [
+    "9",
+    "13",
+    "#11",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-03",
+   "order": 128,
+   "system": 7,
+   "column": 3,
+   "degrees": [
+    "9",
+    "5",
+    "#11",
+    "7"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-04",
+   "order": 129,
+   "system": 7,
+   "column": 4,
+   "degrees": [
+    "9",
+    "#11",
+    "3",
+    "7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-05",
+   "order": 130,
+   "system": 7,
+   "column": 5,
+   "degrees": [
+    "9",
+    "#11",
+    "1",
+    "7"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-06",
+   "order": 131,
+   "system": 7,
+   "column": 6,
+   "degrees": [
+    "9",
+    "7",
+    "#11",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-07",
+   "order": 132,
+   "system": 7,
+   "column": 7,
+   "degrees": [
+    "9",
+    "5",
+    "#11",
+    "13"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-08",
+   "order": 133,
+   "system": 7,
+   "column": 8,
+   "degrees": [
+    "9",
+    "#11",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-09",
+   "order": 134,
+   "system": 7,
+   "column": 9,
+   "degrees": [
+    "9",
+    "#11",
+    "1",
+    "13"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "lyd-s7-10",
+   "order": 135,
+   "system": 7,
+   "column": 10,
+   "degrees": [
+    "9",
+    "#11",
+    "1",
+    "5"
+   ],
+   "highlights": [
+    "green"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  }
+ ]
+}

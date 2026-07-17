@@ -11,9 +11,13 @@ import { LEGEND } from "./core/legend.js";
 import { computeIntervals } from "./core/voicing.js";
 
 const CHAPTERS = [
-  { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
+  {
+    slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85,
+    desc: "Acordes en ( ) se pueden omitir por su complejidad. En este modo también se puede reemplazar 7 por 6.",
+  },
   {
     slug: "dorian", name: "Dórico / Eólico", file: "data/voicings/p03-dorico-eolico.json", declared: 104,
+    desc: "Se puede reemplazar la 7ma por T disponible (3 + T + T + T). Estos voicings también funcionan para un −Δ7 (menor mayor).",
     // Mismo set de voicings; el toggle solo cambia cómo se LEE el grado escrito.
     variants: [
       { key: "dorico", label: "Dórico", scale: ["1", "9", "b3", "11", "5", "13", "b7"], map: {} },
@@ -21,15 +25,21 @@ const CHAPTERS = [
       { key: "menormayor", label: "−Δ7", scale: ["1", "9", "b3", "11", "5", "13", "7"], map: { "b7": "7" } },
     ],
   },
-  { slug: "mixolydian", name: "Mixolidio", file: "data/draft/p04-mixolidio.json", declared: 51 },
-  { slug: "lydian", name: "Lidio", file: null },
+  {
+    slug: "mixolydian", name: "Mixolidio", file: "data/draft/p04-mixolidio.json", declared: 51,
+    desc: "Voicings sin omitir 3ra ni 7ma. (b9) y (b13) disponibles pero no usadas. Se omiten voicings con notas duplicadas.",
+  },
+  {
+    slug: "lydian", name: "Lidio", file: "data/draft/p06-lidio.json", declared: 141,
+    desc: "Funcionan los voicings jónicos. Aquí se ponen únicamente voicings con #11, a veces omitiendo 3ra o 7ma. Sin duplicaciones de notas. El verde marca los voicings que tienen la 5ta.",
+  },
   { slug: "locrian", name: "Locrio", file: null },
 ];
 
 // Colores de resaltador, en ORDEN FIJO para las franjas.
-const STRIPE_ORDER = ["yellow", "orange", "purple", "red", "blue"];
+const STRIPE_ORDER = ["yellow", "orange", "purple", "green", "red", "blue"];
 // Toggles del editor (juicios por columna; azul es decodificador de modo, aparte).
-const TOGGLE_COLORS = ["yellow", "orange", "purple", "red"];
+const TOGGLE_COLORS = ["yellow", "orange", "purple", "green", "red"];
 
 // ---------- persistencia ----------
 const LEARN_KEY = "s4n-learned";
@@ -114,6 +124,7 @@ function applyHighlights(card, hls) {
 const el = {
   chapters: document.getElementById("chapters"),
   intro: document.getElementById("intro"),
+  chapterDesc: document.getElementById("chapter-desc"),
   variants: document.getElementById("variants"),
   legend: document.getElementById("legend"),
   grid: document.getElementById("grid"),
@@ -163,7 +174,7 @@ function renderIntro() {
 }
 
 function renderLegend() {
-  el.legend.innerHTML = ["yellow", "orange", "purple", "red", "blue"].map((c) =>
+  el.legend.innerHTML = ["yellow", "orange", "purple", "green", "red", "blue"].map((c) =>
     `<span class="lg"><span class="sw" style="background:var(--${c})"></span>${LEGEND[c]}</span>`
   ).join("");
 }
@@ -182,6 +193,13 @@ function renderChapters() {
     b.addEventListener("click", () => { state.active = ch.slug; location.hash = ch.slug; closePopover(); render(); });
     el.chapters.appendChild(b);
   }
+}
+
+function renderChapterDesc() {
+  const ch = CHAPTERS.find((c) => c.slug === state.active);
+  if (!ch || !ch.desc) { el.chapterDesc.hidden = true; el.chapterDesc.textContent = ""; return; }
+  el.chapterDesc.hidden = false;
+  el.chapterDesc.textContent = ch.desc;
 }
 
 function renderVariants() {
@@ -378,6 +396,7 @@ function renderContinuar() {
 function render() {
   renderChapters();
   renderIntro();
+  renderChapterDesc();
   renderVariants();
   renderGrid();
   renderHonesty();

@@ -13,6 +13,7 @@ export const LEGEND = {
   yellow: "Chévere",
   orange: "Buenísimo",
   purple: "Muy bien saltando cuerda",
+  green: "Voicing con 5ta (lidio)",
   red: "Voicing sin tercera",
   blue: "Locrio ♮9",
 };
@@ -23,6 +24,7 @@ export const LEGEND_KIND = {
   yellow: "recommend",
   orange: "recommend",
   purple: "recommend",
+  green: "structural",
   red: "structural",
   blue: "mode",
 };
