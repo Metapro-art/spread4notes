@@ -15,7 +15,7 @@ import { computeIntervals } from "./core/voicing.js";
 const CHAPTERS = [
   { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
   { slug: "dorian", name: "Dórico", file: "data/draft/p03-dorico-eolico.json", declared: 104 },
-  { slug: "aeolian", name: "Eólico", file: "data/draft/p03-dorico-eolico.json", declared: 104, asMode: "aeolian", mapDegree: { "13": "b13" } },
+  { slug: "aeolian", name: "Eólico", derivesFrom: "dorian", asMode: "aeolian", mapDegree: { "13": "b13" }, declared: 104 },
   { slug: "mixolydian", name: "Mixolidio", file: null },
   { slug: "lydian", name: "Lidio", file: null },
   { slug: "locrian", name: "Locrio", file: null },
@@ -24,6 +24,7 @@ const CHAPTERS = [
 // ---------- persistencia ----------
 const LEARN_KEY = "s4n-learned";                 // personal, NO se exporta
 const docKey = (slug) => `s4n-doc-${slug}`;      // estado de trabajo, se exporta
+const baseKey = (slug) => `s4n-base-${slug}`;    // firma del archivo commiteado sobre el que se editó
 const learned = JSON.parse(localStorage.getItem(LEARN_KEY) || "{}");
 const saveLearned = () => localStorage.setItem(LEARN_KEY, JSON.stringify(learned));
 
@@ -32,29 +33,54 @@ const state = { active: "ionian", chapters: {}, intro: null };
 let uid = 0;
 const newId = () => `ins-${Date.now().toString(36)}-${(uid++).toString(36)}`;
 
+// Firma del archivo commiteado: cambia cuando se pushean datos nuevos. Si la copia
+// de trabajo local se hizo sobre otra firma, se recarga del archivo (así los datos
+// nuevos llegan sin "reimportar" a mano; las ediciones ya se habrán exportado).
+const sigOf = (base) => base.voicings.length + ":" + base.voicings.map((v) => v.degrees.join("")).join("|");
+
+function fromBase(base, mp) {
+  return base.voicings.map((v) => ({
+    id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
+    degrees: v.degrees.map(mp), highlight: v.highlight ?? null,
+    optional: !!v.optional, verified: !!v.verified, inManuscript: v.inManuscript !== false,
+  }));
+}
+
 async function loadChapter(ch) {
+  if (ch.derivesFrom) return { ...ch, voicings: [], meta: null, derived: true }; // se construye tras cargar la fuente
   if (!ch.file) return { ...ch, voicings: [], meta: null };
   const base = await (await fetch(ch.file)).json();
-  // Un capítulo puede reusar el archivo de otro modo con un mapeo de grados
-  // (Eólico = Dórico con 13 -> b13): mismos voicings, escala/mode distintos.
-  const map = ch.mapDegree || {};
-  const mp = (g) => (map[g] ?? g);
-  const mode = ch.asMode || base.mode;
-  const chordScale = (base.chordScale || []).map(mp);
-  const meta = { mode, chordScale, source: base.source };
+  const mp = (g) => g;
+  const meta = { mode: base.mode, chordScale: base.chordScale || [], source: base.source };
+  const sig = sigOf(base);
   const saved = localStorage.getItem(docKey(ch.slug));
+  const savedSig = localStorage.getItem(baseKey(ch.slug));
   let voicings;
-  if (saved) {
-    voicings = JSON.parse(saved);
+  if (saved && savedSig === sig) {
+    voicings = JSON.parse(saved);            // edición local sobre la versión actual del archivo
   } else {
-    voicings = base.voicings.map((v) => ({
-      id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
-      degrees: v.degrees.map(mp), highlight: v.highlight ?? null,
-      optional: !!v.optional, verified: false, inManuscript: v.inManuscript !== false,
-    }));
+    voicings = fromBase(base, mp);           // sin copia o el archivo cambió -> recarga del archivo
     localStorage.setItem(docKey(ch.slug), JSON.stringify(voicings));
+    localStorage.setItem(baseKey(ch.slug), sig);
   }
   return { ...ch, meta, voicings };
+}
+
+// Eólico y afines: vista DERIVADA en vivo de su fuente (Dórico) con mapeo de
+// grados (13->b13). Una sola casilla: mismos voicings, se editan en la fuente.
+function refreshDerived() {
+  for (const ch of CHAPTERS) {
+    if (!ch.derivesFrom) continue;
+    const src = state.chapters[ch.derivesFrom];
+    const map = ch.mapDegree || {};
+    const mp = (g) => (map[g] ?? g);
+    if (!src || !src.meta) { state.chapters[ch.slug] = { ...ch, derived: true, voicings: [], meta: null }; continue; }
+    state.chapters[ch.slug] = {
+      ...ch, derived: true,
+      meta: { mode: ch.asMode || src.meta.mode, chordScale: src.meta.chordScale.map(mp), source: src.meta.source },
+      voicings: src.voicings.map((v) => ({ ...v, degrees: v.degrees.map(mp) })),
+    };
+  }
 }
 
 function saveDoc(slug) {
@@ -205,6 +231,21 @@ function deleteVoicing(data, v) {
 function makeCard(data, v) {
   const mode = data.meta.mode;
   const review = isReview(v, mode);
+
+  // Vista derivada (Eólico): tarjeta SOLO-LECTURA, sin controles de edición.
+  if (data.derived) {
+    const card = document.createElement("div");
+    card.className = "voicing derived" +
+      (v.highlight ? ` hl-${v.highlight}` : "") + (v.optional ? " optional" : "") + (review ? " review" : "");
+    card.id = `v-${v.id}`;
+    card.innerHTML =
+      `<div class="v-top"><span class="ord">${v.order}</span></div>` +
+      `<div class="deg-stack${v.optional ? " paren" : ""}">` +
+      v.degrees.map((g) => `<span class="deg ro">${g}</span>`).join("") + `</div>`;
+    if (review) { const t = document.createElement("span"); t.className = "review-tag"; t.textContent = "!"; card.appendChild(t); }
+    return card;
+  }
+
   const reason = review ? reasonsOf(v, mode)[0] : null;
   const isLearned = !!learned[v.id];
   const card = document.createElement("div");
@@ -273,25 +314,34 @@ function moreMenu(data, v, anchor) {
 function renderGrid() {
   const data = state.chapters[state.active];
   el.grid.innerHTML = "";
-  const transcribable = data && data.file;
-  if (!transcribable && (!data || data.voicings.length === 0)) {
+  const transcribable = data && data.file && !data.derived;
+  if (!data || (data.voicings.length === 0 && !transcribable)) {
     el.grid.innerHTML = `<p class="empty">Este capítulo aún no está transcrito.<br>Próximamente.</p>`;
     return;
   }
-  // insertar al inicio (siempre disponible en capítulos transcribibles)
-  const head = document.createElement("button");
-  head.className = "insert-head";
-  head.title = "Insertar columna al inicio";
-  head.textContent = "+";
-  head.addEventListener("click", () => insertAfter(data, 0));
-  el.grid.appendChild(head);
 
-  if (data.voicings.length === 0) {
-    const hint = document.createElement("p");
-    hint.className = "empty";
-    hint.innerHTML = `Capítulo vacío. Toca <b>+</b> para empezar a transcribir desde el manuscrito.`;
-    el.grid.appendChild(hint);
-    return;
+  if (data.derived) {
+    const src = CHAPTERS.find((c) => c.slug === data.derivesFrom);
+    const note = document.createElement("p");
+    note.className = "derived-note";
+    note.innerHTML = `Vista de <b>${src ? src.name : "Dórico"}</b> con 13→b13 — mismos voicings. Edítalos en ${src ? src.name : "Dórico"}.`;
+    el.grid.appendChild(note);
+  }
+
+  if (transcribable) {
+    const head = document.createElement("button");
+    head.className = "insert-head";
+    head.title = "Insertar columna al inicio";
+    head.textContent = "+";
+    head.addEventListener("click", () => insertAfter(data, 0));
+    el.grid.appendChild(head);
+    if (data.voicings.length === 0) {
+      const hint = document.createElement("p");
+      hint.className = "empty";
+      hint.innerHTML = `Capítulo vacío. Toca <b>+</b> para empezar a transcribir desde el manuscrito.`;
+      el.grid.appendChild(hint);
+      return;
+    }
   }
 
   data.voicings.sort((a, b) => a.order - b.order);
@@ -336,6 +386,7 @@ function renderContinuar() {
 }
 
 function render() {
+  refreshDerived();
   renderChapters();
   renderIntro();
   renderGrid();
@@ -373,9 +424,11 @@ function exportJSON() {
 }
 
 function reimport() {
-  const ch = CHAPTERS.find((c) => c.slug === state.active);
+  let ch = CHAPTERS.find((c) => c.slug === state.active);
+  if (ch && ch.derivesFrom) ch = CHAPTERS.find((c) => c.slug === ch.derivesFrom); // Eólico -> reimporta Dórico
   if (!ch || !ch.file) return;
   localStorage.removeItem(docKey(ch.slug));
+  localStorage.removeItem(baseKey(ch.slug));
   loadChapter(ch).then((d) => { state.chapters[ch.slug] = d; render(); });
 }
 

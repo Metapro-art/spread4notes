@@ -202,6 +202,12 @@ main { padding: 16px; }
   display: grid; place-items: center;
 }
 
+/* vista derivada (Eólico): solo-lectura, sin controles */
+.derived-note { grid-column: 1 / -1; color: var(--dim); font-size: 13px; margin: 0 0 4px; }
+.derived-note b { color: var(--text); }
+.voicing.derived .deg.ro { cursor: default; padding: 1px 6px; }
+.voicing.derived .v-top { min-height: 18px; }
+
 /* aprendido (estudio): retrocede. Distinto de verificado. */
 .voicing.learned { opacity: .45; }
 
