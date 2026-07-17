@@ -14,7 +14,7 @@ import { computeIntervals } from "./core/voicing.js";
 
 const CHAPTERS = [
   { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
-  { slug: "dorian", name: "Dórico", file: null },
+  { slug: "dorian", name: "Dórico", file: "data/draft/p03-dorico-eolico.json", declared: 104 },
   { slug: "aeolian", name: "Eólico", file: null },
   { slug: "mixolydian", name: "Mixolidio", file: null },
   { slug: "lydian", name: "Lidio", file: null },
@@ -140,7 +140,7 @@ function renderChapters() {
     b.setAttribute("aria-selected", String(ch.slug === state.active));
     const count = empty ? "0" : `${countVerified(data)}/${data.voicings.length} ✓`;
     b.innerHTML = `<span class="cname">${ch.name}</span><span class="ccount">${count}</span>`;
-    b.addEventListener("click", () => { state.active = ch.slug; closePopover(); render(); });
+    b.addEventListener("click", () => { state.active = ch.slug; location.hash = ch.slug; closePopover(); render(); });
     el.chapters.appendChild(b);
   }
 }
@@ -172,9 +172,10 @@ function editColor(data, v, anchor) {
 }
 
 function insertAfter(data, order) {
+  const scale = data.meta?.chordScale || ["1", "7", "3", "5"];
   const nv = {
     id: newId(), order: order + 0.5, system: null, column: null,
-    degrees: ["1", "7", "3", "5"], highlight: null, optional: false,
+    degrees: scale.slice(0, 4), highlight: null, optional: false,
     verified: false, inManuscript: true,
   };
   data.voicings.push(nv);
@@ -280,17 +281,26 @@ function makeCard(data, v) {
 function renderGrid() {
   const data = state.chapters[state.active];
   el.grid.innerHTML = "";
-  if (!data || data.voicings.length === 0) {
+  const transcribable = data && data.file;
+  if (!transcribable && (!data || data.voicings.length === 0)) {
     el.grid.innerHTML = `<p class="empty">Este capítulo aún no está transcrito.<br>Próximamente.</p>`;
     return;
   }
-  // insertar al inicio
+  // insertar al inicio (siempre disponible en capítulos transcribibles)
   const head = document.createElement("button");
   head.className = "insert-head";
   head.title = "Insertar columna al inicio";
   head.textContent = "+";
   head.addEventListener("click", () => insertAfter(data, 0));
   el.grid.appendChild(head);
+
+  if (data.voicings.length === 0) {
+    const hint = document.createElement("p");
+    hint.className = "empty";
+    hint.innerHTML = `Capítulo vacío. Toca <b>+</b> para empezar a transcribir desde el manuscrito.`;
+    el.grid.appendChild(hint);
+    return;
+  }
 
   data.voicings.sort((a, b) => a.order - b.order);
   for (const v of data.voicings) el.grid.appendChild(makeCard(data, v));
@@ -299,7 +309,7 @@ function renderGrid() {
 function renderHonesty() {
   const data = state.chapters[state.active];
   const ch = CHAPTERS.find((c) => c.slug === state.active);
-  if (!data || data.voicings.length === 0) { el.honesty.textContent = ""; el.audit.textContent = ""; return; }
+  if (!data || (!data.file && data.voicings.length === 0)) { el.honesty.textContent = ""; el.audit.textContent = ""; return; }
   const n = data.voicings.length;
   const decl = ch.declared || n;
   const falta = decl - n;
@@ -382,6 +392,8 @@ el.resetBtn.addEventListener("click", reimport);
 
 // ---------- init ----------
 (async () => {
+  const h = location.hash.slice(1);
+  if (CHAPTERS.some((c) => c.slug === h)) state.active = h;
   renderLegend();
   try { state.intro = await (await fetch("data/intro.json")).json(); } catch { state.intro = null; }
   for (const ch of CHAPTERS) state.chapters[ch.slug] = await loadChapter(ch);

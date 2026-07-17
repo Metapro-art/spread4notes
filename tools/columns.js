@@ -98,20 +98,47 @@ function countCols(yb0, yb1, dbg) {
   return peaks;
 }
 
-// Bandas de sistema (y) — medición independiente declarada por el autor.
-const SYSTEMS = [[855, 1025], [1055, 1235], [1245, 1410], [1415, 1585]];
+// Autodetección de bandas de sistema por proyección horizontal de tinta:
+// corridas de filas con tinta > umbral, más altas que MIN_SYS_H, separadas por
+// gaps (los sistemas de columnas están separados por pentagrama gris = poca tinta).
+function detectSystems() {
+  const rp = smooth(rowInk(LEFT, W), 5);
+  const peak = Math.max(...rp);
+  const thr = peak * 0.16;
+  const MIN_SYS_H = 70, MIN_GAP = 22;
+  const runs = [];
+  let start = -1;
+  for (let y = 0; y < H; y++) {
+    if (rp[y] >= thr) { if (start < 0) start = y; }
+    else if (start >= 0) {
+      if (y - start >= 30) runs.push([start, y]);
+      start = -1;
+    }
+  }
+  if (start >= 0) runs.push([start, H]);
+  // fusiona corridas separadas por gaps chicos (filas dentro del mismo sistema)
+  const merged = [];
+  for (const r of runs) {
+    const last = merged[merged.length - 1];
+    if (last && r[0] - last[1] < MIN_GAP) last[1] = r[1];
+    else merged.push([...r]);
+  }
+  return merged.filter(([a, b]) => b - a >= MIN_SYS_H);
+}
+
+const SYSTEMS = detectSystems();
 
 console.log(`archivo: ${path}  (${W}×${H})   INK_V=${INK_V}  LEFT=${LEFT}`);
+console.log(`sistemas detectados: ${SYSTEMS.length}  bandas y: ${SYSTEMS.map(([a, b]) => `[${a},${b}]`).join(" ")}`);
 let total = 0;
 const perSystem = [];
 SYSTEMS.forEach(([y0, y1], i) => {
   const [ry0, ry1] = topRowBand(y0, y1);
-  const peaks = countCols(ry0, ry1, i === 0);
+  const peaks = countCols(ry0, ry1, false);
   perSystem.push(peaks.length);
   total += peaks.length;
-  console.log(`\nSISTEMA ${i + 1}  banda y=[${y0},${y1}]  fila-top y=[${ry0},${ry1}]`);
-  console.log(`  columnas: ${peaks.length}`);
+  console.log(`\nSISTEMA ${i + 1}  banda y=[${y0},${y1}]  fila-top y=[${ry0},${ry1}]  columnas: ${peaks.length}`);
   console.log(`  centros X: ${peaks.join(", ")}`);
 });
 console.log(`\n== conteo por sistema: [${perSystem.join(", ")}]  TOTAL: ${total} ==`);
-console.log(total === 85 ? "== coincide con 85 ✔ ==" : `== NO coincide con 85 (faltan/sobran ${total - 85}) — PARA y revisa ==`);
+console.log(`(la proyección de tinta SUBCUENTA en este JPEG: es un piso, no la verdad)`);

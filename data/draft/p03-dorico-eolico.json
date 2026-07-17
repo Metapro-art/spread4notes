@@ -1,0 +1,10 @@
+{
+ "mode": "dorian",
+ "verified": false,
+ "source": "scans/p03-dorico-eolico.png",
+ "chordScale": ["1", "9", "b3", "11", "5", "13", "b7"],
+ "alternates": { "13": "b13" },
+ "declared": 104,
+ "note": "Dórico. Los MISMOS voicings sirven para Eólico (13 -> b13) y para menor-mayor (-Δ7). Transcripcion pendiente: se hace en la app (el autor es el unico lector del escaneo). Meta: 104 columnas.",
+ "voicings": []
+}

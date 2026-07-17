@@ -197,13 +197,13 @@ Cada modo lleva un **número de columnas contado por el autor sobre su propia p�
 
 | modo | columnas declaradas |
 |---|---|
-| **Jónico** | **85** |
-| Dórico / Eólico | (pendiente de contar) |
+| **Jónico** | **85** (completo) |
+| **Dórico / Eólico** | **104** |
 | Mixolidio | (pendiente) |
 | Lidio | (pendiente) |
 | Locrio | (pendiente) |
 
-Estado p02 (jónico): transcritas **77**; faltan **~8** (evidencia de color: naranja da 10 transcritas vs. 12 declaradas). **No se inventan columnas para cuadrar el número** — se leen del escaneo o se reporta el faltante.
+Estado: **jónico completo (85/85)**, corregido por el autor en la app. **Dórico/eólico (p03): 104 declaradas, 0 transcritas** — la página es mucho más densa que el jónico; ni la detección estructural ni la lectura por visión sacan las 104 con fiabilidad desde este JPEG. Por el modelo (el autor es el único lector del escaneo), Dórico queda como **capítulo transcribible en la app**: escala correcta, validación dórica/eólica, meta 104. Eólico comparte los mismos voicings con `13 → b13`. **No se inventan columnas para cuadrar el número.**
 
 ### Estructura primero, lectura después (evita perder columnas en la costura)
 

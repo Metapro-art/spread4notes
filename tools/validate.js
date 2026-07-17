@@ -15,10 +15,20 @@ import { fretsForSet } from "../src/core/fretboard.js";
 
 const SETS = ["6543", "5432", "4321"];
 
-// Etiquetas CANÓNICAS por modo (decisión B: 9/11/13, nunca 2/4/6). 11 = avoid.
-const ALLOWED = { ionian: new Set(["1", "9", "3", "5", "13", "7"]) };
+// Etiquetas CANÓNICAS por modo (decisión B: 9/11/13, nunca 2/4/6). Grados RESUELTOS.
+const ALLOWED = {
+  ionian: new Set(["1", "9", "3", "5", "13", "7"]),
+  dorian: new Set(["1", "9", "b3", "11", "5", "13", "b7"]),
+  aeolian: new Set(["1", "9", "b3", "11", "5", "b13", "b7"]),
+};
 const RAW_DIGITS = new Set(["2", "4", "6"]); // nunca deben llegar (decisión B)
-const MODE_RULE = { ionian: (d) => d.includes("7") || d.includes("13") }; // 7 o su sustituto 6→13
+const MODE_RULE = {
+  ionian: (d) => d.includes("7") || d.includes("13"), // 7 o su sustituto 6→13
+  // dórico/eólico: 3+7+T+T, pero la 7ma se puede reemplazar por tensión (3+T+T+T).
+  // Sin regla dura extra: bastan los checks estructurales (4 distintos, en escala).
+  dorian: () => true,
+  aeolian: () => true,
+};
 
 const bestSpan = (degrees) =>
   Math.min(...SETS.map((s) => fretsForSet(computePitches(degrees), s, 0).span));
