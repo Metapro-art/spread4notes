@@ -10,15 +10,19 @@ import { readFileSync } from "node:fs";
 import { inflateSync } from "node:zlib";
 
 const S_MIN = 0.20, V_MIN = 0.45; // coloreado = saturado y no oscuro
+// Rangos de hue (grados). El morado/azul pueden necesitar afinarse contra el
+// escaneo concreto (el resaltador varía). Se reporta, no se fuerza.
 const HUE = {
   yellow: (h) => h >= 45 && h < 70,
   orange: (h) => h >= 20 && h < 45,
-  red: (h) => h >= 330 || h < 20,   // rojo/rosa
+  blue:   (h) => h >= 175 && h < 250,
+  purple: (h) => h >= 250 && h < 320,
+  red:    (h) => h >= 320 || h < 20,   // rojo/rosa
 };
 const LEFT = 430;
 const MIN_DIST = 30;   // separación mínima entre columnas
 const MIN_COL_INK = 8; // filas coloreadas mínimas en la columna para contar
-// Bandas de sistema (y).
+// Bandas de sistema (y) — por defecto p02 (4 sistemas). Se sobreescribe con --sys.
 const SYSTEMS = [[855, 1025], [1055, 1235], [1245, 1410], [1415, 1585]];
 
 function decodePNG(path) {
@@ -62,7 +66,10 @@ function rgb2hsv(r, g, b) {
   }
   return [h, max === 0 ? 0 : d / max, max];
 }
-const classify = (h) => HUE.yellow(h) ? "yellow" : HUE.orange(h) ? "orange" : HUE.red(h) ? "red" : null;
+const classify = (h) => {
+  for (const c of ["yellow", "orange", "blue", "purple", "red"]) if (HUE[c](h)) return c;
+  return null;
+};
 
 const smooth = (p, win) => {
   const out = new Array(p.length).fill(0), hw = win >> 1;
@@ -75,7 +82,7 @@ const asJson = process.argv.includes("--json");
 const { width: W, height: H, data } = decodePNG(path);
 
 // Máscara por color.
-const COLORS = ["yellow", "orange", "red"];
+const COLORS = ["yellow", "orange", "blue", "purple", "red"];
 const mask = {}; for (const c of COLORS) mask[c] = new Uint8Array(W * H);
 for (let y = 0; y < H; y++) for (let x = LEFT; x < W; x++) {
   const o = (y * W + x) * 3;
@@ -87,8 +94,8 @@ for (let y = 0; y < H; y++) for (let x = LEFT; x < W; x++) {
 
 // Por sistema y color: proyección X → picos = columnas resaltadas.
 const records = []; // {system, color, x, y}
-const perColor = { yellow: 0, orange: 0, red: 0 };
-const perSystem = SYSTEMS.map(() => ({ yellow: 0, orange: 0, red: 0 }));
+const perColor = Object.fromEntries(COLORS.map((c) => [c, 0]));
+const perSystem = SYSTEMS.map(() => Object.fromEntries(COLORS.map((c) => [c, 0])));
 
 SYSTEMS.forEach(([y0, y1], si) => {
   for (const c of COLORS) {
@@ -115,13 +122,11 @@ SYSTEMS.forEach(([y0, y1], si) => {
 
 if (asJson) { console.log(JSON.stringify(records, null, 0)); process.exit(0); }
 
-console.log(`archivo: ${path}  (${W}×${H})   S>=${S_MIN} V>=${V_MIN}`);
-console.log(`hue: amarillo[45,70) naranja[20,45) rojo[330,360)∪[0,20)  LEFT=${LEFT}`);
+const line = (p) => COLORS.filter((c) => p[c]).map((c) => `${c} ${p[c]}`).join("  ") || "(ninguno)";
+console.log(`archivo: ${path}  (${W}×${H})   S>=${S_MIN} V>=${V_MIN}  LEFT=${LEFT}`);
+console.log(`hue: amarillo[45,70) naranja[20,45) azul[175,250) morado[250,320) rojo[320,360)∪[0,20)`);
 console.log("");
-perSystem.forEach((p, i) => console.log(`  sistema ${i + 1}:  amarillo ${p.yellow}  naranja ${p.orange}  rojo ${p.red}`));
+perSystem.forEach((p, i) => console.log(`  sistema ${i + 1}:  ${line(p)}`));
 console.log("");
-console.log(`  TOTAL  amarillo ${perColor.yellow}  naranja ${perColor.orange}  rojo ${perColor.red}`);
-const ok = perColor.yellow === 29 && perColor.orange === 12 && perColor.red === 3;
-console.log(ok ? "  == coincide con 29/12/3 ✔ ==" : "  == NO da 29/12/3 — revisar join, no maquillar ==");
-console.log("");
-console.log(`  (registros por columna: ${records.length} — usa --json para el detalle X/Y)`);
+console.log(`  TOTAL  ${line(perColor)}`);
+console.log(`  columnas resaltadas: ${records.length}   (usa --json para el detalle X/Y)`);

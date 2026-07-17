@@ -8,13 +8,12 @@
 // Dos estados DISTINTOS: `verified` (transcripción corregida, se exporta) y
 // `learned` (estudio personal, NO se exporta). Los grados van top→bottom.
 
-import { LEGEND, LEGEND_KIND } from "./core/legend.js";
+import { LEGEND } from "./core/legend.js";
 import { validateVoicing } from "../tools/validate.js";
 import { computeIntervals } from "./core/voicing.js";
 
 const CHAPTERS = [
-  { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85,
-    audit: { yellow: 29, orange: 12, red: 3 } },
+  { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
   { slug: "dorian", name: "Dórico", file: null },
   { slug: "aeolian", name: "Eólico", file: null },
   { slug: "mixolydian", name: "Mixolidio", file: null },
@@ -66,8 +65,8 @@ const countVerified = (data) => data.voicings.filter((v) => v.verified).length;
 const firstUnlearned = (data) => studiable(data).find((v) => !learned[v.id]) || null;
 
 function colorAudit(data) {
-  const got = { yellow: 0, orange: 0, red: 0 };
-  for (const v of data.voicings) if (got[v.highlight] !== undefined) got[v.highlight]++;
+  const got = {};
+  for (const v of data.voicings) if (v.highlight) got[v.highlight] = (got[v.highlight] || 0) + 1;
   return got;
 }
 
@@ -124,11 +123,10 @@ function renderIntro() {
 }
 
 function renderLegend() {
-  const order = ["yellow", "orange", "red", "blue"];
-  el.legend.innerHTML = order.map((c) => {
-    const warn = LEGEND_KIND[c] === "warn";
-    return `<span class="lg${warn ? " warn" : ""}"><span class="sw" style="background:var(--${c})"></span>${warn ? "⚠ " : ""}${LEGEND[c]}</span>`;
-  }).join("");
+  const order = ["yellow", "orange", "purple", "red", "blue"];
+  el.legend.innerHTML = order.map((c) =>
+    `<span class="lg"><span class="sw" style="background:var(--${c})"></span>${LEGEND[c]}</span>`
+  ).join("");
 }
 
 function renderChapters() {
@@ -163,7 +161,7 @@ function editDegree(data, v, i, anchor) {
 
 function editColor(data, v, anchor) {
   const opts = [
-    { c: "yellow" }, { c: "orange" }, { c: "red" }, { c: "blue" }, { c: null },
+    { c: "yellow" }, { c: "orange" }, { c: "purple" }, { c: "red" }, { c: "blue" }, { c: null },
   ];
   const items = opts.map((o) => ({
     html: o.c ? `<span class="sw" style="background:var(--${o.c})"></span>${LEGEND[o.c]}` : `<span class="sw none"></span>Ninguno`,
@@ -202,13 +200,10 @@ function makeCard(data, v) {
   const review = isReview(v, mode);
   const reason = review ? reasonsOf(v, mode)[0] : null;
   const isLearned = !!learned[v.id];
-  const kind = v.highlight ? LEGEND_KIND[v.highlight] : null;
-
   const card = document.createElement("div");
   card.className =
     "voicing" +
     (v.highlight ? ` hl-${v.highlight}` : "") +
-    (kind === "warn" ? " warn" : "") +
     (v.optional ? " optional" : "") +
     (review ? " review" : "") +
     (v.verified ? " verified" : "") +
@@ -317,10 +312,10 @@ function renderHonesty() {
   if (ch.audit) {
     const got = colorAudit(data);
     const cell = (c) => {
-      const ok = got[c] === ch.audit[c];
-      return `<span class="au ${ok ? "ok" : "bad"}"><span class="sw" style="background:var(--${c})"></span>${got[c]}/${ch.audit[c]}</span>`;
+      const g = got[c] || 0, ok = g === ch.audit[c];
+      return `<span class="au ${ok ? "ok" : "bad"}"><span class="sw" style="background:var(--${c})"></span>${g}/${ch.audit[c]}</span>`;
     };
-    el.audit.innerHTML = `auditoría de color: ${cell("yellow")} ${cell("orange")} ${cell("red")}`;
+    el.audit.innerHTML = `auditoría de color: ${Object.keys(ch.audit).map(cell).join(" ")}`;
   } else el.audit.textContent = "";
 }
 

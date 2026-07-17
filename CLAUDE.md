@@ -136,11 +136,12 @@ El **significado** vive en `src/core/legend.js` (`LEGEND`), fuera de los datos. 
 |---|---|---|
 | `yellow` | Chévere | recomendación (gusto) |
 | `orange` | Buenísimo | recomendación (gusto) |
-| `red` | Difícil en cuerdas contiguas — mejor saltando cuerda | advertencia (física) |
+| `purple` | Muy bien saltando cuerda | recomendación (gusto) |
+| `red` | Voicing sin tercera | estructural |
 | `blue` | Locrio ♮9 | modo |
 | `null` | (sin resaltado) | — |
 
-**Amarillo y naranja NO son dificultad.** Son juicio de **gusto** del autor: recomendaciones ("suena chévere / buenísimo"), no advertencias. **Rojo es la única advertencia.** Azul solo existe en locrio. La UI presenta amarillo/naranja como recomendación y rojo como advertencia — **nunca al revés** (ver `LEGEND_KIND`).
+**Amarillo, naranja y morado son juicio de GUSTO** del autor (recomendaciones): chévere / buenísimo / muy bien saltando cuerda. **Rojo es ESTRUCTURAL**: el voicing no tiene 3ra (verificable desde `degrees`, pero el autor lo resalta). Azul solo existe en locrio. Ningún color es "advertencia de dificultad"; el gusto y el `span` (dificultad física) son ejes distintos y no se derivan uno del otro (ver `LEGEND_KIND`).
 
 ### Los colores se TRANSCRIBEN, no se derivan
 

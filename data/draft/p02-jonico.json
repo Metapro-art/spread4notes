@@ -1,7 +1,5 @@
 {
  "mode": "ionian",
- "verified": false,
- "source": "scans/p02-jonico.png",
  "chordScale": [
   "1",
   "9",
@@ -10,30 +8,8 @@
   "13",
   "7"
  ],
- "systemCrop": {
-  "x0": 40,
-  "x1": 1360,
-  "scale": 3,
-  "bands": {
-   "1": [
-    848,
-    1025
-   ],
-   "2": [
-    1030,
-    1225
-   ],
-   "3": [
-    1218,
-    1408
-   ],
-   "4": [
-    1400,
-    1595
-   ]
-  }
- },
- "note": "Transcripcion completa p02, Fase 1. Decisiones A/B/C aplicadas. NO corregida.",
+ "source": "scans/p02-jonico.png",
+ "verified": false,
  "voicings": [
   {
    "id": "ion-s1-01",
@@ -46,12 +22,15 @@
     "13",
     "3"
    ],
+   "intervals": [
+    1,
+    2,
+    5
+   ],
    "highlight": "yellow",
-   "xEst": 337,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-02",
@@ -64,12 +43,15 @@
     "5",
     "3"
    ],
+   "intervals": [
+    1,
+    4,
+    3
+   ],
    "highlight": null,
-   "xEst": 391,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-03",
@@ -82,14 +64,15 @@
     "5",
     "3"
    ],
-   "highlight": null,
-   "xEst": 445,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    3,
+    2,
+    3
    ],
-   "sixthForSeventh": true,
-   "optional": true
+   "highlight": null,
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-04",
@@ -102,12 +85,15 @@
     "3",
     "9"
    ],
+   "intervals": [
+    1,
+    7,
+    2
+   ],
    "highlight": "yellow",
-   "xEst": 499,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-05",
@@ -120,13 +106,15 @@
     "3",
     "9"
    ],
-   "highlight": null,
-   "xEst": 553,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    3,
+    5,
+    2
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-06",
@@ -139,14 +127,17 @@
     "3",
     "1"
    ],
-   "highlight": null,
-   "xEst": 607,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    1,
+    7,
+    4
    ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
    "needsReview": true,
-   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
+   "reviewReason": "pitch duplicado (1 7 3 1 → 0,11,4,0)"
   },
   {
    "id": "ion-s1-07",
@@ -159,15 +150,17 @@
     "3",
     "1"
    ],
-   "highlight": null,
-   "xEst": 661,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    3,
+    5,
+    4
    ],
-   "sixthForSeventh": true,
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
    "needsReview": true,
-   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
+   "reviewReason": "pitch duplicado (1 13 3 1 → 0,9,4,0)"
   },
   {
    "id": "ion-s1-08",
@@ -180,12 +173,15 @@
     "3",
     "7"
    ],
+   "intervals": [
+    3,
+    5,
+    5
+   ],
    "highlight": "yellow",
-   "xEst": 715,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-09",
@@ -198,12 +194,15 @@
     "3",
     "7"
    ],
+   "intervals": [
+    5,
+    3,
+    5
+   ],
    "highlight": null,
-   "xEst": 769,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-10",
@@ -216,12 +215,15 @@
     "9",
     "7"
    ],
+   "intervals": [
+    8,
+    2,
+    3
+   ],
    "highlight": "orange",
-   "xEst": 823,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-11",
@@ -234,14 +236,17 @@
     "1",
     "7"
    ],
-   "highlight": null,
-   "xEst": 877,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    8,
+    4,
+    1
    ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
    "needsReview": true,
-   "reviewReason": "grados repetidos (1 aparece dos veces) — probable error de lectura"
+   "reviewReason": "pitch duplicado (1 3 1 7 → 0,4,0,11)"
   },
   {
    "id": "ion-s1-12",
@@ -254,12 +259,15 @@
     "3",
     "13"
    ],
+   "intervals": [
+    1,
+    7,
+    7
+   ],
    "highlight": "yellow",
-   "xEst": 931,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-13",
@@ -272,15 +280,17 @@
     "3",
     "13"
    ],
-   "highlight": null,
-   "xEst": 985,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    3,
+    5,
+    7
    ],
-   "sixthForSeventh": true,
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
    "needsReview": true,
-   "reviewReason": "grados repetidos (13 aparece dos veces) — probable error de lectura"
+   "reviewReason": "pitch duplicado (1 13 3 13 → 0,9,4,9)"
   },
   {
    "id": "ion-s1-14",
@@ -293,13 +303,15 @@
     "3",
     "13"
    ],
-   "highlight": null,
-   "xEst": 1039,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    5,
+    3,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-15",
@@ -312,13 +324,15 @@
     "9",
     "13"
    ],
-   "highlight": "orange",
-   "xEst": 1093,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    8,
+    2,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": "orange",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-16",
@@ -331,12 +345,15 @@
     "7",
     "13"
    ],
+   "intervals": [
+    8,
+    5,
+    2
+   ],
    "highlight": "orange",
-   "xEst": 1147,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-17",
@@ -349,13 +366,15 @@
     "3",
     "5"
    ],
-   "highlight": null,
-   "xEst": 1201,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    3,
+    5,
+    9
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-18",
@@ -368,12 +387,15 @@
     "7",
     "5"
    ],
+   "intervals": [
+    8,
+    5,
+    4
+   ],
    "highlight": "yellow",
-   "xEst": 1255,
-   "yBand": [
-    848,
-    1025
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s1-19",
@@ -386,13 +408,15 @@
     "13",
     "5"
    ],
-   "highlight": null,
-   "xEst": 1309,
-   "yBand": [
-    848,
-    1025
+   "intervals": [
+    8,
+    7,
+    2
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-01",
@@ -405,12 +429,15 @@
     "3",
     "9"
    ],
+   "intervals": [
+    2,
+    5,
+    2
+   ],
    "highlight": "yellow",
-   "xEst": 105,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-02",
@@ -423,12 +450,15 @@
     "3",
     "9"
    ],
+   "intervals": [
+    4,
+    3,
+    2
+   ],
    "highlight": "orange",
-   "xEst": 171,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-03",
@@ -441,12 +471,15 @@
     "3",
     "1"
    ],
+   "intervals": [
+    2,
+    5,
+    4
+   ],
    "highlight": "yellow",
-   "xEst": 237,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-04",
@@ -459,12 +492,15 @@
     "3",
     "1"
    ],
+   "intervals": [
+    4,
+    3,
+    4
+   ],
    "highlight": null,
-   "xEst": 303,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-05",
@@ -477,12 +513,15 @@
     "9",
     "1"
    ],
+   "intervals": [
+    7,
+    2,
+    2
+   ],
    "highlight": null,
-   "xEst": 369,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-06",
@@ -495,12 +534,15 @@
     "3",
     "13"
    ],
+   "intervals": [
+    4,
+    3,
+    7
+   ],
    "highlight": "yellow",
-   "xEst": 435,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-07",
@@ -513,12 +555,15 @@
     "9",
     "13"
    ],
+   "intervals": [
+    7,
+    2,
+    5
+   ],
    "highlight": "orange",
-   "xEst": 501,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-08",
@@ -531,12 +576,15 @@
     "1",
     "13"
    ],
+   "intervals": [
+    7,
+    4,
+    3
+   ],
    "highlight": null,
-   "xEst": 567,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-09",
@@ -549,12 +597,15 @@
     "3",
     "5"
    ],
+   "intervals": [
+    2,
+    5,
+    9
+   ],
    "highlight": "yellow",
-   "xEst": 633,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-10",
@@ -567,12 +618,15 @@
     "9",
     "5"
    ],
+   "intervals": [
+    7,
+    2,
+    7
+   ],
    "highlight": "yellow",
-   "xEst": 699,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-11",
@@ -585,12 +639,15 @@
     "1",
     "5"
    ],
+   "intervals": [
+    7,
+    4,
+    5
+   ],
    "highlight": null,
-   "xEst": 765,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-12",
@@ -603,12 +660,15 @@
     "13",
     "5"
    ],
+   "intervals": [
+    7,
+    7,
+    2
+   ],
    "highlight": "yellow",
-   "xEst": 831,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-13",
@@ -621,16 +681,40 @@
     "1",
     "3"
    ],
+   "intervals": [
+    9,
+    2,
+    8
+   ],
    "highlight": "orange",
-   "xEst": 897,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7mq4k-1",
+   "order": 33,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "7",
+    "9",
+    "13",
+    "3"
+   ],
+   "intervals": [
+    9,
+    5,
+    5
+   ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-14",
-   "order": 33,
+   "order": 34,
    "system": 2,
    "column": 14,
    "degrees": [
@@ -639,16 +723,19 @@
     "3",
     "7"
    ],
+   "intervals": [
+    2,
+    3,
+    5
+   ],
    "highlight": "yellow",
-   "xEst": 963,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-15",
-   "order": 34,
+   "order": 35,
    "system": 2,
    "column": 15,
    "degrees": [
@@ -657,16 +744,19 @@
     "9",
     "7"
    ],
+   "intervals": [
+    5,
+    2,
+    3
+   ],
    "highlight": null,
-   "xEst": 1029,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-16",
-   "order": 35,
+   "order": 36,
    "system": 2,
    "column": 16,
    "degrees": [
@@ -675,16 +765,19 @@
     "1",
     "7"
    ],
+   "intervals": [
+    5,
+    4,
+    1
+   ],
    "highlight": null,
-   "xEst": 1095,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-17",
-   "order": 36,
+   "order": 37,
    "system": 2,
    "column": 17,
    "degrees": [
@@ -693,17 +786,19 @@
     "9",
     "5"
    ],
-   "highlight": "yellow",
-   "xEst": 1161,
-   "yBand": [
-    1030,
-    1225
+   "intervals": [
+    5,
+    2,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s2-18",
-   "order": 37,
+   "order": 38,
    "system": 2,
    "column": 18,
    "degrees": [
@@ -712,35 +807,61 @@
     "1",
     "5"
    ],
-   "highlight": null,
-   "xEst": 1227,
-   "yBand": [
-    1030,
-    1225
+   "intervals": [
+    5,
+    4,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
-   "id": "ion-s2-19",
-   "order": 38,
-   "system": 2,
-   "column": 19,
+   "id": "ins-mro7nnck-2",
+   "order": 39,
+   "system": null,
+   "column": null,
    "degrees": [
     "13",
     "3",
     "7",
     "5"
    ],
+   "intervals": [
+    5,
+    5,
+    4
+   ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ion-s2-19",
+   "order": 40,
+   "system": 2,
+   "column": 19,
+   "degrees": [
+    "13",
+    "5",
+    "9",
+    "3"
+   ],
+   "intervals": [
+    2,
+    5,
+    10
+   ],
    "highlight": "yellow",
-   "xEst": 1293,
-   "yBand": [
-    1030,
-    1225
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-01",
-   "order": 39,
+   "order": 41,
    "system": 3,
    "column": 1,
    "degrees": [
@@ -749,17 +870,19 @@
     "1",
     "3"
    ],
-   "highlight": null,
-   "xEst": 90,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    2,
+    7,
+    8
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-02",
-   "order": 40,
+   "order": 42,
    "system": 3,
    "column": 2,
    "degrees": [
@@ -768,16 +891,19 @@
     "7",
     "3"
    ],
+   "intervals": [
+    2,
+    8,
+    7
+   ],
    "highlight": "orange",
-   "xEst": 160,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-03",
-   "order": 41,
+   "order": 43,
    "system": 3,
    "column": 3,
    "degrees": [
@@ -786,16 +912,19 @@
     "9",
     "7"
    ],
+   "intervals": [
+    3,
+    2,
+    3
+   ],
    "highlight": null,
-   "xEst": 230,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-04",
-   "order": 42,
+   "order": 44,
    "system": 3,
    "column": 4,
    "degrees": [
@@ -804,16 +933,19 @@
     "1",
     "7"
    ],
+   "intervals": [
+    3,
+    4,
+    1
+   ],
    "highlight": null,
-   "xEst": 300,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-05",
-   "order": 43,
+   "order": 45,
    "system": 3,
    "column": 5,
    "degrees": [
@@ -822,35 +954,109 @@
     "9",
     "13"
    ],
-   "highlight": "yellow",
-   "xEst": 370,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    3,
+    2,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7q2do-3",
+   "order": 46,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "5",
+    "3",
+    "7",
+    "13"
+   ],
+   "intervals": [
+    3,
+    5,
+    2
+   ],
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7r4j8-4",
+   "order": 47,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "5",
+    "3",
+    "7",
+    "5"
+   ],
+   "intervals": [
+    3,
+    5,
+    4
+   ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
+   "needsReview": true,
+   "reviewReason": "pitch duplicado (5 3 7 5 → 7,4,11,7)"
   },
   {
    "id": "ion-s3-06",
-   "order": 44,
+   "order": 48,
    "system": 3,
    "column": 6,
    "degrees": [
     "5",
-    "1",
+    "9",
     "7",
-    "3"
+    "5"
+   ],
+   "intervals": [
+    5,
+    3,
+    4
    ],
    "highlight": null,
-   "xEst": 440,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
+   "needsReview": true,
+   "reviewReason": "pitch duplicado (5 9 7 5 → 7,2,11,7)"
+  },
+  {
+   "id": "ins-mro7rrxp-5",
+   "order": 49,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "5",
+    "1",
+    "7",
+    "5"
+   ],
+   "intervals": [
+    7,
+    1,
+    4
+   ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true,
+   "needsReview": true,
+   "reviewReason": "pitch duplicado (5 1 7 5 → 7,0,11,7)"
   },
   {
    "id": "ion-s3-07",
-   "order": 45,
+   "order": 50,
    "system": 3,
    "column": 7,
    "degrees": [
@@ -859,17 +1065,19 @@
     "13",
     "3"
    ],
-   "highlight": "yellow",
-   "xEst": 510,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    5,
+    5,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-08",
-   "order": 46,
+   "order": 51,
    "system": 3,
    "column": 8,
    "degrees": [
@@ -878,17 +1086,19 @@
     "13",
     "3"
    ],
-   "highlight": null,
-   "xEst": 580,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    7,
+    3,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-09",
-   "order": 47,
+   "order": 52,
    "system": 3,
    "column": 9,
    "degrees": [
@@ -897,16 +1107,19 @@
     "7",
     "9"
    ],
+   "intervals": [
+    3,
+    5,
+    9
+   ],
    "highlight": "yellow",
-   "xEst": 650,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-10",
-   "order": 48,
+   "order": 53,
    "system": 3,
    "column": 10,
    "degrees": [
@@ -915,17 +1128,19 @@
     "13",
     "9"
    ],
-   "highlight": "yellow",
-   "xEst": 720,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    3,
+    7,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-11",
-   "order": 49,
+   "order": 54,
    "system": 3,
    "column": 11,
    "degrees": [
@@ -934,16 +1149,19 @@
     "3",
     "9"
    ],
+   "intervals": [
+    8,
+    7,
+    2
+   ],
    "highlight": null,
-   "xEst": 790,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-12",
-   "order": 50,
+   "order": 55,
    "system": 3,
    "column": 12,
    "degrees": [
@@ -952,16 +1170,19 @@
     "7",
     "5"
    ],
+   "intervals": [
+    2,
+    3,
+    4
+   ],
    "highlight": "orange",
-   "xEst": 860,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-13",
-   "order": 51,
+   "order": 56,
    "system": 3,
    "column": 13,
    "degrees": [
@@ -970,17 +1191,19 @@
     "13",
     "5"
    ],
-   "highlight": "yellow",
-   "xEst": 930,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    2,
+    5,
+    2
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-14",
-   "order": 52,
+   "order": 57,
    "system": 3,
    "column": 14,
    "degrees": [
@@ -989,16 +1212,19 @@
     "7",
     "5"
    ],
+   "intervals": [
+    4,
+    1,
+    4
+   ],
    "highlight": null,
-   "xEst": 1000,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-15",
-   "order": 53,
+   "order": 58,
    "system": 3,
    "column": 15,
    "degrees": [
@@ -1007,17 +1233,19 @@
     "13",
     "5"
    ],
-   "highlight": "yellow",
-   "xEst": 1070,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    4,
+    3,
+    2
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-16",
-   "order": 54,
+   "order": 59,
    "system": 3,
    "column": 16,
    "degrees": [
@@ -1026,16 +1254,19 @@
     "7",
     "9"
    ],
+   "intervals": [
+    4,
+    1,
+    9
+   ],
    "highlight": "orange",
-   "xEst": 1140,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-17",
-   "order": 55,
+   "order": 60,
    "system": 3,
    "column": 17,
    "degrees": [
@@ -1044,17 +1275,19 @@
     "13",
     "9"
    ],
-   "highlight": null,
-   "xEst": 1210,
-   "yBand": [
-    1218,
-    1408
+   "intervals": [
+    4,
+    3,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s3-18",
-   "order": 56,
+   "order": 61,
    "system": 3,
    "column": 18,
    "degrees": [
@@ -1063,16 +1296,19 @@
     "5",
     "9"
    ],
+   "intervals": [
+    5,
+    4,
+    5
+   ],
    "highlight": null,
-   "xEst": 1280,
-   "yBand": [
-    1218,
-    1408
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-01",
-   "order": 57,
+   "order": 62,
    "system": 4,
    "column": 1,
    "degrees": [
@@ -1081,17 +1317,19 @@
     "5",
     "9"
    ],
-   "highlight": "yellow",
-   "xEst": 75,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    7,
+    2,
+    5
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-02",
-   "order": 58,
+   "order": 63,
    "system": 4,
    "column": 2,
    "degrees": [
@@ -1100,16 +1338,19 @@
     "13",
     "1"
    ],
+   "intervals": [
+    5,
+    2,
+    9
+   ],
    "highlight": "orange",
-   "xEst": 135,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-03",
-   "order": 59,
+   "order": 64,
    "system": 4,
    "column": 3,
    "degrees": [
@@ -1118,16 +1359,19 @@
     "5",
     "1"
    ],
+   "intervals": [
+    5,
+    4,
+    7
+   ],
    "highlight": null,
-   "xEst": 195,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-04",
-   "order": 60,
+   "order": 65,
    "system": 4,
    "column": 4,
    "degrees": [
@@ -1136,17 +1380,19 @@
     "5",
     "1"
    ],
-   "highlight": null,
-   "xEst": 255,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    7,
+    2,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-05",
-   "order": 61,
+   "order": 66,
    "system": 4,
    "column": 5,
    "degrees": [
@@ -1155,16 +1401,19 @@
     "9",
     "1"
    ],
+   "intervals": [
+    5,
+    9,
+    2
+   ],
    "highlight": "yellow",
-   "xEst": 315,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-06",
-   "order": 62,
+   "order": 67,
    "system": 4,
    "column": 6,
    "degrees": [
@@ -1173,17 +1422,19 @@
     "9",
     "1"
    ],
-   "highlight": "yellow",
-   "xEst": 375,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    7,
+    7,
+    2
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-07",
-   "order": 63,
+   "order": 68,
    "system": 4,
    "column": 7,
    "degrees": [
@@ -1192,16 +1443,19 @@
     "13",
     "7"
    ],
+   "intervals": [
+    4,
+    3,
+    10
+   ],
    "highlight": "yellow",
-   "xEst": 435,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-08",
-   "order": 64,
+   "order": 69,
    "system": 4,
    "column": 8,
    "degrees": [
@@ -1210,16 +1464,19 @@
     "5",
     "7"
    ],
+   "intervals": [
+    4,
+    5,
+    8
+   ],
    "highlight": null,
-   "xEst": 495,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-09",
-   "order": 65,
+   "order": 70,
    "system": 4,
    "column": 9,
    "degrees": [
@@ -1228,16 +1485,19 @@
     "5",
     "7"
    ],
+   "intervals": [
+    7,
+    2,
+    8
+   ],
    "highlight": "yellow",
-   "xEst": 555,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-10",
-   "order": 66,
+   "order": 71,
    "system": 4,
    "column": 10,
    "degrees": [
@@ -1246,16 +1506,19 @@
     "9",
     "7"
    ],
+   "intervals": [
+    7,
+    7,
+    3
+   ],
    "highlight": "yellow",
-   "xEst": 615,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-11",
-   "order": 67,
+   "order": 72,
    "system": 4,
    "column": 11,
    "degrees": [
@@ -1264,16 +1527,19 @@
     "13",
     "3"
    ],
+   "intervals": [
+    3,
+    2,
+    5
+   ],
    "highlight": "yellow",
-   "xEst": 675,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-12",
-   "order": 68,
+   "order": 73,
    "system": 4,
    "column": 12,
    "degrees": [
@@ -1282,16 +1548,19 @@
     "5",
     "3"
    ],
+   "intervals": [
+    3,
+    4,
+    3
+   ],
    "highlight": null,
-   "xEst": 735,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-13",
-   "order": 69,
+   "order": 74,
    "system": 4,
    "column": 13,
    "degrees": [
@@ -1300,16 +1569,19 @@
     "3",
     "1"
    ],
+   "intervals": [
+    3,
+    7,
+    4
+   ],
    "highlight": null,
-   "xEst": 795,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-14",
-   "order": 70,
+   "order": 75,
    "system": 4,
    "column": 14,
    "degrees": [
@@ -1318,17 +1590,40 @@
     "3",
     "1"
    ],
-   "highlight": null,
-   "xEst": 855,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    5,
+    5,
+    4
    ],
-   "sixthForSeventh": true
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7ujwk-6",
+   "order": 76,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "9",
+    "1",
+    "3",
+    "7"
+   ],
+   "intervals": [
+    2,
+    8,
+    5
+   ],
+   "highlight": "orange",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-15",
-   "order": 71,
+   "order": 77,
    "system": 4,
    "column": 15,
    "degrees": [
@@ -1337,16 +1632,19 @@
     "3",
     "7"
    ],
+   "intervals": [
+    5,
+    5,
+    5
+   ],
    "highlight": null,
-   "xEst": 915,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-16",
-   "order": 72,
+   "order": 78,
    "system": 4,
    "column": 16,
    "degrees": [
@@ -1355,17 +1653,19 @@
     "1",
     "7"
    ],
-   "highlight": "red",
-   "xEst": 975,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    5,
+    9,
+    1
    ],
-   "optional": true
+   "highlight": "red",
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-17",
-   "order": 73,
+   "order": 79,
    "system": 4,
    "column": 17,
    "degrees": [
@@ -1374,16 +1674,19 @@
     "13",
     "1"
    ],
+   "intervals": [
+    3,
+    2,
+    9
+   ],
    "highlight": "red",
-   "xEst": 1035,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-18",
-   "order": 74,
+   "order": 80,
    "system": 4,
    "column": 18,
    "degrees": [
@@ -1392,16 +1695,19 @@
     "5",
     "1"
    ],
+   "intervals": [
+    3,
+    4,
+    7
+   ],
    "highlight": "red",
-   "xEst": 1095,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-19",
-   "order": 75,
+   "order": 81,
    "system": 4,
    "column": 19,
    "degrees": [
@@ -1410,16 +1716,19 @@
     "3",
     "7"
    ],
+   "intervals": [
+    7,
+    3,
+    5
+   ],
    "highlight": null,
-   "xEst": 1155,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-20",
-   "order": 76,
+   "order": 82,
    "system": 4,
    "column": 20,
    "degrees": [
@@ -1428,16 +1737,19 @@
     "3",
     "13"
    ],
+   "intervals": [
+    3,
+    7,
+    7
+   ],
    "highlight": "yellow",
-   "xEst": 1215,
-   "yBand": [
-    1400,
-    1595
-   ]
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   },
   {
    "id": "ion-s4-21",
-   "order": 77,
+   "order": 83,
    "system": 4,
    "column": 21,
    "degrees": [
@@ -1446,13 +1758,57 @@
     "3",
     "13"
    ],
-   "highlight": "yellow",
-   "xEst": 1275,
-   "yBand": [
-    1400,
-    1595
+   "intervals": [
+    7,
+    3,
+    7
    ],
-   "sixthForSeventh": true
+   "highlight": "yellow",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7vooc-8",
+   "order": 84,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "9",
+    "3",
+    "1",
+    "13"
+   ],
+   "intervals": [
+    10,
+    4,
+    3
+   ],
+   "highlight": null,
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mro7voc4-7",
+   "order": 85,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "9",
+    "3",
+    "7",
+    "13"
+   ],
+   "intervals": [
+    10,
+    5,
+    2
+   ],
+   "highlight": "orange",
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
   }
  ]
 }
