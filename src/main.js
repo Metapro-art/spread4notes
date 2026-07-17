@@ -211,25 +211,26 @@ function makeCard(data, v) {
     (isLearned ? " learned" : "");
   card.id = `v-${v.id}`;
 
-  // fila superior: order + toggles verificado / aprendido
+  // fila superior compacta: orden · color · verificado · menú (⋯)
   const top = document.createElement("div");
   top.className = "v-top";
-  top.innerHTML = `<span class="ord">${v.order}</span>`;
+  const ord = document.createElement("span");
+  ord.className = "ord"; ord.textContent = v.order;
+  const colorBtn = document.createElement("button");
+  colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
+  colorBtn.title = v.highlight ? LEGEND[v.highlight] : "Sin color";
+  colorBtn.innerHTML = v.highlight ? `<span class="sw" style="background:var(--${v.highlight})"></span>` : `<span class="sw none"></span>`;
+  colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
   const verBtn = document.createElement("button");
-  verBtn.className = "t t-ver" + (v.verified ? " on" : "");
-  verBtn.setAttribute("data-pop", "");
-  verBtn.setAttribute("aria-pressed", String(v.verified));
-  verBtn.title = "Verificado (transcripción correcta)";
+  verBtn.className = "t t-ver" + (v.verified ? " on" : ""); verBtn.setAttribute("data-pop", "");
+  verBtn.setAttribute("aria-pressed", String(v.verified)); verBtn.title = "Verificado (transcripción correcta)";
   verBtn.textContent = "✓";
   verBtn.addEventListener("click", () => { v.verified = !v.verified; saveDoc(data.slug); render(); });
-  const learnBtn = document.createElement("button");
-  learnBtn.className = "t t-learn" + (isLearned ? " on" : "");
-  learnBtn.setAttribute("data-pop", "");
-  learnBtn.setAttribute("aria-pressed", String(isLearned));
-  learnBtn.title = "Ya me lo sé (estudio)";
-  learnBtn.textContent = "♪";
-  learnBtn.addEventListener("click", () => { if (learned[v.id]) delete learned[v.id]; else learned[v.id] = true; saveLearned(); render(); });
-  top.append(verBtn, learnBtn);
+  const moreBtn = document.createElement("button");
+  moreBtn.className = "t t-more"; moreBtn.setAttribute("data-pop", ""); moreBtn.title = "Más: aprendido, opcional, insertar, borrar";
+  moreBtn.textContent = "⋯";
+  moreBtn.addEventListener("click", () => moreMenu(data, v, moreBtn));
+  top.append(ord, colorBtn, verBtn, moreBtn);
 
   // grados editables (top→bottom)
   const stack = document.createElement("div");
@@ -245,37 +246,22 @@ function makeCard(data, v) {
     stack.appendChild(d);
   });
 
-  // fila inferior: color · opcional · borrar
-  const bot = document.createElement("div");
-  bot.className = "v-bot";
-  const colorBtn = document.createElement("button");
-  colorBtn.className = "t t-color";
-  colorBtn.setAttribute("data-pop", "");
-  colorBtn.title = "Color (recomendación / advertencia)";
-  colorBtn.innerHTML = v.highlight ? `<span class="sw" style="background:var(--${v.highlight})"></span>` : `<span class="sw none"></span>`;
-  colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
-  const optBtn = document.createElement("button");
-  optBtn.className = "t t-opt" + (v.optional ? " on" : "");
-  optBtn.setAttribute("aria-pressed", String(v.optional));
-  optBtn.title = "Opcional (entre paréntesis)";
-  optBtn.textContent = "( )";
-  optBtn.addEventListener("click", () => { v.optional = !v.optional; saveDoc(data.slug); render(); });
-  const insBtn = document.createElement("button");
-  insBtn.className = "t t-ins";
-  insBtn.title = "Insertar columna después de esta";
-  insBtn.textContent = "+";
-  insBtn.addEventListener("click", () => insertAfter(data, v.order));
-  const delBtn = document.createElement("button");
-  delBtn.className = "t t-del";
-  delBtn.title = "Borrar columna";
-  delBtn.textContent = "🗑";
-  delBtn.addEventListener("click", () => deleteVoicing(data, v));
-  bot.append(colorBtn, optBtn, insBtn, delBtn);
-
+  if (isLearned) card.setAttribute("title", "Ya me lo sé");
   if (review) { const tag = document.createElement("span"); tag.className = "review-tag"; tag.title = reason || "revisar"; tag.textContent = "!"; card.appendChild(tag); }
 
-  card.append(top, stack, bot);
+  card.append(top, stack);
   return card;
+}
+
+// Menú "⋯": acciones menos frecuentes, en popover (sin modal).
+function moreMenu(data, v, anchor) {
+  const isLearned = !!learned[v.id];
+  openPopover(anchor, [
+    { html: `${isLearned ? "✓" : "○"}&nbsp; Ya me lo sé`, onPick: () => { if (learned[v.id]) delete learned[v.id]; else learned[v.id] = true; saveLearned(); render(); } },
+    { html: `${v.optional ? "✓" : "○"}&nbsp; Opcional ( )`, onPick: () => { v.optional = !v.optional; saveDoc(data.slug); render(); } },
+    { html: `＋&nbsp; Insertar columna después`, onPick: () => insertAfter(data, v.order) },
+    { html: `🗑&nbsp; Borrar columna`, cls: "danger", onPick: () => deleteVoicing(data, v) },
+  ]);
 }
 
 function renderGrid() {
