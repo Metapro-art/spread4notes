@@ -20,6 +20,7 @@ const ALLOWED = {
   ionian: new Set(["1", "9", "3", "5", "13", "7"]),
   dorian: new Set(["1", "9", "b3", "11", "5", "13", "b7"]),
   aeolian: new Set(["1", "9", "b3", "11", "5", "b13", "b7"]),
+  mixolydian: new Set(["1", "9", "3", "11", "5", "13", "b7", "b9", "b13"]),
 };
 const RAW_DIGITS = new Set(["2", "4", "6"]); // nunca deben llegar (decisión B)
 const MODE_RULE = {
@@ -28,6 +29,8 @@ const MODE_RULE = {
   // Sin regla dura extra: bastan los checks estructurales (4 distintos, en escala).
   dorian: () => true,
   aeolian: () => true,
+  // mixolidio: "nunca omitir 3ra ni 7ma". Solo REPORTA (CLI); el autor decide.
+  mixolydian: (d) => d.includes("3") && d.includes("b7"),
 };
 
 const bestSpan = (degrees) =>

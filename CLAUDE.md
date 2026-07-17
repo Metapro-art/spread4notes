@@ -201,7 +201,7 @@ Cada modo lleva un **número de columnas contado por el autor sobre su propia p�
 |---|---|---|
 | **Jónico** | **85** | completo (85/85), verificado por el autor |
 | **Dórico / Eólico** | **104** | completo (104/104), verificado por el autor → `data/voicings/p03-dorico-eolico.json` |
-| Mixolidio | (pendiente) | — |
+| **Mixolidio** | **51** | leído (51/51) del PDF limpio, best-effort → `data/draft/p04-mixolidio.json`, a verificar por el autor |
 | Lidio | (pendiente) | — |
 | Locrio | (pendiente) | — |
 

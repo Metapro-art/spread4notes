@@ -1,0 +1,838 @@
+{
+ "mode": "mixolydian",
+ "verified": false,
+ "source": "scans/p04-mixolidio.png",
+ "chordScale": [
+  "1",
+  "9",
+  "3",
+  "11",
+  "5",
+  "13",
+  "b7"
+ ],
+ "alternates": {
+  "9": "b9",
+  "13": "b13"
+ },
+ "declared": 51,
+ "note": "Mixolidio (p04, PDF limpio). Lectura best-effort, verified:false. 6->13, 7->b7. Regla: 3ra+b7 siempre; 1 columna (s2 c6 [13,3,9,5]) no lleva 7ma segun lo escrito - revisar. Sin colores en la pagina (los pone el autor). Opcionales = paréntesis.",
+ "voicings": [
+  {
+   "id": "mix-s1-01",
+   "order": 1,
+   "system": 1,
+   "column": 1,
+   "degrees": [
+    "1",
+    "b7",
+    "13",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-02",
+   "order": 2,
+   "system": 1,
+   "column": 2,
+   "degrees": [
+    "1",
+    "b7",
+    "5",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-03",
+   "order": 3,
+   "system": 1,
+   "column": 3,
+   "degrees": [
+    "1",
+    "b7",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-04",
+   "order": 4,
+   "system": 1,
+   "column": 4,
+   "degrees": [
+    "1",
+    "13",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-05",
+   "order": 5,
+   "system": 1,
+   "column": 5,
+   "degrees": [
+    "1",
+    "5",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-06",
+   "order": 6,
+   "system": 1,
+   "column": 6,
+   "degrees": [
+    "1",
+    "3",
+    "9",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-07",
+   "order": 7,
+   "system": 1,
+   "column": 7,
+   "degrees": [
+    "1",
+    "b7",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-08",
+   "order": 8,
+   "system": 1,
+   "column": 8,
+   "degrees": [
+    "1",
+    "3",
+    "b7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-09",
+   "order": 9,
+   "system": 1,
+   "column": 9,
+   "degrees": [
+    "b7",
+    "13",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-10",
+   "order": 10,
+   "system": 1,
+   "column": 10,
+   "degrees": [
+    "b7",
+    "5",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-11",
+   "order": 11,
+   "system": 1,
+   "column": 11,
+   "degrees": [
+    "b7",
+    "13",
+    "3",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-12",
+   "order": 12,
+   "system": 1,
+   "column": 12,
+   "degrees": [
+    "b7",
+    "5",
+    "3",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-13",
+   "order": 13,
+   "system": 1,
+   "column": 13,
+   "degrees": [
+    "b7",
+    "3",
+    "9",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-14",
+   "order": 14,
+   "system": 1,
+   "column": 14,
+   "degrees": [
+    "b7",
+    "5",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-15",
+   "order": 15,
+   "system": 1,
+   "column": 15,
+   "degrees": [
+    "b7",
+    "3",
+    "9",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-16",
+   "order": 16,
+   "system": 1,
+   "column": 16,
+   "degrees": [
+    "b7",
+    "3",
+    "1",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-17",
+   "order": 17,
+   "system": 1,
+   "column": 17,
+   "degrees": [
+    "b7",
+    "13",
+    "3",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-18",
+   "order": 18,
+   "system": 1,
+   "column": 18,
+   "degrees": [
+    "b7",
+    "3",
+    "9",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s1-19",
+   "order": 19,
+   "system": 1,
+   "column": 19,
+   "degrees": [
+    "b7",
+    "3",
+    "1",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-01",
+   "order": 20,
+   "system": 2,
+   "column": 1,
+   "degrees": [
+    "b7",
+    "3",
+    "13",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-02",
+   "order": 21,
+   "system": 2,
+   "column": 2,
+   "degrees": [
+    "b7",
+    "9",
+    "1",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-03",
+   "order": 22,
+   "system": 2,
+   "column": 3,
+   "degrees": [
+    "b7",
+    "9",
+    "13",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-04",
+   "order": 23,
+   "system": 2,
+   "column": 4,
+   "degrees": [
+    "13",
+    "5",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-05",
+   "order": 24,
+   "system": 2,
+   "column": 5,
+   "degrees": [
+    "13",
+    "3",
+    "9",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-06",
+   "order": 25,
+   "system": 2,
+   "column": 6,
+   "degrees": [
+    "13",
+    "3",
+    "9",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-07",
+   "order": 26,
+   "system": 2,
+   "column": 7,
+   "degrees": [
+    "13",
+    "3",
+    "b7",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-08",
+   "order": 27,
+   "system": 2,
+   "column": 8,
+   "degrees": [
+    "13",
+    "5",
+    "b7",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-09",
+   "order": 28,
+   "system": 2,
+   "column": 9,
+   "degrees": [
+    "5",
+    "3",
+    "b7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-10",
+   "order": 29,
+   "system": 2,
+   "column": 10,
+   "degrees": [
+    "5",
+    "9",
+    "b7",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-11",
+   "order": 30,
+   "system": 2,
+   "column": 11,
+   "degrees": [
+    "5",
+    "1",
+    "b7",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-12",
+   "order": 31,
+   "system": 2,
+   "column": 12,
+   "degrees": [
+    "5",
+    "3",
+    "b7",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-13",
+   "order": 32,
+   "system": 2,
+   "column": 13,
+   "degrees": [
+    "5",
+    "b7",
+    "3",
+    "9"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-14",
+   "order": 33,
+   "system": 2,
+   "column": 14,
+   "degrees": [
+    "3",
+    "9",
+    "b7",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-15",
+   "order": 34,
+   "system": 2,
+   "column": 15,
+   "degrees": [
+    "3",
+    "1",
+    "b7",
+    "5"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-16",
+   "order": 35,
+   "system": 2,
+   "column": 16,
+   "degrees": [
+    "3",
+    "1",
+    "b7",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s2-17",
+   "order": 36,
+   "system": 2,
+   "column": 17,
+   "degrees": [
+    "3",
+    "b7",
+    "5",
+    "9"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-01",
+   "order": 37,
+   "system": 3,
+   "column": 1,
+   "degrees": [
+    "3",
+    "b7",
+    "13",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-02",
+   "order": 38,
+   "system": 3,
+   "column": 2,
+   "degrees": [
+    "3",
+    "b7",
+    "5",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-03",
+   "order": 39,
+   "system": 3,
+   "column": 3,
+   "degrees": [
+    "3",
+    "b7",
+    "9",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-04",
+   "order": 40,
+   "system": 3,
+   "column": 4,
+   "degrees": [
+    "3",
+    "9",
+    "13",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-05",
+   "order": 41,
+   "system": 3,
+   "column": 5,
+   "degrees": [
+    "3",
+    "1",
+    "13",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-06",
+   "order": 42,
+   "system": 3,
+   "column": 6,
+   "degrees": [
+    "3",
+    "1",
+    "5",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-07",
+   "order": 43,
+   "system": 3,
+   "column": 7,
+   "degrees": [
+    "3",
+    "13",
+    "9",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-08",
+   "order": 44,
+   "system": 3,
+   "column": 8,
+   "degrees": [
+    "9",
+    "b7",
+    "13",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-09",
+   "order": 45,
+   "system": 3,
+   "column": 9,
+   "degrees": [
+    "9",
+    "b7",
+    "5",
+    "3"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-10",
+   "order": 46,
+   "system": 3,
+   "column": 10,
+   "degrees": [
+    "9",
+    "b7",
+    "3",
+    "1"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-11",
+   "order": 47,
+   "system": 3,
+   "column": 11,
+   "degrees": [
+    "9",
+    "1",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-12",
+   "order": 48,
+   "system": 3,
+   "column": 12,
+   "degrees": [
+    "9",
+    "13",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-13",
+   "order": 49,
+   "system": 3,
+   "column": 13,
+   "degrees": [
+    "9",
+    "5",
+    "3",
+    "b7"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-14",
+   "order": 50,
+   "system": 3,
+   "column": 14,
+   "degrees": [
+    "9",
+    "b7",
+    "3",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "mix-s3-15",
+   "order": 51,
+   "system": 3,
+   "column": 15,
+   "degrees": [
+    "9",
+    "3",
+    "b7",
+    "13"
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  }
+ ]
+}

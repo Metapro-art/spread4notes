@@ -21,7 +21,7 @@ const CHAPTERS = [
       { key: "menormayor", label: "−Δ7", scale: ["1", "9", "b3", "11", "5", "13", "7"], map: { "b7": "7" } },
     ],
   },
-  { slug: "mixolydian", name: "Mixolidio", file: null },
+  { slug: "mixolydian", name: "Mixolidio", file: "data/draft/p04-mixolidio.json", declared: 51 },
   { slug: "lydian", name: "Lidio", file: null },
   { slug: "locrian", name: "Locrio", file: null },
 ];
