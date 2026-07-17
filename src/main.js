@@ -33,7 +33,10 @@ const CHAPTERS = [
     slug: "lydian", name: "Lidio", file: "data/draft/p06-lidio.json", declared: 141,
     desc: "Funcionan los voicings jónicos. Aquí se ponen únicamente voicings con #11, a veces omitiendo 3ra o 7ma. Sin duplicaciones de notas. El verde marca los voicings que tienen la 5ta.",
   },
-  { slug: "locrian", name: "Locrio", file: null },
+  {
+    slug: "locrian", name: "Locrio", file: "data/draft/p05-locrio.json", declared: 58,
+    desc: "Se agregan voicings con b5; de resto, voicings dóricos que no tengan 9na ni 5ta justa. Se omiten voicings con notas duplicadas. El azul marca los voicings con ♮9 (Locrio ♮9).",
+  },
 ];
 
 // Colores de resaltador, en ORDEN FIJO para las franjas.

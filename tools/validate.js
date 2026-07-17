@@ -22,6 +22,8 @@ const ALLOWED = {
   aeolian: new Set(["1", "9", "b3", "11", "5", "b13", "b7"]),
   mixolydian: new Set(["1", "9", "3", "11", "5", "13", "b7", "b9", "b13"]),
   lydian: new Set(["1", "9", "3", "#11", "5", "13", "7", "#5", "b7"]),
+  // locrio: escala 1 b9 b3 11 b5 b13 b7, con alternantes ♮9 y ♮13.
+  locrian: new Set(["1", "b9", "9", "b3", "11", "b5", "b13", "13", "b7"]),
 };
 const RAW_DIGITS = new Set(["2", "4", "6"]); // nunca deben llegar (decisión B)
 const MODE_RULE = {
@@ -34,6 +36,9 @@ const MODE_RULE = {
   mixolydian: (d) => d.includes("3") && d.includes("b7"),
   // lidio: solo se listan voicings que CONTIENEN #11. Reporta; el autor decide.
   lydian: (d) => d.includes("#11"),
+  // locrio: regla blanda ("b5, o dórico sin 9na ni 5ta justa"). Bastan los
+  // checks estructurales; el autor es la autoridad. Solo reporta.
+  locrian: () => true,
 };
 
 const bestSpan = (degrees) =>
