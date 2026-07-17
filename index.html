@@ -5,15 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1e22">
 <link rel="icon" href="data:,">
-<title>spread4notes — estudio de voicings</title>
+<title>spread4notes — transcripción y estudio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="head-top">
     <span class="wordmark">spread<b>4</b>notes</span>
-    <span class="global" id="global"></span>
+    <span class="head-actions">
+      <button id="reset" type="button" class="ghost" title="Descartar cambios locales y recargar el JSON del repo" aria-label="Reimportar del repo">↺</button>
+      <button id="export" type="button" class="primary">Exportar JSON</button>
+    </span>
   </div>
+  <div class="honesty" id="honesty"></div>
+  <div class="audit" id="audit"></div>
   <div class="chapters" id="chapters" role="tablist" aria-label="Capítulos (modos)"></div>
 </header>
 

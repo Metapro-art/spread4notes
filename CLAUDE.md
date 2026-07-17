@@ -166,15 +166,16 @@ El `highlight` **no** calibra ninguna heurística de `span`: gusto y dificultad 
 
 El locrio ♮9 (6to modo de la menor melódica, `1 9 b3 11 b5 b13 b7`) es una escala de acorde distinta con función armónica propia (m7b5 en II-V menor). Los voicings azules van en el **mismo archivo** que el locrio para preservar `order`, pero la UI los expone como sub-toggle `♮9` dentro de Locrio. Se identifican porque `degrees` contiene `"9"` en vez de `"b9"` — **derivable, sin tag**.
 
-### Arcos (flechas) — SÍ se transcriben, como CHECKSUM
+### Arcos (flechas) — NO se transcriben, se DERIVAN
 
-Los arcos del manuscrito conectan **la misma voz entre columnas contiguas** (columna *n* → columna *n+1*); no hay cruces de voces. Se transcriben por voicing, top→bottom:
+Los arcos del manuscrito conectan **la misma voz entre columnas contiguas** (columna *n* → columna *n+1*); no hay cruces de voces. Por lo tanto son **100% derivables** de `order` + `degrees`: hay flecha desde la voz *i* ⟺ esa voz cambió de grado entre la columna *n* y la *n+1*.
 
-```json
-"arcsToNext": [false, true, false, false]   // ¿hay flecha desde cada voz hacia la columna n+1?
+```js
+// voz i de la columna n → voz i de la columna n+1
+const arc = (a, b, i) => a.degrees[i] !== b.degrees[i];
 ```
 
-Luego se **mide** (no se asume) la hipótesis: *hay flecha ⟺ esa voz cambió de grado entre la columna n y la n+1*. Se reporta total, cumple, no cumple, y la lista de los que no. Cada incumplimiento es un **error de lectura** — **no se corrige**, se reporta. Si cumple >95%, los arcos son un checksum redundante y se dice explícitamente (entonces sí se pueden derivar de `order`+`degrees` en `src/core/` y dejar de transcribir). Herramienta: `tools/arcs.js`.
+No crear campo `arcsToNext` en `/data/`. Calcularlo en `src/core/` si se necesita dibujarlos.
 
 ---
 
@@ -216,7 +217,19 @@ Causa raíz del faltante anterior: se leyó cada sistema en recortes **solapados
 
 ### Nada se esconde (`needsReview`)
 
-**Toda** columna entra a `/data/`, incluidas las que el validador rechaza. Una columna rechazada lleva `"needsReview": true` y `"reviewReason"` con el motivo; **no desaparece de la vista del autor.** En la app, las `needsReview` se distinguen visualmente y **siguen siendo clickeables**. (El validador es la fuente del motivo; ver invariante #1.)
+**Toda** columna entra a `/data/`, incluidas las que el validador rechaza. Una columna rechazada lleva `"needsReview": true` y `"reviewReason"` con el motivo; **no desaparece de la vista del autor.** En la app, las `needsReview` se distinguen visualmente y **siguen siendo editables**. (El validador es la fuente del motivo; ver invariante #1.)
+
+---
+
+## La app ES la herramienta de transcripción
+
+El borrador (`data/draft/*.json`) es una lectura **por visión** con columnas faltantes y errores. **El único lector del escaneo es el autor**, no una pasada de visión: ese JPEG a ~170 ppi no da y no va a dar. La app existe para que el autor **corrija mientras estudia**, en línea, sin modales ni confirmaciones (se usa con la guitarra en la mano):
+
+- cada grado se cambia tocándolo (solo grados válidos del modo); el color, `optional`, insertar/borrar columna — todo en línea.
+- **dos estados DISTINTOS:** `verified` (transcripción correcta, se exporta) y aprendido (estudio personal, NO se exporta).
+- **honestidad en pantalla:** el header dice "N de 85 transcritos — faltan M" y la auditoría de color en vivo (amarillo 29 · naranja 12 · rojo 3).
+
+**La verdad es el JSON EXPORTADO, no `localStorage`.** El estado de trabajo vive en `localStorage`; el botón *Exportar* baja el JSON corregido, que es lo que se commitea a `/data/`. Las flechas **no se transcriben** (se derivan). No hay lectura de la imagen por código: los escaneos quedan solo como referencia.
 
 ---
 
@@ -250,8 +263,8 @@ Causa raíz del faltante anterior: se leyó cada sistema en recortes **solapados
 - `intervals` — derivado; se recalcula y valida en CI. Si no coincide con `degrees`, el build falla.
 - `highlight` — color **observado** en el escaneo (`yellow` | `orange` | `red` | `blue` | `null`), literal, sin interpretar. Su significado vive en `src/core/legend.js`, no aquí.
 - `optional` — `true` si la columna está entre paréntesis `( )` en el manuscrito ("se puede omitir por su complejidad"). Observado, literal.
-- `arcsToNext` — `[bool,bool,bool,bool]` top→bottom: flechas de conducción hacia la columna n+1. Transcrito como checksum (ver arriba).
-- `needsReview` / `reviewReason` — la columna existe en el manuscrito pero el validador la rechaza (p. ej. grados repetidos por error de lectura). **No se esconde**; entra con el motivo y sigue visible/clickeable.
+- `verified` — `true` cuando el AUTOR confirmó que la transcripción de esa columna es correcta. Se exporta. Es DISTINTO de "aprendido" (estudio personal, no se exporta, no vive en `/data/`).
+- `needsReview` / `reviewReason` — la columna existe en el manuscrito pero el validador la rechaza (p. ej. grados repetidos por error de lectura). **No se esconde**; entra con el motivo y sigue visible/editable. Derivable del validador.
 - `system` / `column` — coordenada en el escaneo, para auditar contra la imagen.
 
 ---
@@ -279,7 +292,7 @@ spread4notes/
     core/            # teoría pura, CERO DOM. degrees.js voicing.js fretboard.js
                      # legend.js (significado de colores) voiceleading.js
     ui/              # (por venir)
-    main.js          # app de estudio (Fase 2)
+    main.js          # app = herramienta de transcripción + estudio (Fase 4)
   data/
     intro.json       # portada (p01), intro del capítulo
     draft/*.json     # transcripciones sin verificar
@@ -289,7 +302,6 @@ spread4notes/
     generate.js      # enumera el universo legal por modo
     columns.js       # detección estructural de columnas (cuenta antes de leer)
     colors.js        # resaltado por muestreo de píxeles, UN registro por columna
-    arcs.js          # checksum de flechas vs. conducción derivada
     slice.js         # recorta y escala strips desde scans/
   scans/             # PNG por página, 1400×1650 @170ppi. Fuente, NUNCA se muestra.
   CLAUDE.md

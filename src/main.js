@@ -1,17 +1,20 @@
-// spread4notes — app de estudio. CERO teoría musical aquí: la teoría vive en
-// src/core/ y el significado del color en src/core/legend.js.
+// spread4notes — herramienta de transcripción + estudio.
 //
-// Responde una sola pregunta: "¿por cuál voy?". Los voicings se muestran en el
-// orden exacto de `order` (conducción melódica) — NUNCA se reordenan.
-// Nada se esconde: las columnas que el validador rechaza salen marcadas
-// needsReview y siguen siendo clickeables.
+// El borrador (data/draft/*.json) es una lectura por visión con ~8 columnas
+// faltantes y errores. El autor lo corrige AQUÍ, mientras estudia. El único
+// lector del escaneo es el autor; la app no lee la imagen.
+//
+// Verdad: el JSON EXPORTADO. localStorage es solo el estado de trabajo.
+// Dos estados DISTINTOS: `verified` (transcripción corregida, se exporta) y
+// `learned` (estudio personal, NO se exporta). Los grados van top→bottom.
 
 import { LEGEND, LEGEND_KIND } from "./core/legend.js";
 import { validateVoicing } from "../tools/validate.js";
+import { computeIntervals } from "./core/voicing.js";
 
-// Capítulos = modos. Hoy solo Jónico tiene datos; los demás van visibles y vacíos.
 const CHAPTERS = [
-  { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
+  { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85,
+    audit: { yellow: 29, orange: 12, red: 3 } },
   { slug: "dorian", name: "Dórico", file: null },
   { slug: "aeolian", name: "Eólico", file: null },
   { slug: "mixolydian", name: "Mixolidio", file: null },
@@ -19,90 +22,265 @@ const CHAPTERS = [
   { slug: "locrian", name: "Locrio", file: null },
 ];
 
-const STORE = "s4n-learned"; // { [voicingId]: true }
-const learned = JSON.parse(localStorage.getItem(STORE) || "{}");
-const persist = () => localStorage.setItem(STORE, JSON.stringify(learned));
+// ---------- persistencia ----------
+const LEARN_KEY = "s4n-learned";                 // personal, NO se exporta
+const docKey = (slug) => `s4n-doc-${slug}`;      // estado de trabajo, se exporta
+const learned = JSON.parse(localStorage.getItem(LEARN_KEY) || "{}");
+const saveLearned = () => localStorage.setItem(LEARN_KEY, JSON.stringify(learned));
 
 const state = { active: "ionian", chapters: {}, intro: null };
 
-// Carga un capítulo: TODAS las columnas entran (nada se esconde), ordenadas por
-// `order`. Cada una se marca needsReview si el validador la rechaza (dato en el
-// JSON o recalculado aquí, misma regla que CI).
+let uid = 0;
+const newId = () => `ins-${Date.now().toString(36)}-${(uid++).toString(36)}`;
+
 async function loadChapter(ch) {
-  if (!ch.file) return { ...ch, voicings: [] };
-  const doc = await (await fetch(ch.file)).json();
-  const voicings = doc.voicings
-    .map((v) => {
-      const reasons = validateVoicing(v.degrees, doc.mode);
-      const needsReview = v.needsReview || reasons.length > 0;
-      return { ...v, needsReview, reviewReason: v.reviewReason || reasons[0] || null };
-    })
-    .sort((a, b) => a.order - b.order);
-  return { ...ch, mode: doc.mode, voicings };
+  if (!ch.file) return { ...ch, voicings: [], meta: null };
+  const base = await (await fetch(ch.file)).json();
+  const meta = { mode: base.mode, chordScale: base.chordScale, source: base.source };
+  const saved = localStorage.getItem(docKey(ch.slug));
+  let voicings;
+  if (saved) {
+    voicings = JSON.parse(saved);
+  } else {
+    voicings = base.voicings.map((v) => ({
+      id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
+      degrees: [...v.degrees], highlight: v.highlight ?? null,
+      optional: !!v.optional, verified: false, inManuscript: v.inManuscript !== false,
+    }));
+    localStorage.setItem(docKey(ch.slug), JSON.stringify(voicings));
+  }
+  return { ...ch, meta, voicings };
 }
 
-// Estudiables = todo lo que no está marcado para revisión.
-const studiable = (voicings) => voicings.filter((v) => !v.needsReview);
-const countLearned = (voicings) => studiable(voicings).filter((v) => learned[v.id]).length;
-const firstUnlearned = (voicings) => studiable(voicings).find((v) => !learned[v.id]) || null;
+function saveDoc(slug) {
+  localStorage.setItem(docKey(slug), JSON.stringify(state.chapters[slug].voicings));
+}
+function renumber(voicings) { voicings.sort((a, b) => a.order - b.order).forEach((v, i) => (v.order = i + 1)); }
 
-// ---------- render ----------
+// ---------- derivados ----------
+const reasonsOf = (v, mode) => validateVoicing(v.degrees, mode);
+const isReview = (v, mode) => reasonsOf(v, mode).length > 0;
+const studiable = (data) => data.voicings.filter((v) => !isReview(v, data.meta.mode));
+const countLearned = (data) => studiable(data).filter((v) => learned[v.id]).length;
+const countVerified = (data) => data.voicings.filter((v) => v.verified).length;
+const firstUnlearned = (data) => studiable(data).find((v) => !learned[v.id]) || null;
 
+function colorAudit(data) {
+  const got = { yellow: 0, orange: 0, red: 0 };
+  for (const v of data.voicings) if (got[v.highlight] !== undefined) got[v.highlight]++;
+  return got;
+}
+
+// ---------- DOM refs ----------
 const el = {
   chapters: document.getElementById("chapters"),
   intro: document.getElementById("intro"),
   legend: document.getElementById("legend"),
   grid: document.getElementById("grid"),
-  global: document.getElementById("global"),
+  honesty: document.getElementById("honesty"),
+  audit: document.getElementById("audit"),
   where: document.getElementById("where"),
   goBtn: document.getElementById("go"),
+  exportBtn: document.getElementById("export"),
+  resetBtn: document.getElementById("reset"),
 };
 
+// ---------- popover inline (sin modales) ----------
+let popover = null;
+function closePopover() { if (popover) { popover.remove(); popover = null; } }
+document.addEventListener("click", (e) => { if (popover && !popover.contains(e.target) && !e.target.closest("[data-pop]")) closePopover(); });
+function openPopover(anchor, items) {
+  closePopover();
+  const p = document.createElement("div");
+  p.className = "popover";
+  for (const it of items) {
+    const b = document.createElement("button");
+    b.className = "pop-item" + (it.cls ? ` ${it.cls}` : "");
+    b.innerHTML = it.html;
+    b.addEventListener("click", (ev) => { ev.stopPropagation(); closePopover(); it.onPick(); });
+    p.appendChild(b);
+  }
+  document.body.appendChild(p);
+  const r = anchor.getBoundingClientRect();
+  const pr = p.getBoundingClientRect();
+  let left = r.left + r.width / 2 - pr.width / 2;
+  left = Math.max(8, Math.min(left, window.innerWidth - pr.width - 8));
+  let top = r.bottom + 6;
+  if (top + pr.height > window.innerHeight - 8) top = r.top - pr.height - 6;
+  p.style.left = `${left}px`;
+  p.style.top = `${top}px`;
+  popover = p;
+}
+
+// ---------- render ----------
 function renderIntro() {
   const it = state.intro;
   if (!it) { el.intro.hidden = true; return; }
   el.intro.hidden = false;
   el.intro.innerHTML =
-    `<details>` +
-    `<summary><span class="intro-title">${it.title}</span><span class="intro-hint">intro del estudio</span></summary>` +
+    `<details><summary><span class="intro-title">${it.title}</span><span class="intro-hint">intro del estudio</span></summary>` +
     it.body.map((p) => `<p>${p}</p>`).join("") +
-    `<p class="intro-links">${it.author} · ${it.links.web} · ${it.links.instagram}</p>` +
-    `</details>`;
+    `<p class="intro-links">${it.author} · ${it.links.web} · ${it.links.instagram}</p></details>`;
 }
 
 function renderLegend() {
-  // Recomendaciones (gusto) primero, advertencia después: nunca al revés.
   const order = ["yellow", "orange", "red", "blue"];
-  el.legend.innerHTML = order
-    .map((color) => {
-      const kind = LEGEND_KIND[color];
-      const glyph = kind === "warn" ? "⚠ " : "";
-      const cls = kind === "warn" ? "lg warn" : "lg";
-      return `<span class="${cls}"><span class="sw" style="background:var(--${color})"></span>${glyph}${LEGEND[color]}</span>`;
-    })
-    .join("");
+  el.legend.innerHTML = order.map((c) => {
+    const warn = LEGEND_KIND[c] === "warn";
+    return `<span class="lg${warn ? " warn" : ""}"><span class="sw" style="background:var(--${c})"></span>${warn ? "⚠ " : ""}${LEGEND[c]}</span>`;
+  }).join("");
 }
 
 function renderChapters() {
   el.chapters.innerHTML = "";
   for (const ch of CHAPTERS) {
     const data = state.chapters[ch.slug];
-    const total = data ? studiable(data.voicings).length : 0;
-    const done = data ? countLearned(data.voicings) : 0;
-    const empty = total === 0;
+    const empty = !data || data.voicings.length === 0;
     const b = document.createElement("button");
     b.className = "chapter";
     b.setAttribute("role", "tab");
     b.setAttribute("aria-selected", String(ch.slug === state.active));
-    b.innerHTML =
-      `<span class="cname">${ch.name}</span>` +
-      `<span class="ccount">${empty ? "0" : `${done}/${total}`}</span>`;
-    b.addEventListener("click", () => { state.active = ch.slug; render(); });
+    const count = empty ? "0" : `${countVerified(data)}/${data.voicings.length} ✓`;
+    b.innerHTML = `<span class="cname">${ch.name}</span><span class="ccount">${count}</span>`;
+    b.addEventListener("click", () => { state.active = ch.slug; closePopover(); render(); });
     el.chapters.appendChild(b);
   }
 }
 
-const DEG = (d) => `<span class="deg">${d}</span>`;
+const MODES_DEGREE_ORDER = ["1", "b9", "9", "b3", "3", "11", "#11", "b5", "5", "#5", "b13", "6", "13", "b7", "7"];
+
+function editDegree(data, v, i, anchor) {
+  const scale = data.meta.chordScale;
+  const items = scale
+    .slice()
+    .sort((a, b) => MODES_DEGREE_ORDER.indexOf(a) - MODES_DEGREE_ORDER.indexOf(b))
+    .map((g) => ({
+      html: g, cls: g === v.degrees[i] ? "sel" : "",
+      onPick: () => { v.degrees[i] = g; saveDoc(data.slug); render(); },
+    }));
+  openPopover(anchor, items);
+}
+
+function editColor(data, v, anchor) {
+  const opts = [
+    { c: "yellow" }, { c: "orange" }, { c: "red" }, { c: "blue" }, { c: null },
+  ];
+  const items = opts.map((o) => ({
+    html: o.c ? `<span class="sw" style="background:var(--${o.c})"></span>${LEGEND[o.c]}` : `<span class="sw none"></span>Ninguno`,
+    cls: (v.highlight ?? null) === o.c ? "sel" : "",
+    onPick: () => { v.highlight = o.c; saveDoc(data.slug); render(); },
+  }));
+  openPopover(anchor, items);
+}
+
+function insertAfter(data, order) {
+  const nv = {
+    id: newId(), order: order + 0.5, system: null, column: null,
+    degrees: ["1", "7", "3", "5"], highlight: null, optional: false,
+    verified: false, inManuscript: true,
+  };
+  data.voicings.push(nv);
+  renumber(data.voicings);
+  saveDoc(data.slug);
+  render();
+  requestAnimationFrame(() => {
+    const node = document.getElementById(`v-${nv.id}`);
+    if (node) { node.scrollIntoView({ behavior: "smooth", block: "center" }); node.querySelector(".deg")?.focus(); }
+  });
+}
+
+function deleteVoicing(data, v) {
+  data.voicings = data.voicings.filter((x) => x !== v);
+  renumber(data.voicings);
+  delete learned[v.id]; saveLearned();
+  saveDoc(data.slug);
+  render();
+}
+
+function makeCard(data, v) {
+  const mode = data.meta.mode;
+  const review = isReview(v, mode);
+  const reason = review ? reasonsOf(v, mode)[0] : null;
+  const isLearned = !!learned[v.id];
+  const kind = v.highlight ? LEGEND_KIND[v.highlight] : null;
+
+  const card = document.createElement("div");
+  card.className =
+    "voicing" +
+    (v.highlight ? ` hl-${v.highlight}` : "") +
+    (kind === "warn" ? " warn" : "") +
+    (v.optional ? " optional" : "") +
+    (review ? " review" : "") +
+    (v.verified ? " verified" : "") +
+    (isLearned ? " learned" : "");
+  card.id = `v-${v.id}`;
+
+  // fila superior: order + toggles verificado / aprendido
+  const top = document.createElement("div");
+  top.className = "v-top";
+  top.innerHTML = `<span class="ord">${v.order}</span>`;
+  const verBtn = document.createElement("button");
+  verBtn.className = "t t-ver" + (v.verified ? " on" : "");
+  verBtn.setAttribute("data-pop", "");
+  verBtn.setAttribute("aria-pressed", String(v.verified));
+  verBtn.title = "Verificado (transcripción correcta)";
+  verBtn.textContent = "✓";
+  verBtn.addEventListener("click", () => { v.verified = !v.verified; saveDoc(data.slug); render(); });
+  const learnBtn = document.createElement("button");
+  learnBtn.className = "t t-learn" + (isLearned ? " on" : "");
+  learnBtn.setAttribute("data-pop", "");
+  learnBtn.setAttribute("aria-pressed", String(isLearned));
+  learnBtn.title = "Ya me lo sé (estudio)";
+  learnBtn.textContent = "♪";
+  learnBtn.addEventListener("click", () => { if (learned[v.id]) delete learned[v.id]; else learned[v.id] = true; saveLearned(); render(); });
+  top.append(verBtn, learnBtn);
+
+  // grados editables (top→bottom)
+  const stack = document.createElement("div");
+  stack.className = "deg-stack";
+  if (v.optional) stack.classList.add("paren");
+  v.degrees.forEach((g, i) => {
+    const d = document.createElement("button");
+    d.className = "deg";
+    d.setAttribute("data-pop", "");
+    d.setAttribute("aria-label", `Grado voz ${i + 1}: ${g}. Tocar para cambiar.`);
+    d.textContent = g;
+    d.addEventListener("click", () => editDegree(data, v, i, d));
+    stack.appendChild(d);
+  });
+
+  // fila inferior: color · opcional · borrar
+  const bot = document.createElement("div");
+  bot.className = "v-bot";
+  const colorBtn = document.createElement("button");
+  colorBtn.className = "t t-color";
+  colorBtn.setAttribute("data-pop", "");
+  colorBtn.title = "Color (recomendación / advertencia)";
+  colorBtn.innerHTML = v.highlight ? `<span class="sw" style="background:var(--${v.highlight})"></span>` : `<span class="sw none"></span>`;
+  colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
+  const optBtn = document.createElement("button");
+  optBtn.className = "t t-opt" + (v.optional ? " on" : "");
+  optBtn.setAttribute("aria-pressed", String(v.optional));
+  optBtn.title = "Opcional (entre paréntesis)";
+  optBtn.textContent = "( )";
+  optBtn.addEventListener("click", () => { v.optional = !v.optional; saveDoc(data.slug); render(); });
+  const insBtn = document.createElement("button");
+  insBtn.className = "t t-ins";
+  insBtn.title = "Insertar columna después de esta";
+  insBtn.textContent = "+";
+  insBtn.addEventListener("click", () => insertAfter(data, v.order));
+  const delBtn = document.createElement("button");
+  delBtn.className = "t t-del";
+  delBtn.title = "Borrar columna";
+  delBtn.textContent = "🗑";
+  delBtn.addEventListener("click", () => deleteVoicing(data, v));
+  bot.append(colorBtn, optBtn, insBtn, delBtn);
+
+  if (review) { const tag = document.createElement("span"); tag.className = "review-tag"; tag.title = reason || "revisar"; tag.textContent = "!"; card.appendChild(tag); }
+
+  card.append(top, stack, bot);
+  return card;
+}
 
 function renderGrid() {
   const data = state.chapters[state.active];
@@ -111,76 +289,52 @@ function renderGrid() {
     el.grid.innerHTML = `<p class="empty">Este capítulo aún no está transcrito.<br>Próximamente.</p>`;
     return;
   }
-  const cursor = firstUnlearned(data.voicings);
-  for (const v of data.voicings) {
-    const isLearned = !!learned[v.id];
-    const kind = v.highlight ? LEGEND_KIND[v.highlight] : null;
-    const b = document.createElement("button");
-    b.className =
-      "voicing" +
-      (v.highlight ? ` hl-${v.highlight}` : "") +
-      (kind === "warn" ? " warn" : "") +
-      (v.optional ? " optional" : "") +
-      (v.needsReview ? " review" : "") +
-      (isLearned ? " learned" : "") +
-      (!isLearned && v === cursor ? " cursor" : "");
-    b.id = `v-${v.id}`;
-    b.setAttribute("aria-pressed", String(isLearned));
-    const meaning = v.highlight && LEGEND[v.highlight] ? ` (${LEGEND[v.highlight]})` : "";
-    const opt = v.optional ? " opcional" : "";
-    const rev = v.needsReview ? ` needsReview: ${v.reviewReason || "revisar"}` : "";
-    b.setAttribute(
-      "aria-label",
-      `Voicing ${v.order}: ${v.degrees.join(", ")}${meaning}${opt}.${rev} ${isLearned ? "Ya me lo sé" : "Sin marcar"}`
-    );
-    if (v.needsReview) b.title = v.reviewReason || "revisar";
-    const badges =
-      (v.needsReview ? `<span class="badge review" aria-hidden="true">!</span>` : "") +
-      (kind === "warn" && !v.needsReview ? `<span class="badge warn" aria-hidden="true">⚠</span>` : "") +
-      (isLearned ? `<span class="badge check" aria-hidden="true">✓</span>` : "");
-    const stack = v.degrees.map(DEG).join("");
-    b.innerHTML =
-      `<span class="ord">${v.order}</span>` + badges +
-      (v.optional ? `<span class="paren l">(</span>${stack}<span class="paren r">)</span>` : stack);
-    b.addEventListener("click", () => {
-      if (learned[v.id]) delete learned[v.id];
-      else learned[v.id] = true;
-      persist();
-      render();
-    });
-    el.grid.appendChild(b);
-  }
+  // insertar al inicio
+  const head = document.createElement("button");
+  head.className = "insert-head";
+  head.title = "Insertar columna al inicio";
+  head.textContent = "+";
+  head.addEventListener("click", () => insertAfter(data, 0));
+  el.grid.appendChild(head);
+
+  data.voicings.sort((a, b) => a.order - b.order);
+  for (const v of data.voicings) el.grid.appendChild(makeCard(data, v));
 }
 
-function renderProgress() {
+function renderHonesty() {
   const data = state.chapters[state.active];
   const ch = CHAPTERS.find((c) => c.slug === state.active);
-  const total = data ? studiable(data.voicings).length : 0;
-  const transcribed = data ? data.voicings.length : 0;
-  const done = data ? countLearned(data.voicings) : 0;
-  const decl = ch.declared ? ` · ${transcribed}/${ch.declared} transcritas` : "";
-  el.global.innerHTML = `${ch.name} · <span class="n">${done}</span> / ${total}${decl}`;
+  if (!data || data.voicings.length === 0) { el.honesty.textContent = ""; el.audit.textContent = ""; return; }
+  const n = data.voicings.length;
+  const decl = ch.declared || n;
+  const falta = decl - n;
+  const ver = countVerified(data);
+  el.honesty.innerHTML =
+    `<b>${n}</b> de <b>${decl}</b> transcritos` +
+    (falta > 0 ? ` — <span class="miss">faltan ${falta}</span>` : falta < 0 ? ` — <span class="miss">${-falta} de más</span>` : ` ✓`) +
+    ` · verificados <b>${ver}</b>/${n}`;
 
-  const next = data ? firstUnlearned(data.voicings) : null;
-  if (!data || total === 0) {
-    el.where.textContent = "";
-    el.goBtn.textContent = "Sin voicings";
-    el.goBtn.disabled = true;
-    el.goBtn.onclick = null;
+  if (ch.audit) {
+    const got = colorAudit(data);
+    const cell = (c) => {
+      const ok = got[c] === ch.audit[c];
+      return `<span class="au ${ok ? "ok" : "bad"}"><span class="sw" style="background:var(--${c})"></span>${got[c]}/${ch.audit[c]}</span>`;
+    };
+    el.audit.innerHTML = `auditoría de color: ${cell("yellow")} ${cell("orange")} ${cell("red")}`;
+  } else el.audit.textContent = "";
+}
+
+function renderContinuar() {
+  const data = state.chapters[state.active];
+  const next = data && data.voicings.length ? firstUnlearned(data) : null;
+  if (!data || data.voicings.length === 0) {
+    el.where.textContent = ""; el.goBtn.textContent = "Sin voicings"; el.goBtn.disabled = true; el.goBtn.onclick = null;
   } else if (!next) {
-    el.where.textContent = "";
-    el.goBtn.textContent = "Capítulo completo ✓";
-    el.goBtn.disabled = true;
-    el.goBtn.onclick = null;
+    el.where.textContent = ""; el.goBtn.textContent = "Todo aprendido ✓"; el.goBtn.disabled = true; el.goBtn.onclick = null;
   } else {
     el.where.innerHTML = `vas por el <span class="n">nº ${next.order}</span>`;
-    el.goBtn.textContent = "Continuar →";
-    el.goBtn.disabled = false;
-    el.goBtn.onclick = () => {
-      const node = document.getElementById(`v-${next.id}`);
-      node.scrollIntoView({ behavior: "smooth", block: "center" });
-      node.focus({ preventScroll: true });
-    };
+    el.goBtn.textContent = "Continuar →"; el.goBtn.disabled = false;
+    el.goBtn.onclick = () => { const node = document.getElementById(`v-${next.id}`); node.scrollIntoView({ behavior: "smooth", block: "center" }); node.querySelector(".deg")?.focus(); };
   }
 }
 
@@ -188,8 +342,48 @@ function render() {
   renderChapters();
   renderIntro();
   renderGrid();
-  renderProgress();
+  renderHonesty();
+  renderContinuar();
 }
+
+// ---------- exportar / reimportar ----------
+function exportJSON() {
+  const data = state.chapters[state.active];
+  if (!data || !data.meta) return;
+  const mode = data.meta.mode;
+  const voicings = data.voicings.slice().sort((a, b) => a.order - b.order).map((v) => {
+    const reasons = validateVoicing(v.degrees, mode);
+    const out = {
+      id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
+      degrees: v.degrees, intervals: computeIntervals(v.degrees),
+      highlight: v.highlight ?? null, optional: !!v.optional,
+      verified: !!v.verified, inManuscript: v.inManuscript !== false,
+    };
+    if (reasons.length) { out.needsReview = true; out.reviewReason = reasons[0]; }
+    return out;
+  });
+  const doc = {
+    mode, chordScale: data.meta.chordScale, source: data.meta.source,
+    verified: voicings.every((v) => v.verified),
+    voicings,
+  };
+  const blob = new Blob([JSON.stringify(doc, null, 1) + "\n"], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = (data.meta.source || `p02-${mode}`).split("/").pop().replace(/\.png$/, "") + ".json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function reimport() {
+  const ch = CHAPTERS.find((c) => c.slug === state.active);
+  if (!ch || !ch.file) return;
+  localStorage.removeItem(docKey(ch.slug));
+  loadChapter(ch).then((d) => { state.chapters[ch.slug] = d; render(); });
+}
+
+el.exportBtn.addEventListener("click", exportJSON);
+el.resetBtn.addEventListener("click", reimport);
 
 // ---------- init ----------
 (async () => {
