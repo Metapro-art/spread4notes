@@ -1,86 +1,77 @@
 // spread4notes — herramienta de transcripción + estudio.
 //
-// El borrador (data/draft/*.json) es una lectura por visión con ~8 columnas
-// faltantes y errores. El autor lo corrige AQUÍ, mientras estudia. El único
-// lector del escaneo es el autor; la app no lee la imagen.
+// El autor es la AUTORIDAD FINAL sobre su manuscrito: todo voicing es editable
+// siempre, sin advertencias. `tools/validate.js` informa por CLI, no toca la UI.
 //
 // Verdad: el JSON EXPORTADO. localStorage es solo el estado de trabajo.
-// Dos estados DISTINTOS: `verified` (transcripción corregida, se exporta) y
-// `learned` (estudio personal, NO se exporta). Los grados van top→bottom.
+// `verified` (transcripción confirmada, se exporta) ≠ `learned` (estudio, no).
+// Grados top→bottom. `highlights` es un array: varios resaltadores por columna.
 
 import { LEGEND } from "./core/legend.js";
-import { validateVoicing } from "../tools/validate.js";
 import { computeIntervals } from "./core/voicing.js";
 
 const CHAPTERS = [
   { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
-  { slug: "dorian", name: "Dórico", file: "data/draft/p03-dorico-eolico.json", declared: 104 },
-  { slug: "aeolian", name: "Eólico", derivesFrom: "dorian", asMode: "aeolian", mapDegree: { "13": "b13" }, declared: 104 },
+  {
+    slug: "dorian", name: "Dórico / Eólico", file: "data/voicings/p03-dorico-eolico.json", declared: 104,
+    // Mismo set de voicings; el toggle solo cambia cómo se LEE el grado escrito.
+    variants: [
+      { key: "dorico", label: "Dórico", scale: ["1", "9", "b3", "11", "5", "13", "b7"], map: {} },
+      { key: "eolico", label: "Eólico", scale: ["1", "9", "b3", "11", "5", "b13", "b7"], map: { "13": "b13" } },
+      { key: "menormayor", label: "−Δ7", scale: ["1", "9", "b3", "11", "5", "13", "7"], map: { "b7": "7" } },
+    ],
+  },
   { slug: "mixolydian", name: "Mixolidio", file: null },
   { slug: "lydian", name: "Lidio", file: null },
   { slug: "locrian", name: "Locrio", file: null },
 ];
 
+// Colores de resaltador, en ORDEN FIJO para las franjas.
+const STRIPE_ORDER = ["yellow", "orange", "purple", "red", "blue"];
+// Toggles del editor (juicios por columna; azul es decodificador de modo, aparte).
+const TOGGLE_COLORS = ["yellow", "orange", "purple", "red"];
+
 // ---------- persistencia ----------
-const LEARN_KEY = "s4n-learned";                 // personal, NO se exporta
-const docKey = (slug) => `s4n-doc-${slug}`;      // estado de trabajo, se exporta
-const baseKey = (slug) => `s4n-base-${slug}`;    // firma del archivo commiteado sobre el que se editó
+const LEARN_KEY = "s4n-learned";
+const docKey = (slug) => `s4n-doc-${slug}`;
+const baseKey = (slug) => `s4n-base-${slug}`;
 const learned = JSON.parse(localStorage.getItem(LEARN_KEY) || "{}");
 const saveLearned = () => localStorage.setItem(LEARN_KEY, JSON.stringify(learned));
 
-const state = { active: "ionian", chapters: {}, intro: null };
+const VARIANT_KEY = "s4n-variant";
+const state = { active: "ionian", chapters: {}, intro: null, variant: JSON.parse(localStorage.getItem(VARIANT_KEY) || "{}") };
+const saveVariant = () => localStorage.setItem(VARIANT_KEY, JSON.stringify(state.variant));
 
 let uid = 0;
 const newId = () => `ins-${Date.now().toString(36)}-${(uid++).toString(36)}`;
 
-// Firma del archivo commiteado: cambia cuando se pushean datos nuevos. Si la copia
-// de trabajo local se hizo sobre otra firma, se recarga del archivo (así los datos
-// nuevos llegan sin "reimportar" a mano; las ediciones ya se habrán exportado).
+const asHighlights = (v) => Array.isArray(v.highlights) ? v.highlights : (v.highlight ? [v.highlight] : []);
 const sigOf = (base) => base.voicings.length + ":" + base.voicings.map((v) => v.degrees.join("")).join("|");
 
-function fromBase(base, mp) {
+function fromBase(base) {
   return base.voicings.map((v) => ({
     id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
-    degrees: v.degrees.map(mp), highlight: v.highlight ?? null,
+    degrees: [...v.degrees], highlights: [...asHighlights(v)],
     optional: !!v.optional, verified: !!v.verified, inManuscript: v.inManuscript !== false,
   }));
 }
 
 async function loadChapter(ch) {
-  if (ch.derivesFrom) return { ...ch, voicings: [], meta: null, derived: true }; // se construye tras cargar la fuente
   if (!ch.file) return { ...ch, voicings: [], meta: null };
   const base = await (await fetch(ch.file)).json();
-  const mp = (g) => g;
   const meta = { mode: base.mode, chordScale: base.chordScale || [], source: base.source };
   const sig = sigOf(base);
   const saved = localStorage.getItem(docKey(ch.slug));
   const savedSig = localStorage.getItem(baseKey(ch.slug));
   let voicings;
   if (saved && savedSig === sig) {
-    voicings = JSON.parse(saved);            // edición local sobre la versión actual del archivo
+    voicings = JSON.parse(saved).map((v) => ({ ...v, highlights: asHighlights(v) }));
   } else {
-    voicings = fromBase(base, mp);           // sin copia o el archivo cambió -> recarga del archivo
+    voicings = fromBase(base);
     localStorage.setItem(docKey(ch.slug), JSON.stringify(voicings));
     localStorage.setItem(baseKey(ch.slug), sig);
   }
   return { ...ch, meta, voicings };
-}
-
-// Eólico y afines: vista DERIVADA en vivo de su fuente (Dórico) con mapeo de
-// grados (13->b13). Una sola casilla: mismos voicings, se editan en la fuente.
-function refreshDerived() {
-  for (const ch of CHAPTERS) {
-    if (!ch.derivesFrom) continue;
-    const src = state.chapters[ch.derivesFrom];
-    const map = ch.mapDegree || {};
-    const mp = (g) => (map[g] ?? g);
-    if (!src || !src.meta) { state.chapters[ch.slug] = { ...ch, derived: true, voicings: [], meta: null }; continue; }
-    state.chapters[ch.slug] = {
-      ...ch, derived: true,
-      meta: { mode: ch.asMode || src.meta.mode, chordScale: src.meta.chordScale.map(mp), source: src.meta.source },
-      voicings: src.voicings.map((v) => ({ ...v, degrees: v.degrees.map(mp) })),
-    };
-  }
 }
 
 function saveDoc(slug) {
@@ -88,28 +79,45 @@ function saveDoc(slug) {
 }
 function renumber(voicings) { voicings.sort((a, b) => a.order - b.order).forEach((v, i) => (v.order = i + 1)); }
 
-// ---------- derivados ----------
-const reasonsOf = (v, mode) => validateVoicing(v.degrees, mode);
-const isReview = (v, mode) => reasonsOf(v, mode).length > 0;
-const studiable = (data) => data.voicings.filter((v) => !isReview(v, data.meta.mode));
-const countLearned = (data) => studiable(data).filter((v) => learned[v.id]).length;
-const countVerified = (data) => data.voicings.filter((v) => v.verified).length;
-const firstUnlearned = (data) => studiable(data).find((v) => !learned[v.id]) || null;
+// ---------- variantes (Dórico / Eólico / −Δ7): solo relabelan el grado escrito ----------
+function activeVariant(ch) {
+  if (!ch || !ch.variants) return null;
+  const key = state.variant[ch.slug] || ch.variants[0].key;
+  return ch.variants.find((v) => v.key === key) || ch.variants[0];
+}
+const variantMap = (ch) => { const av = activeVariant(ch); return av ? av.map : {}; };
+const variantInv = (ch) => { const av = activeVariant(ch); return av ? Object.fromEntries(Object.entries(av.map).map(([k, w]) => [w, k])) : {}; };
+const editScale = (ch, data) => { const av = activeVariant(ch); return av ? av.scale : (data.meta ? data.meta.chordScale : []); };
 
-function colorAudit(data) {
-  const got = {};
-  for (const v of data.voicings) if (v.highlight) got[v.highlight] = (got[v.highlight] || 0) + 1;
-  return got;
+// ---------- derivados ----------
+const countLearned = (data) => data.voicings.filter((v) => learned[v.id]).length;
+const countVerified = (data) => data.voicings.filter((v) => v.verified).length;
+const firstUnlearned = (data) => data.voicings.find((v) => !learned[v.id]) || null;
+
+// ---------- resaltados: fondo en franjas verticales ----------
+const orderedHls = (hls) => STRIPE_ORDER.filter((c) => hls.includes(c));
+function highlightBg(hls) {
+  const cs = orderedHls(hls);
+  if (!cs.length) return "";
+  if (cs.length === 1) return `var(--${cs[0]})`;
+  const step = 100 / cs.length;
+  return `linear-gradient(90deg, ${cs.map((c, i) => `var(--${c}) ${(i * step).toFixed(3)}% ${((i + 1) * step).toFixed(3)}%`).join(", ")})`;
+}
+const swatchHtml = (hls) => { const bg = highlightBg(hls); return bg ? `<span class="sw" style="background:${bg}"></span>` : `<span class="sw none"></span>`; };
+function applyHighlights(card, hls) {
+  const bg = highlightBg(hls);
+  card.style.background = bg || "";
+  card.classList.toggle("colored", !!bg);
 }
 
 // ---------- DOM refs ----------
 const el = {
   chapters: document.getElementById("chapters"),
   intro: document.getElementById("intro"),
+  variants: document.getElementById("variants"),
   legend: document.getElementById("legend"),
   grid: document.getElementById("grid"),
   honesty: document.getElementById("honesty"),
-  audit: document.getElementById("audit"),
   where: document.getElementById("where"),
   goBtn: document.getElementById("go"),
   exportBtn: document.getElementById("export"),
@@ -120,6 +128,13 @@ const el = {
 let popover = null;
 function closePopover() { if (popover) { popover.remove(); popover = null; } }
 document.addEventListener("click", (e) => { if (popover && !popover.contains(e.target) && !e.target.closest("[data-pop]")) closePopover(); });
+function positionPopover(p, anchor) {
+  const r = anchor.getBoundingClientRect(), pr = p.getBoundingClientRect();
+  let left = Math.max(8, Math.min(r.left + r.width / 2 - pr.width / 2, window.innerWidth - pr.width - 8));
+  let top = r.bottom + 6;
+  if (top + pr.height > window.innerHeight - 8) top = r.top - pr.height - 6;
+  p.style.left = `${left}px`; p.style.top = `${top}px`;
+}
 function openPopover(anchor, items) {
   closePopover();
   const p = document.createElement("div");
@@ -132,14 +147,7 @@ function openPopover(anchor, items) {
     p.appendChild(b);
   }
   document.body.appendChild(p);
-  const r = anchor.getBoundingClientRect();
-  const pr = p.getBoundingClientRect();
-  let left = r.left + r.width / 2 - pr.width / 2;
-  left = Math.max(8, Math.min(left, window.innerWidth - pr.width - 8));
-  let top = r.bottom + 6;
-  if (top + pr.height > window.innerHeight - 8) top = r.top - pr.height - 6;
-  p.style.left = `${left}px`;
-  p.style.top = `${top}px`;
+  positionPopover(p, anchor);
   popover = p;
 }
 
@@ -155,8 +163,7 @@ function renderIntro() {
 }
 
 function renderLegend() {
-  const order = ["yellow", "orange", "purple", "red", "blue"];
-  el.legend.innerHTML = order.map((c) =>
+  el.legend.innerHTML = ["yellow", "orange", "purple", "red", "blue"].map((c) =>
     `<span class="lg"><span class="sw" style="background:var(--${c})"></span>${LEGEND[c]}</span>`
   ).join("");
 }
@@ -177,38 +184,66 @@ function renderChapters() {
   }
 }
 
+function renderVariants() {
+  const ch = CHAPTERS.find((c) => c.slug === state.active);
+  const data = state.chapters[state.active];
+  if (!ch || !ch.variants || !data || !data.voicings.length) { el.variants.hidden = true; el.variants.innerHTML = ""; return; }
+  el.variants.hidden = false;
+  const cur = activeVariant(ch);
+  el.variants.innerHTML =
+    `<div class="seg" role="group" aria-label="Lectura del acorde">` +
+    ch.variants.map((v) => `<button class="seg-btn${v.key === cur.key ? " on" : ""}" data-pop data-vk="${v.key}">${v.label}</button>`).join("") +
+    `</div><span class="seg-scale">${cur.scale.join(" ")}</span>`;
+  el.variants.querySelectorAll(".seg-btn").forEach((b) =>
+    b.addEventListener("click", () => { state.variant[state.active] = b.dataset.vk; saveVariant(); closePopover(); render(); }));
+}
+
 const MODES_DEGREE_ORDER = ["1", "b9", "9", "b3", "3", "11", "#11", "b5", "5", "#5", "b13", "6", "13", "b7", "7"];
 
 function editDegree(data, v, i, anchor) {
-  const scale = data.meta.chordScale;
-  const items = scale
+  const inv = variantInv(data);            // lo mostrado (variante) -> canónico (dórico)
+  const items = editScale(data, data)
     .slice()
     .sort((a, b) => MODES_DEGREE_ORDER.indexOf(a) - MODES_DEGREE_ORDER.indexOf(b))
     .map((g) => ({
-      html: g, cls: g === v.degrees[i] ? "sel" : "",
-      onPick: () => { v.degrees[i] = g; saveDoc(data.slug); render(); },
+      html: g, cls: g === (variantMap(data)[v.degrees[i]] ?? v.degrees[i]) ? "sel" : "",
+      onPick: () => { v.degrees[i] = inv[g] ?? g; saveDoc(data.slug); render(); },
     }));
   openPopover(anchor, items);
 }
 
+// Editor de color = toggles INDEPENDIENTES (varios a la vez). NO selector único.
 function editColor(data, v, anchor) {
-  const opts = [
-    { c: "yellow" }, { c: "orange" }, { c: "purple" }, { c: "red" }, { c: "blue" }, { c: null },
-  ];
-  const items = opts.map((o) => ({
-    html: o.c ? `<span class="sw" style="background:var(--${o.c})"></span>${LEGEND[o.c]}` : `<span class="sw none"></span>Ninguno`,
-    cls: (v.highlight ?? null) === o.c ? "sel" : "",
-    onPick: () => { v.highlight = o.c; saveDoc(data.slug); render(); },
-  }));
-  openPopover(anchor, items);
+  closePopover();
+  const p = document.createElement("div");
+  p.className = "popover";
+  TOGGLE_COLORS.forEach((c) => {
+    const b = document.createElement("button");
+    const on = () => v.highlights.includes(c);
+    b.className = "pop-item toggle" + (on() ? " sel" : "");
+    b.innerHTML = `<span class="chk">${on() ? "✓" : ""}</span><span class="sw" style="background:var(--${c})"></span>${LEGEND[c]}`;
+    b.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      const idx = v.highlights.indexOf(c);
+      if (idx >= 0) v.highlights.splice(idx, 1); else v.highlights.push(c);
+      b.classList.toggle("sel", on());
+      b.querySelector(".chk").textContent = on() ? "✓" : "";
+      saveDoc(data.slug);
+      const card = document.getElementById(`v-${v.id}`);
+      if (card) { applyHighlights(card, v.highlights); const cb = card.querySelector(".t-color"); if (cb) cb.innerHTML = swatchHtml(v.highlights); }
+    });
+    p.appendChild(b);
+  });
+  document.body.appendChild(p);
+  positionPopover(p, anchor);
+  popover = p;
 }
 
 function insertAfter(data, order) {
-  const scale = data.meta?.chordScale || ["1", "7", "3", "5"];
+  const scale = data.meta?.chordScale || ["1", "b7", "b3", "5"];
   const nv = {
     id: newId(), order: order + 0.5, system: null, column: null,
-    degrees: scale.slice(0, 4), highlight: null, optional: false,
-    verified: false, inManuscript: true,
+    degrees: scale.slice(0, 4), highlights: [], optional: false, verified: false, inManuscript: true,
   };
   data.voicings.push(nv);
   renumber(data.voicings);
@@ -229,48 +264,27 @@ function deleteVoicing(data, v) {
 }
 
 function makeCard(data, v) {
-  const mode = data.meta.mode;
-  const review = isReview(v, mode);
-
-  // Vista derivada (Eólico): tarjeta SOLO-LECTURA, sin controles de edición.
-  if (data.derived) {
-    const card = document.createElement("div");
-    card.className = "voicing derived" +
-      (v.highlight ? ` hl-${v.highlight}` : "") + (v.optional ? " optional" : "") + (review ? " review" : "");
-    card.id = `v-${v.id}`;
-    card.innerHTML =
-      `<div class="v-top"><span class="ord">${v.order}</span></div>` +
-      `<div class="deg-stack${v.optional ? " paren" : ""}">` +
-      v.degrees.map((g) => `<span class="deg ro">${g}</span>`).join("") + `</div>`;
-    if (review) { const t = document.createElement("span"); t.className = "review-tag"; t.textContent = "!"; card.appendChild(t); }
-    return card;
-  }
-
-  const reason = review ? reasonsOf(v, mode)[0] : null;
   const isLearned = !!learned[v.id];
+  const dmap = variantMap(data);
   const card = document.createElement("div");
-  card.className =
-    "voicing" +
-    (v.highlight ? ` hl-${v.highlight}` : "") +
-    (v.optional ? " optional" : "") +
-    (review ? " review" : "") +
-    (v.verified ? " verified" : "") +
-    (isLearned ? " learned" : "");
+  card.className = "voicing" + (highlightBg(v.highlights) ? " colored" : "") +
+    (v.optional ? " optional" : "") + (v.verified ? " verified" : "") + (isLearned ? " learned" : "");
   card.id = `v-${v.id}`;
+  card.style.background = highlightBg(v.highlights) || "";
 
-  // fila superior compacta: orden · color · verificado · menú (⋯)
+  // fila superior: orden · color (multi) · verificado · menú (⋯)
   const top = document.createElement("div");
   top.className = "v-top";
   const ord = document.createElement("span");
   ord.className = "ord"; ord.textContent = v.order;
   const colorBtn = document.createElement("button");
   colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
-  colorBtn.title = v.highlight ? LEGEND[v.highlight] : "Sin color";
-  colorBtn.innerHTML = v.highlight ? `<span class="sw" style="background:var(--${v.highlight})"></span>` : `<span class="sw none"></span>`;
+  colorBtn.title = "Colores (varios posibles)";
+  colorBtn.innerHTML = swatchHtml(v.highlights);
   colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
   const verBtn = document.createElement("button");
   verBtn.className = "t t-ver" + (v.verified ? " on" : ""); verBtn.setAttribute("data-pop", "");
-  verBtn.setAttribute("aria-pressed", String(v.verified)); verBtn.title = "Verificado (transcripción correcta)";
+  verBtn.setAttribute("aria-pressed", String(v.verified)); verBtn.title = "Verificado";
   verBtn.textContent = "✓";
   verBtn.addEventListener("click", () => { v.verified = !v.verified; saveDoc(data.slug); render(); });
   const moreBtn = document.createElement("button");
@@ -279,23 +293,20 @@ function makeCard(data, v) {
   moreBtn.addEventListener("click", () => moreMenu(data, v, moreBtn));
   top.append(ord, colorBtn, verBtn, moreBtn);
 
-  // grados editables (top→bottom)
+  // grados editables (top→bottom), con el grado RELABELADO según la variante
   const stack = document.createElement("div");
-  stack.className = "deg-stack";
-  if (v.optional) stack.classList.add("paren");
+  stack.className = "deg-stack" + (v.optional ? " paren" : "");
   v.degrees.forEach((g, i) => {
+    const shown = dmap[g] ?? g;
     const d = document.createElement("button");
-    d.className = "deg";
-    d.setAttribute("data-pop", "");
-    d.setAttribute("aria-label", `Grado voz ${i + 1}: ${g}. Tocar para cambiar.`);
-    d.textContent = g;
+    d.className = "deg"; d.setAttribute("data-pop", "");
+    d.setAttribute("aria-label", `Grado voz ${i + 1}: ${shown}. Tocar para cambiar.`);
+    d.textContent = shown;
     d.addEventListener("click", () => editDegree(data, v, i, d));
     stack.appendChild(d);
   });
 
   if (isLearned) card.setAttribute("title", "Ya me lo sé");
-  if (review) { const tag = document.createElement("span"); tag.className = "review-tag"; tag.title = reason || "revisar"; tag.textContent = "!"; card.appendChild(tag); }
-
   card.append(top, stack);
   return card;
 }
@@ -314,36 +325,24 @@ function moreMenu(data, v, anchor) {
 function renderGrid() {
   const data = state.chapters[state.active];
   el.grid.innerHTML = "";
-  const transcribable = data && data.file && !data.derived;
+  const transcribable = data && data.file;
   if (!data || (data.voicings.length === 0 && !transcribable)) {
     el.grid.innerHTML = `<p class="empty">Este capítulo aún no está transcrito.<br>Próximamente.</p>`;
     return;
   }
-
-  if (data.derived) {
-    const src = CHAPTERS.find((c) => c.slug === data.derivesFrom);
-    const note = document.createElement("p");
-    note.className = "derived-note";
-    note.innerHTML = `Vista de <b>${src ? src.name : "Dórico"}</b> con 13→b13 — mismos voicings. Edítalos en ${src ? src.name : "Dórico"}.`;
-    el.grid.appendChild(note);
+  const head = document.createElement("button");
+  head.className = "insert-head";
+  head.title = "Insertar columna al inicio";
+  head.textContent = "+";
+  head.addEventListener("click", () => insertAfter(data, 0));
+  el.grid.appendChild(head);
+  if (data.voicings.length === 0) {
+    const hint = document.createElement("p");
+    hint.className = "empty";
+    hint.innerHTML = `Capítulo vacío. Toca <b>+</b> para empezar a transcribir desde el manuscrito.`;
+    el.grid.appendChild(hint);
+    return;
   }
-
-  if (transcribable) {
-    const head = document.createElement("button");
-    head.className = "insert-head";
-    head.title = "Insertar columna al inicio";
-    head.textContent = "+";
-    head.addEventListener("click", () => insertAfter(data, 0));
-    el.grid.appendChild(head);
-    if (data.voicings.length === 0) {
-      const hint = document.createElement("p");
-      hint.className = "empty";
-      hint.innerHTML = `Capítulo vacío. Toca <b>+</b> para empezar a transcribir desde el manuscrito.`;
-      el.grid.appendChild(hint);
-      return;
-    }
-  }
-
   data.voicings.sort((a, b) => a.order - b.order);
   for (const v of data.voicings) el.grid.appendChild(makeCard(data, v));
 }
@@ -351,7 +350,7 @@ function renderGrid() {
 function renderHonesty() {
   const data = state.chapters[state.active];
   const ch = CHAPTERS.find((c) => c.slug === state.active);
-  if (!data || (!data.file && data.voicings.length === 0)) { el.honesty.textContent = ""; el.audit.textContent = ""; return; }
+  if (!data || (!data.file && data.voicings.length === 0)) { el.honesty.textContent = ""; return; }
   const n = data.voicings.length;
   const decl = ch.declared || n;
   const falta = decl - n;
@@ -360,15 +359,6 @@ function renderHonesty() {
     `<b>${n}</b> de <b>${decl}</b> transcritos` +
     (falta > 0 ? ` — <span class="miss">faltan ${falta}</span>` : falta < 0 ? ` — <span class="miss">${-falta} de más</span>` : ` ✓`) +
     ` · verificados <b>${ver}</b>/${n}`;
-
-  if (ch.audit) {
-    const got = colorAudit(data);
-    const cell = (c) => {
-      const g = got[c] || 0, ok = g === ch.audit[c];
-      return `<span class="au ${ok ? "ok" : "bad"}"><span class="sw" style="background:var(--${c})"></span>${g}/${ch.audit[c]}</span>`;
-    };
-    el.audit.innerHTML = `auditoría de color: ${Object.keys(ch.audit).map(cell).join(" ")}`;
-  } else el.audit.textContent = "";
 }
 
 function renderContinuar() {
@@ -386,9 +376,9 @@ function renderContinuar() {
 }
 
 function render() {
-  refreshDerived();
   renderChapters();
   renderIntro();
+  renderVariants();
   renderGrid();
   renderHonesty();
   renderContinuar();
@@ -399,33 +389,23 @@ function exportJSON() {
   const data = state.chapters[state.active];
   if (!data || !data.meta) return;
   const mode = data.meta.mode;
-  const voicings = data.voicings.slice().sort((a, b) => a.order - b.order).map((v) => {
-    const reasons = validateVoicing(v.degrees, mode);
-    const out = {
-      id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
-      degrees: v.degrees, intervals: computeIntervals(v.degrees),
-      highlight: v.highlight ?? null, optional: !!v.optional,
-      verified: !!v.verified, inManuscript: v.inManuscript !== false,
-    };
-    if (reasons.length) { out.needsReview = true; out.reviewReason = reasons[0]; }
-    return out;
-  });
-  const doc = {
-    mode, chordScale: data.meta.chordScale, source: data.meta.source,
-    verified: voicings.every((v) => v.verified),
-    voicings,
-  };
+  const voicings = data.voicings.slice().sort((a, b) => a.order - b.order).map((v) => ({
+    id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
+    degrees: v.degrees, intervals: computeIntervals(v.degrees),
+    highlights: v.highlights || [], optional: !!v.optional,
+    verified: !!v.verified, inManuscript: v.inManuscript !== false,
+  }));
+  const doc = { mode, chordScale: data.meta.chordScale, source: data.meta.source, verified: voicings.every((v) => v.verified), voicings };
   const blob = new Blob([JSON.stringify(doc, null, 1) + "\n"], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = (data.meta.source || `p02-${mode}`).split("/").pop().replace(/\.png$/, "") + ".json";
+  a.download = (data.meta.source || `p-${mode}`).split("/").pop().replace(/\.png$/, "") + ".json";
   a.click();
   URL.revokeObjectURL(a.href);
 }
 
 function reimport() {
-  let ch = CHAPTERS.find((c) => c.slug === state.active);
-  if (ch && ch.derivesFrom) ch = CHAPTERS.find((c) => c.slug === ch.derivesFrom); // Eólico -> reimporta Dórico
+  const ch = CHAPTERS.find((c) => c.slug === state.active);
   if (!ch || !ch.file) return;
   localStorage.removeItem(docKey(ch.slug));
   localStorage.removeItem(baseKey(ch.slug));
