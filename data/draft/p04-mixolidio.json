@@ -1,7 +1,5 @@
 {
  "mode": "mixolydian",
- "verified": false,
- "source": "scans/p04-mixolidio.png",
  "chordScale": [
   "1",
   "9",
@@ -11,12 +9,8 @@
   "13",
   "b7"
  ],
- "alternates": {
-  "9": "b9",
-  "13": "b13"
- },
- "declared": 51,
- "note": "Mixolidio (p04, PDF limpio). Lectura best-effort, verified:false. 6->13, 7->b7. Regla: 3ra+b7 siempre; 1 columna (s2 c6 [13,3,9,5]) no lleva 7ma segun lo escrito - revisar. Sin colores en la pagina (los pone el autor). Opcionales = paréntesis.",
+ "source": "scans/p04-mixolidio.png",
+ "verified": false,
  "voicings": [
   {
    "id": "mix-s1-01",
@@ -29,9 +23,14 @@
     "13",
     "3"
    ],
+   "intervals": [
+    2,
+    1,
+    5
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -45,9 +44,16 @@
     "5",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    3,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -61,9 +67,16 @@
     "3",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    6,
+    2
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -77,9 +90,16 @@
     "3",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    5,
+    6
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -93,9 +113,14 @@
     "3",
     "b7"
    ],
+   "intervals": [
+    5,
+    3,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -109,9 +134,16 @@
     "9",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    2,
+    4
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -125,9 +157,16 @@
     "3",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    6,
+    7
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -140,6 +179,11 @@
     "3",
     "b7",
     "13"
+   ],
+   "intervals": [
+    8,
+    6,
+    1
    ],
    "highlights": [],
    "optional": false,
@@ -157,9 +201,16 @@
     "3",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    1,
+    5,
+    2
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -173,9 +224,14 @@
     "3",
     "9"
    ],
+   "intervals": [
+    3,
+    3,
+    2
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -189,9 +245,16 @@
     "3",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    1,
+    5,
+    4
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -205,9 +268,14 @@
     "3",
     "1"
    ],
+   "intervals": [
+    3,
+    3,
+    4
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -221,9 +289,14 @@
     "9",
     "1"
    ],
+   "intervals": [
+    6,
+    2,
+    2
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -237,9 +310,16 @@
     "3",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    3,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -253,9 +333,16 @@
     "9",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    2,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -269,9 +356,16 @@
     "1",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    4,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -285,9 +379,14 @@
     "3",
     "5"
    ],
+   "intervals": [
+    1,
+    5,
+    9
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -301,9 +400,16 @@
     "9",
     "5"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    2,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -317,9 +423,14 @@
     "1",
     "5"
    ],
+   "intervals": [
+    6,
+    4,
+    5
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -333,9 +444,16 @@
     "13",
     "5"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    7,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -349,9 +467,16 @@
     "1",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    2,
+    8
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -365,9 +490,16 @@
     "13",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    5,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -381,9 +513,16 @@
     "3",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    3,
+    6
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -397,9 +536,16 @@
     "9",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    2,
+    4
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -413,9 +559,14 @@
     "9",
     "5"
    ],
+   "intervals": [
+    5,
+    2,
+    7
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -429,9 +580,16 @@
     "b7",
     "5"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    6,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -445,9 +603,14 @@
     "b7",
     "3"
    ],
+   "intervals": [
+    2,
+    9,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -461,7 +624,14 @@
     "b7",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    6,
+    1
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
    "verified": false,
    "inManuscript": true
@@ -477,9 +647,14 @@
     "b7",
     "3"
    ],
+   "intervals": [
+    5,
+    4,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -493,9 +668,14 @@
     "b7",
     "3"
    ],
+   "intervals": [
+    7,
+    2,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -509,9 +689,16 @@
     "b7",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    6,
+    8
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -525,9 +712,14 @@
     "3",
     "9"
    ],
+   "intervals": [
+    9,
+    6,
+    2
+   ],
    "highlights": [],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -541,9 +733,16 @@
     "b7",
     "5"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    4,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -557,9 +756,14 @@
     "b7",
     "5"
    ],
+   "intervals": [
+    4,
+    2,
+    3
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -573,9 +777,16 @@
     "b7",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    2,
+    8
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -589,9 +800,14 @@
     "5",
     "9"
    ],
+   "intervals": [
+    6,
+    3,
+    5
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -605,9 +821,16 @@
     "13",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    1,
+    9
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -621,9 +844,14 @@
     "5",
     "1"
    ],
+   "intervals": [
+    6,
+    3,
+    7
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -637,9 +865,16 @@
     "9",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    8,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -653,9 +888,14 @@
     "13",
     "b7"
    ],
+   "intervals": [
+    2,
+    5,
+    11
+   ],
    "highlights": [],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -669,9 +909,14 @@
     "13",
     "b7"
    ],
+   "intervals": [
+    4,
+    3,
+    11
+   ],
    "highlights": [],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -685,9 +930,14 @@
     "5",
     "b7"
    ],
+   "intervals": [
+    4,
+    5,
+    9
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -701,9 +951,16 @@
     "9",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    7,
+    4
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -717,9 +974,16 @@
     "13",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    1,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -733,9 +997,14 @@
     "5",
     "3"
    ],
+   "intervals": [
+    4,
+    3,
+    3
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -749,9 +1018,14 @@
     "3",
     "1"
    ],
+   "intervals": [
+    4,
+    6,
+    4
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -765,9 +1039,16 @@
     "3",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    8,
+    6
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -781,9 +1062,16 @@
     "3",
     "b7"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    5,
+    6
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -797,9 +1085,14 @@
     "3",
     "b7"
    ],
+   "intervals": [
+    7,
+    3,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -813,9 +1106,16 @@
     "3",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    6,
+    7
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -829,9 +1129,14 @@
     "b7",
     "13"
    ],
+   "intervals": [
+    10,
+    6,
+    1
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   }
  ]
