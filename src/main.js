@@ -15,7 +15,7 @@ import { computeIntervals } from "./core/voicing.js";
 const CHAPTERS = [
   { slug: "ionian", name: "Jónico", file: "data/draft/p02-jonico.json", declared: 85 },
   { slug: "dorian", name: "Dórico", file: "data/draft/p03-dorico-eolico.json", declared: 104 },
-  { slug: "aeolian", name: "Eólico", file: null },
+  { slug: "aeolian", name: "Eólico", file: "data/draft/p03-dorico-eolico.json", declared: 104, asMode: "aeolian", mapDegree: { "13": "b13" } },
   { slug: "mixolydian", name: "Mixolidio", file: null },
   { slug: "lydian", name: "Lidio", file: null },
   { slug: "locrian", name: "Locrio", file: null },
@@ -35,7 +35,13 @@ const newId = () => `ins-${Date.now().toString(36)}-${(uid++).toString(36)}`;
 async function loadChapter(ch) {
   if (!ch.file) return { ...ch, voicings: [], meta: null };
   const base = await (await fetch(ch.file)).json();
-  const meta = { mode: base.mode, chordScale: base.chordScale, source: base.source };
+  // Un capítulo puede reusar el archivo de otro modo con un mapeo de grados
+  // (Eólico = Dórico con 13 -> b13): mismos voicings, escala/mode distintos.
+  const map = ch.mapDegree || {};
+  const mp = (g) => (map[g] ?? g);
+  const mode = ch.asMode || base.mode;
+  const chordScale = (base.chordScale || []).map(mp);
+  const meta = { mode, chordScale, source: base.source };
   const saved = localStorage.getItem(docKey(ch.slug));
   let voicings;
   if (saved) {
@@ -43,7 +49,7 @@ async function loadChapter(ch) {
   } else {
     voicings = base.voicings.map((v) => ({
       id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
-      degrees: [...v.degrees], highlight: v.highlight ?? null,
+      degrees: v.degrees.map(mp), highlight: v.highlight ?? null,
       optional: !!v.optional, verified: false, inManuscript: v.inManuscript !== false,
     }));
     localStorage.setItem(docKey(ch.slug), JSON.stringify(voicings));
