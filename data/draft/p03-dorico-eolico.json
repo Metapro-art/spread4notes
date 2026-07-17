@@ -5,6 +5,13 @@
  "chordScale": ["1", "9", "b3", "11", "5", "13", "b7"],
  "alternates": { "13": "b13" },
  "declared": 104,
- "note": "Dórico. Los MISMOS voicings sirven para Eólico (13 -> b13) y para menor-mayor (-Δ7). Transcripcion pendiente: se hace en la app (el autor es el unico lector del escaneo). Meta: 104 columnas.",
- "voicings": []
+ "note": "Transcripcion en curso desde el PDF limpio (CamScanner). Sistema 1, primeras columnas leidas con confianza alta -> CALIBRACION: verificar contra el manuscrito antes de continuar. highlight=red se deriva de 'sin 3ra' (el PDF limpio solo conserva el rojo; amarillo/naranja/morado los pone el autor). Los mismos voicings sirven para Eolico (13->b13) y -Delta7.",
+ "voicings": [
+  { "id": "dor-s1-01", "order": 1, "system": 1, "column": 1, "degrees": ["1", "b7", "5", "b3"], "highlight": null, "optional": false, "inManuscript": true },
+  { "id": "dor-s1-02", "order": 2, "system": 1, "column": 2, "degrees": ["1", "b7", "11", "b3"], "highlight": null, "optional": false, "inManuscript": true },
+  { "id": "dor-s1-03", "order": 3, "system": 1, "column": 3, "degrees": ["1", "b7", "b3", "9"], "highlight": null, "optional": false, "inManuscript": true },
+  { "id": "dor-s1-04", "order": 4, "system": 1, "column": 4, "degrees": ["1", "b7", "11", "9"], "highlight": "red", "optional": false, "inManuscript": true },
+  { "id": "dor-s1-05", "order": 5, "system": 1, "column": 5, "degrees": ["1", "b7", "b3", "1"], "highlight": null, "optional": false, "inManuscript": true },
+  { "id": "dor-s1-06", "order": 6, "system": 1, "column": 6, "degrees": ["1", "b7", "9", "1"], "highlight": "red", "optional": false, "inManuscript": true }
+ ]
 }
