@@ -1060,7 +1060,9 @@
     3,
     4
    ],
-   "highlights": [],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
    "verified": false,
    "inManuscript": true
@@ -1081,7 +1083,9 @@
     1,
     4
    ],
-   "highlights": [],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
    "verified": false,
    "inManuscript": true

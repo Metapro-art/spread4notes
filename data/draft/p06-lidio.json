@@ -1,7 +1,5 @@
 {
  "mode": "lydian",
- "verified": false,
- "source": "scans/p06-lidio.png",
  "chordScale": [
   "1",
   "9",
@@ -11,12 +9,8 @@
   "13",
   "7"
  ],
- "alternates": {
-  "5": "#5",
-  "7": "b7"
- },
- "declared": 141,
- "note": "Lidio (p06-p07, PDF con verde). Lectura best-effort verified:false. 11->#11, 6->13, 7->7 natural. Regla: todo voicing lleva #11. verde=tiene 5ta (derivado). Sistemas 2 y 6 mas densos (verde encima) = menor confianza en voces medias. Sistema 7 viene de p07. Faltan ~6 para 141 (miscount en densos).",
+ "source": "scans/p06-lidio.png",
+ "verified": false,
  "voicings": [
   {
    "id": "lyd-s1-01",
@@ -29,9 +23,14 @@
     "#11",
     "3"
    ],
+   "intervals": [
+    1,
+    5,
+    2
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -45,9 +44,17 @@
     "#11",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    1,
+    5,
+    4
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -61,9 +68,17 @@
     "#11",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    3,
+    7
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -77,11 +92,18 @@
     "#11",
     "7"
    ],
+   "intervals": [
+    5,
+    1,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -95,9 +117,16 @@
     "3",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    2,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -111,9 +140,16 @@
     "3",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    2,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -127,9 +163,17 @@
     "7",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    7,
+    2
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -143,11 +187,17 @@
     "3",
     "5"
    ],
+   "intervals": [
+    6,
+    2,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -161,11 +211,17 @@
     "9",
     "5"
    ],
+   "intervals": [
+    6,
+    4,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -179,9 +235,16 @@
     "9",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    2,
+    8
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -195,9 +258,17 @@
     "#11",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    3,
+    4
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -211,9 +282,17 @@
     "#11",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    3,
+    6
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -227,11 +306,18 @@
     "#11",
     "1"
    ],
+   "intervals": [
+    4,
+    1,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -245,9 +331,14 @@
     "3",
     "1"
    ],
+   "intervals": [
+    5,
+    2,
+    4
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -261,9 +352,16 @@
     "9",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    4,
+    2
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -277,11 +375,18 @@
     "#11",
     "13"
    ],
+   "intervals": [
+    4,
+    1,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -295,9 +400,14 @@
     "3",
     "13"
    ],
+   "intervals": [
+    5,
+    2,
+    7
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -311,9 +421,16 @@
     "9",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    4,
+    5
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -327,8 +444,14 @@
     "3",
     "5"
    ],
+   "intervals": [
+    5,
+    2,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange"
    ],
    "optional": false,
    "verified": false,
@@ -345,11 +468,17 @@
     "9",
     "5"
    ],
+   "intervals": [
+    5,
+    4,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -363,11 +492,18 @@
     "1",
     "5"
    ],
+   "intervals": [
+    5,
+    6,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -381,11 +517,18 @@
     "13",
     "5"
    ],
+   "intervals": [
+    5,
+    9,
+    2
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -399,11 +542,17 @@
     "9",
     "#11"
    ],
+   "intervals": [
+    4,
+    5,
+    8
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -417,9 +566,16 @@
     "9",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    2,
+    8
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -433,9 +589,17 @@
     "1",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    9,
+    2,
+    6
+   ],
+   "highlights": [
+    "orange",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -449,9 +613,16 @@
     "3",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    2,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -465,9 +636,16 @@
     "9",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    4,
+    3
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -481,11 +659,17 @@
     "3",
     "5"
    ],
+   "intervals": [
+    3,
+    2,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -499,11 +683,17 @@
     "9",
     "5"
    ],
+   "intervals": [
+    3,
+    4,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
@@ -517,16 +707,46 @@
     "1",
     "5"
    ],
+   "intervals": [
+    3,
+    6,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpfwsut-0",
+   "order": 31,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "13",
+    "#11",
+    "7",
+    "5"
+   ],
+   "intervals": [
+    3,
+    7,
+    4
+   ],
+   "highlights": [
+    "red"
+   ],
+   "optional": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-12",
-   "order": 31,
+   "order": 32,
    "system": 2,
    "column": 12,
    "degrees": [
@@ -535,16 +755,21 @@
     "3",
     "#11"
    ],
+   "intervals": [
+    2,
+    3,
+    10
+   ],
    "highlights": [
     "green"
    ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-13",
-   "order": 32,
+   "order": 33,
    "system": 2,
    "column": 13,
    "degrees": [
@@ -553,16 +778,23 @@
     "9",
     "#11"
    ],
+   "intervals": [
+    2,
+    5,
+    8
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-14",
-   "order": 33,
+   "order": 34,
    "system": 2,
    "column": 14,
    "degrees": [
@@ -571,16 +803,23 @@
     "1",
     "#11"
    ],
+   "intervals": [
+    2,
+    7,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-15",
-   "order": 34,
+   "order": 35,
    "system": 2,
    "column": 15,
    "degrees": [
@@ -589,14 +828,19 @@
     "9",
     "#11"
    ],
+   "intervals": [
+    5,
+    2,
+    8
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-16",
-   "order": 35,
+   "order": 36,
    "system": 2,
    "column": 16,
    "degrees": [
@@ -605,14 +849,19 @@
     "1",
     "#11"
    ],
+   "intervals": [
+    5,
+    4,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-17",
-   "order": 36,
+   "order": 37,
    "system": 2,
    "column": 17,
    "degrees": [
@@ -621,14 +870,21 @@
     "7",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    5,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-18",
-   "order": 37,
+   "order": 38,
    "system": 2,
    "column": 18,
    "degrees": [
@@ -637,14 +893,22 @@
     "1",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    2,
+    6
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-19",
-   "order": 38,
+   "order": 39,
    "system": 2,
    "column": 19,
    "degrees": [
@@ -653,14 +917,21 @@
     "7",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    3,
+    5
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-20",
-   "order": 39,
+   "order": 40,
    "system": 2,
    "column": 20,
    "degrees": [
@@ -669,14 +940,21 @@
     "#11",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    8,
+    2
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s2-21",
-   "order": 40,
+   "order": 41,
    "system": 2,
    "column": 21,
    "degrees": [
@@ -685,16 +963,23 @@
     "9",
     "13"
    ],
+   "intervals": [
+    1,
+    4,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-01",
-   "order": 41,
+   "order": 42,
    "system": 3,
    "column": 1,
    "degrees": [
@@ -703,16 +988,23 @@
     "1",
     "13"
    ],
+   "intervals": [
+    1,
+    6,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-02",
-   "order": 42,
+   "order": 43,
    "system": 3,
    "column": 2,
    "degrees": [
@@ -721,16 +1013,23 @@
     "7",
     "13"
    ],
+   "intervals": [
+    1,
+    7,
+    2
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-03",
-   "order": 43,
+   "order": 44,
    "system": 3,
    "column": 3,
    "degrees": [
@@ -739,16 +1038,21 @@
     "9",
     "#11"
    ],
+   "intervals": [
+    3,
+    2,
+    8
+   ],
    "highlights": [
     "green"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-04",
-   "order": 44,
+   "order": 45,
    "system": 3,
    "column": 4,
    "degrees": [
@@ -757,16 +1061,22 @@
     "1",
     "#11"
    ],
+   "intervals": [
+    3,
+    4,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-05",
-   "order": 45,
+   "order": 46,
    "system": 3,
    "column": 5,
    "degrees": [
@@ -775,16 +1085,21 @@
     "7",
     "#11"
    ],
+   "intervals": [
+    3,
+    5,
+    5
+   ],
    "highlights": [
     "green"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-06",
-   "order": 46,
+   "order": 47,
    "system": 3,
    "column": 6,
    "degrees": [
@@ -793,16 +1108,22 @@
     "13",
     "#11"
    ],
+   "intervals": [
+    3,
+    7,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-07",
-   "order": 47,
+   "order": 48,
    "system": 3,
    "column": 7,
    "degrees": [
@@ -811,16 +1132,22 @@
     "1",
     "#11"
    ],
+   "intervals": [
+    5,
+    2,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-08",
-   "order": 48,
+   "order": 49,
    "system": 3,
    "column": 8,
    "degrees": [
@@ -829,16 +1156,22 @@
     "7",
     "#11"
    ],
+   "intervals": [
+    5,
+    3,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-09",
-   "order": 49,
+   "order": 50,
    "system": 3,
    "column": 9,
    "degrees": [
@@ -847,16 +1180,22 @@
     "13",
     "#11"
    ],
+   "intervals": [
+    5,
+    5,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-10",
-   "order": 50,
+   "order": 51,
    "system": 3,
    "column": 10,
    "degrees": [
@@ -865,16 +1204,23 @@
     "7",
     "#11"
    ],
+   "intervals": [
+    7,
+    1,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-11",
-   "order": 51,
+   "order": 52,
    "system": 3,
    "column": 11,
    "degrees": [
@@ -883,16 +1229,23 @@
     "13",
     "#11"
    ],
+   "intervals": [
+    7,
+    3,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-12",
-   "order": 52,
+   "order": 53,
    "system": 3,
    "column": 12,
    "degrees": [
@@ -901,16 +1254,21 @@
     "9",
     "3"
    ],
+   "intervals": [
+    1,
+    4,
+    10
+   ],
    "highlights": [
     "green"
    ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-13",
-   "order": 53,
+   "order": 54,
    "system": 3,
    "column": 13,
    "degrees": [
@@ -919,16 +1277,22 @@
     "1",
     "3"
    ],
+   "intervals": [
+    1,
+    6,
+    8
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-14",
-   "order": 54,
+   "order": 55,
    "system": 3,
    "column": 14,
    "degrees": [
@@ -937,16 +1301,21 @@
     "7",
     "3"
    ],
+   "intervals": [
+    1,
+    7,
+    7
+   ],
    "highlights": [
     "green"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-15",
-   "order": 55,
+   "order": 56,
    "system": 3,
    "column": 15,
    "degrees": [
@@ -955,16 +1324,22 @@
     "13",
     "3"
    ],
+   "intervals": [
+    1,
+    9,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-16",
-   "order": 56,
+   "order": 57,
    "system": 3,
    "column": 16,
    "degrees": [
@@ -973,16 +1348,23 @@
     "1",
     "9"
    ],
+   "intervals": [
+    1,
+    6,
+    10
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-17",
-   "order": 57,
+   "order": 58,
    "system": 3,
    "column": 17,
    "degrees": [
@@ -991,16 +1373,23 @@
     "7",
     "9"
    ],
+   "intervals": [
+    1,
+    7,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-18",
-   "order": 58,
+   "order": 59,
    "system": 3,
    "column": 18,
    "degrees": [
@@ -1009,16 +1398,23 @@
     "13",
     "9"
    ],
+   "intervals": [
+    1,
+    9,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-19",
-   "order": 59,
+   "order": 60,
    "system": 3,
    "column": 19,
    "degrees": [
@@ -1027,16 +1423,22 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    3,
+    10,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-20",
-   "order": 60,
+   "order": 61,
    "system": 3,
    "column": 20,
    "degrees": [
@@ -1045,16 +1447,23 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    7,
+    6,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-21",
-   "order": 61,
+   "order": 62,
    "system": 3,
    "column": 21,
    "degrees": [
@@ -1063,16 +1472,23 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    8,
+    5,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-22",
-   "order": 62,
+   "order": 63,
    "system": 3,
    "column": 22,
    "degrees": [
@@ -1081,16 +1497,22 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    10,
+    3,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-23",
-   "order": 63,
+   "order": 64,
    "system": 3,
    "column": 23,
    "degrees": [
@@ -1099,14 +1521,21 @@
     "9",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    2,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s3-24",
-   "order": 64,
+   "order": 65,
    "system": 3,
    "column": 24,
    "degrees": [
@@ -1115,14 +1544,21 @@
     "1",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    4,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-01",
-   "order": 65,
+   "order": 66,
    "system": 4,
    "column": 1,
    "degrees": [
@@ -1131,14 +1567,21 @@
     "7",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    5,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-02",
-   "order": 66,
+   "order": 67,
    "system": 4,
    "column": 2,
    "degrees": [
@@ -1147,14 +1590,21 @@
     "1",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    2,
+    3
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-03",
-   "order": 67,
+   "order": 68,
    "system": 4,
    "column": 3,
    "degrees": [
@@ -1163,14 +1613,22 @@
     "7",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    3,
+    2
+   ],
+   "highlights": [
+    "orange",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-04",
-   "order": 68,
+   "order": 69,
    "system": 4,
    "column": 4,
    "degrees": [
@@ -1179,16 +1637,22 @@
     "9",
     "5"
    ],
+   "intervals": [
+    2,
+    2,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-05",
-   "order": 69,
+   "order": 70,
    "system": 4,
    "column": 5,
    "degrees": [
@@ -1197,16 +1661,22 @@
     "1",
     "5"
    ],
+   "intervals": [
+    2,
+    4,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-06",
-   "order": 70,
+   "order": 71,
    "system": 4,
    "column": 6,
    "degrees": [
@@ -1215,16 +1685,22 @@
     "7",
     "5"
    ],
+   "intervals": [
+    2,
+    5,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-07",
-   "order": 71,
+   "order": 72,
    "system": 4,
    "column": 7,
    "degrees": [
@@ -1233,16 +1709,23 @@
     "1",
     "5"
    ],
+   "intervals": [
+    4,
+    2,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-08",
-   "order": 72,
+   "order": 73,
    "system": 4,
    "column": 8,
    "degrees": [
@@ -1251,16 +1734,22 @@
     "7",
     "5"
    ],
+   "intervals": [
+    4,
+    3,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-09",
-   "order": 73,
+   "order": 74,
    "system": 4,
    "column": 9,
    "degrees": [
@@ -1269,16 +1758,22 @@
     "13",
     "5"
    ],
+   "intervals": [
+    4,
+    5,
+    2
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-10",
-   "order": 74,
+   "order": 75,
    "system": 4,
    "column": 10,
    "degrees": [
@@ -1287,16 +1782,23 @@
     "7",
     "5"
    ],
+   "intervals": [
+    6,
+    1,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-11",
-   "order": 75,
+   "order": 76,
    "system": 4,
    "column": 11,
    "degrees": [
@@ -1305,16 +1807,22 @@
     "13",
     "5"
    ],
+   "intervals": [
+    6,
+    3,
+    2
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-12",
-   "order": 76,
+   "order": 77,
    "system": 4,
    "column": 12,
    "degrees": [
@@ -1323,14 +1831,21 @@
     "1",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    2,
+    8
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-13",
-   "order": 77,
+   "order": 78,
    "system": 4,
    "column": 13,
    "degrees": [
@@ -1339,14 +1854,21 @@
     "7",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    3,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-14",
-   "order": 78,
+   "order": 79,
    "system": 4,
    "column": 14,
    "degrees": [
@@ -1355,14 +1877,19 @@
     "7",
     "3"
    ],
+   "intervals": [
+    6,
+    1,
+    7
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-15",
-   "order": 79,
+   "order": 80,
    "system": 4,
    "column": 15,
    "degrees": [
@@ -1371,14 +1898,19 @@
     "13",
     "3"
    ],
+   "intervals": [
+    6,
+    3,
+    5
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-16",
-   "order": 80,
+   "order": 81,
    "system": 4,
    "column": 16,
    "degrees": [
@@ -1387,14 +1919,21 @@
     "13",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    2,
+    5
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-17",
-   "order": 81,
+   "order": 82,
    "system": 4,
    "column": 17,
    "degrees": [
@@ -1403,16 +1942,21 @@
     "5",
     "3"
    ],
+   "intervals": [
+    4,
+    7,
+    3
+   ],
    "highlights": [
     "green"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-18",
-   "order": 82,
+   "order": 83,
    "system": 4,
    "column": 18,
    "degrees": [
@@ -1421,16 +1965,21 @@
     "5",
     "3"
    ],
+   "intervals": [
+    6,
+    5,
+    3
+   ],
    "highlights": [
     "green"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-19",
-   "order": 83,
+   "order": 84,
    "system": 4,
    "column": 19,
    "degrees": [
@@ -1439,16 +1988,22 @@
     "5",
     "3"
    ],
+   "intervals": [
+    7,
+    4,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-20",
-   "order": 84,
+   "order": 85,
    "system": 4,
    "column": 20,
    "degrees": [
@@ -1457,16 +2012,22 @@
     "5",
     "3"
    ],
+   "intervals": [
+    9,
+    2,
+    3
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s4-21",
-   "order": 85,
+   "order": 86,
    "system": 4,
    "column": 21,
    "degrees": [
@@ -1475,14 +2036,21 @@
     "1",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    4,
+    10
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-01",
-   "order": 86,
+   "order": 87,
    "system": 5,
    "column": 1,
    "degrees": [
@@ -1491,14 +2059,21 @@
     "7",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    5,
+    9
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-02",
-   "order": 87,
+   "order": 88,
    "system": 5,
    "column": 2,
    "degrees": [
@@ -1507,14 +2082,21 @@
     "13",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    7,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-03",
-   "order": 88,
+   "order": 89,
    "system": 5,
    "column": 3,
    "degrees": [
@@ -1523,16 +2105,22 @@
     "5",
     "9"
    ],
+   "intervals": [
+    2,
+    9,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-04",
-   "order": 89,
+   "order": 90,
    "system": 5,
    "column": 4,
    "degrees": [
@@ -1541,14 +2129,22 @@
     "7",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    1,
+    9
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-05",
-   "order": 90,
+   "order": 91,
    "system": 5,
    "column": 5,
    "degrees": [
@@ -1557,14 +2153,21 @@
     "13",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    3,
+    7
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-06",
-   "order": 91,
+   "order": 92,
    "system": 5,
    "column": 6,
    "degrees": [
@@ -1573,14 +2176,21 @@
     "13",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    2,
+    7
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-07",
-   "order": 92,
+   "order": 93,
    "system": 5,
    "column": 7,
    "degrees": [
@@ -1589,16 +2199,22 @@
     "5",
     "9"
    ],
+   "intervals": [
+    7,
+    4,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-08",
-   "order": 93,
+   "order": 94,
    "system": 5,
    "column": 8,
    "degrees": [
@@ -1607,14 +2223,21 @@
     "3",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    6,
+    8,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-09",
-   "order": 94,
+   "order": 95,
    "system": 5,
    "column": 9,
    "degrees": [
@@ -1623,14 +2246,21 @@
     "3",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    7,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-10",
-   "order": 95,
+   "order": 96,
    "system": 5,
    "column": 10,
    "degrees": [
@@ -1639,30 +2269,86 @@
     "3",
     "9"
    ],
+   "intervals": [
+    9,
+    5,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpgfkws-1",
+   "order": 97,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "#11",
+    "7",
+    "3",
+    "1"
+   ],
+   "intervals": [
+    7,
+    7,
+    4
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-11",
-   "order": 96,
+   "order": 98,
    "system": 5,
    "column": 11,
+   "degrees": [
+    "#11",
+    "13",
+    "3",
+    "1"
+   ],
+   "intervals": [
+    9,
+    5,
+    4
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpgg930-2",
+   "order": 99,
+   "system": null,
+   "column": null,
    "degrees": [
     "#11",
     "7",
     "9",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    9,
+    2
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-12",
-   "order": 97,
+   "order": 100,
    "system": 5,
    "column": 12,
    "degrees": [
@@ -1671,14 +2357,21 @@
     "9",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    9,
+    7,
+    2
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-13",
-   "order": 98,
+   "order": 101,
    "system": 5,
    "column": 13,
    "degrees": [
@@ -1687,14 +2380,21 @@
     "1",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    2,
+    6
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-14",
-   "order": 99,
+   "order": 102,
    "system": 5,
    "column": 14,
    "degrees": [
@@ -1703,14 +2403,19 @@
     "7",
     "#11"
    ],
+   "intervals": [
+    2,
+    3,
+    5
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-15",
-   "order": 100,
+   "order": 103,
    "system": 5,
    "column": 15,
    "degrees": [
@@ -1719,14 +2424,21 @@
     "13",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    5,
+    3
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-16",
-   "order": 101,
+   "order": 104,
    "system": 5,
    "column": 16,
    "degrees": [
@@ -1735,14 +2447,21 @@
     "7",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    1,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-17",
-   "order": 102,
+   "order": 105,
    "system": 5,
    "column": 17,
    "degrees": [
@@ -1751,14 +2470,21 @@
     "13",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    3,
+    3
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-18",
-   "order": 103,
+   "order": 106,
    "system": 5,
    "column": 18,
    "degrees": [
@@ -1767,16 +2493,22 @@
     "5",
     "#11"
    ],
+   "intervals": [
+    2,
+    7,
+    1
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-19",
-   "order": 104,
+   "order": 107,
    "system": 5,
    "column": 19,
    "degrees": [
@@ -1785,16 +2517,22 @@
     "5",
     "#11"
    ],
+   "intervals": [
+    4,
+    5,
+    1
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s5-20",
-   "order": 105,
+   "order": 108,
    "system": 5,
    "column": 20,
    "degrees": [
@@ -1803,16 +2541,42 @@
     "5",
     "#11"
    ],
+   "intervals": [
+    5,
+    4,
+    1
+   ],
    "highlights": [
     "green"
    ],
    "optional": true,
-   "verified": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpghukc-3",
+   "order": 109,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "3",
+    "1",
+    "#11",
+    "9"
+   ],
+   "intervals": [
+    4,
+    6,
+    4
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-01",
-   "order": 106,
+   "order": 110,
    "system": 6,
    "column": 1,
    "degrees": [
@@ -1821,14 +2585,19 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    5,
+    5,
+    4
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-02",
-   "order": 107,
+   "order": 111,
    "system": 6,
    "column": 2,
    "degrees": [
@@ -1837,14 +2606,21 @@
     "#11",
     "9"
    ],
-   "highlights": [],
+   "intervals": [
+    7,
+    3,
+    4
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-03",
-   "order": 108,
+   "order": 112,
    "system": 6,
    "column": 3,
    "degrees": [
@@ -1853,16 +2629,22 @@
     "#11",
     "9"
    ],
+   "intervals": [
+    9,
+    1,
+    4
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-04",
-   "order": 109,
+   "order": 113,
    "system": 6,
    "column": 4,
    "degrees": [
@@ -1871,14 +2653,21 @@
     "#11",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    8,
+    6
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-05",
-   "order": 110,
+   "order": 114,
    "system": 6,
    "column": 5,
    "degrees": [
@@ -1887,14 +2676,19 @@
     "#11",
     "1"
    ],
+   "intervals": [
+    5,
+    5,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-06",
-   "order": 111,
+   "order": 115,
    "system": 6,
    "column": 6,
    "degrees": [
@@ -1903,14 +2697,19 @@
     "#11",
     "1"
    ],
+   "intervals": [
+    7,
+    3,
+    6
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-07",
-   "order": 112,
+   "order": 116,
    "system": 6,
    "column": 7,
    "degrees": [
@@ -1919,16 +2718,22 @@
     "#11",
     "1"
    ],
+   "intervals": [
+    9,
+    1,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-08",
-   "order": 113,
+   "order": 117,
    "system": 6,
    "column": 8,
    "degrees": [
@@ -1937,14 +2742,21 @@
     "#11",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    8,
+    7
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-09",
-   "order": 114,
+   "order": 118,
    "system": 6,
    "column": 9,
    "degrees": [
@@ -1953,14 +2765,21 @@
     "#11",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    4,
+    6,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-10",
-   "order": 115,
+   "order": 119,
    "system": 6,
    "column": 10,
    "degrees": [
@@ -1969,32 +2788,88 @@
     "#11",
     "7"
    ],
+   "intervals": [
+    7,
+    3,
+    7
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpgkdnp-4",
+   "order": 120,
+   "system": null,
+   "column": null,
+   "degrees": [
+    "3",
+    "5",
+    "#11",
+    "7"
+   ],
+   "intervals": [
+    9,
+    1,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-11",
-   "order": 116,
+   "order": 121,
    "system": 6,
    "column": 11,
+   "degrees": [
+    "3",
+    "7",
+    "#11",
+    "13"
+   ],
+   "intervals": [
+    5,
+    5,
+    9
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "ins-mrpglx3y-6",
+   "order": 122,
+   "system": null,
+   "column": null,
    "degrees": [
     "3",
     "5",
     "#11",
     "13"
    ],
+   "intervals": [
+    9,
+    1,
+    9
+   ],
    "highlights": [
-    "green"
+    "yellow"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-12",
-   "order": 117,
+   "order": 123,
    "system": 6,
    "column": 12,
    "degrees": [
@@ -2003,14 +2878,21 @@
     "7",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    1,
+    5
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-13",
-   "order": 118,
+   "order": 124,
    "system": 6,
    "column": 13,
    "degrees": [
@@ -2019,14 +2901,21 @@
     "13",
     "#11"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    3,
+    3
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-14",
-   "order": 119,
+   "order": 125,
    "system": 6,
    "column": 14,
    "degrees": [
@@ -2035,16 +2924,22 @@
     "5",
     "#11"
    ],
+   "intervals": [
+    2,
+    5,
+    1
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-15",
-   "order": 120,
+   "order": 126,
    "system": 6,
    "column": 15,
    "degrees": [
@@ -2053,14 +2948,21 @@
     "#11",
     "3"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    6,
+    2
+   ],
+   "highlights": [
+    "yellow"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-16",
-   "order": 121,
+   "order": 127,
    "system": 6,
    "column": 16,
    "degrees": [
@@ -2069,14 +2971,19 @@
     "#11",
     "3"
    ],
+   "intervals": [
+    3,
+    5,
+    2
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-17",
-   "order": 122,
+   "order": 128,
    "system": 6,
    "column": 17,
    "degrees": [
@@ -2085,14 +2992,19 @@
     "#11",
     "3"
    ],
+   "intervals": [
+    5,
+    3,
+    2
+   ],
    "highlights": [],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-18",
-   "order": 123,
+   "order": 129,
    "system": 6,
    "column": 18,
    "degrees": [
@@ -2101,14 +3013,22 @@
     "#11",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    5,
+    6
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-19",
-   "order": 124,
+   "order": 130,
    "system": 6,
    "column": 19,
    "degrees": [
@@ -2117,14 +3037,21 @@
     "#11",
     "1"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    3,
+    6
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s6-20",
-   "order": 125,
+   "order": 131,
    "system": 6,
    "column": 20,
    "degrees": [
@@ -2133,16 +3060,23 @@
     "#11",
     "1"
    ],
+   "intervals": [
+    7,
+    1,
+    6
+   ],
    "highlights": [
-    "green"
+    "green",
+    "yellow",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-01",
-   "order": 126,
+   "order": 132,
    "system": 7,
    "column": 1,
    "degrees": [
@@ -2151,14 +3085,22 @@
     "#11",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    2,
+    6,
+    7
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-02",
-   "order": 127,
+   "order": 133,
    "system": 7,
    "column": 2,
    "degrees": [
@@ -2167,14 +3109,22 @@
     "#11",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    5,
+    3,
+    7
+   ],
+   "highlights": [
+    "yellow",
+    "red"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-03",
-   "order": 128,
+   "order": 134,
    "system": 7,
    "column": 3,
    "degrees": [
@@ -2183,16 +3133,22 @@
     "#11",
     "7"
    ],
+   "intervals": [
+    7,
+    1,
+    7
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-04",
-   "order": 129,
+   "order": 135,
    "system": 7,
    "column": 4,
    "degrees": [
@@ -2201,14 +3157,21 @@
     "3",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    2,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-05",
-   "order": 130,
+   "order": 136,
    "system": 7,
    "column": 5,
    "degrees": [
@@ -2217,14 +3180,21 @@
     "1",
     "7"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    6,
+    1
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-06",
-   "order": 131,
+   "order": 137,
    "system": 7,
    "column": 6,
    "degrees": [
@@ -2233,14 +3203,21 @@
     "#11",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    3,
+    5,
+    9
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": false,
    "verified": false,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-07",
-   "order": 132,
+   "order": 138,
    "system": 7,
    "column": 7,
    "degrees": [
@@ -2249,8 +3226,14 @@
     "#11",
     "13"
    ],
+   "intervals": [
+    7,
+    1,
+    9
+   ],
    "highlights": [
-    "green"
+    "green",
+    "red"
    ],
    "optional": false,
    "verified": false,
@@ -2258,7 +3241,7 @@
   },
   {
    "id": "lyd-s7-08",
-   "order": 133,
+   "order": 139,
    "system": 7,
    "column": 8,
    "degrees": [
@@ -2267,14 +3250,21 @@
     "3",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    2,
+    7
+   ],
+   "highlights": [
+    "orange"
+   ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-09",
-   "order": 134,
+   "order": 140,
    "system": 7,
    "column": 9,
    "degrees": [
@@ -2283,14 +3273,21 @@
     "1",
     "13"
    ],
-   "highlights": [],
+   "intervals": [
+    8,
+    6,
+    3
+   ],
+   "highlights": [
+    "red"
+   ],
    "optional": true,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   },
   {
    "id": "lyd-s7-10",
-   "order": 135,
+   "order": 141,
    "system": 7,
    "column": 10,
    "degrees": [
@@ -2299,11 +3296,18 @@
     "1",
     "5"
    ],
+   "intervals": [
+    8,
+    6,
+    5
+   ],
    "highlights": [
-    "green"
+    "green",
+    "orange",
+    "red"
    ],
    "optional": false,
-   "verified": false,
+   "verified": true,
    "inManuscript": true
   }
  ]
