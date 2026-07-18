@@ -277,7 +277,7 @@ function makeCard(data, v) {
   const dmap = variantMap(data);
   const card = document.createElement("div");
   card.className = "voicing" + (highlightBg(v.highlights) ? " colored" : "") +
-    (v.optional ? " optional" : "") + (v.verified ? " verified" : "");
+    (v.optional ? " optional" : "");
   card.id = `v-${v.id}`;
   card.style.background = highlightBg(v.highlights) || "";
 

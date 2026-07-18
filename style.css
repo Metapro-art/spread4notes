@@ -194,7 +194,6 @@ main { padding: 16px; }
 .t-color { width: 22px; }
 .t-del { font-size: 12px; line-height: 1; }
 .t-del:hover { border-color: var(--red); color: var(--red); }
-.t-ver.on { background: var(--verify); border-color: var(--verify); color: var(--ink); }
 
 /* --- resaltados = DATO. Fondo en FRANJAS verticales (el bg lo pinta JS con un
    linear-gradient por color, en orden fijo). Sobre color, tinta oscura. --- */
@@ -203,14 +202,9 @@ main { padding: 16px; }
 .voicing.colored .t { background: color-mix(in srgb, var(--ink) 12%, transparent); border-color: color-mix(in srgb, var(--ink) 20%, transparent); color: var(--ink); }
 .voicing.colored .deg:hover { background: color-mix(in srgb, var(--ink) 12%, transparent); }
 .voicing.colored .deg-stack.paren::before, .voicing.colored .deg-stack.paren::after { color: var(--ink); }
-/* el verificado ON debe ganar también sobre tarjetas de color (va después) */
-.voicing .t-ver.on { background: var(--verify); border-color: var(--verify); color: var(--ink); }
 
 /* opcional: borde punteado */
 .voicing.optional { border-style: dashed; }
-
-/* verificado: acento calmo a la izquierda */
-.voicing.verified { box-shadow: inset 4px 0 0 var(--verify); }
 
 .empty { grid-column: 1 / -1; color: var(--dim); font-size: 14px; padding: 32px 4px; text-align: center; border: 1px dashed var(--edge); border-radius: 12px; }
 
