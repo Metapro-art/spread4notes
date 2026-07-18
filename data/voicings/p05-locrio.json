@@ -1,0 +1,1326 @@
+{
+ "mode": "locrian",
+ "chordScale": [
+  "1",
+  "b9",
+  "b3",
+  "11",
+  "b5",
+  "b13",
+  "b7"
+ ],
+ "source": "scans/p05-locrio.png",
+ "verified": false,
+ "voicings": [
+  {
+   "id": "loc-s1-01",
+   "order": 1,
+   "system": 1,
+   "column": 1,
+   "degrees": [
+    "1",
+    "b7",
+    "b5",
+    "b3"
+   ],
+   "intervals": [
+    2,
+    4,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-02",
+   "order": 2,
+   "system": 1,
+   "column": 2,
+   "degrees": [
+    "1",
+    "b7",
+    "b5",
+    "9"
+   ],
+   "intervals": [
+    2,
+    4,
+    4
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-03",
+   "order": 3,
+   "system": 1,
+   "column": 3,
+   "degrees": [
+    "1",
+    "b5",
+    "b3",
+    "b7"
+   ],
+   "intervals": [
+    6,
+    3,
+    5
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-04",
+   "order": 4,
+   "system": 1,
+   "column": 4,
+   "degrees": [
+    "1",
+    "11",
+    "b3",
+    "b5"
+   ],
+   "intervals": [
+    7,
+    2,
+    9
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-05",
+   "order": 5,
+   "system": 1,
+   "column": 5,
+   "degrees": [
+    "1",
+    "11",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    7,
+    7,
+    4
+   ],
+   "highlights": [
+    "red"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-06",
+   "order": 6,
+   "system": 1,
+   "column": 6,
+   "degrees": [
+    "1",
+    "b3",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    9,
+    5,
+    4
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-07",
+   "order": 7,
+   "system": 1,
+   "column": 7,
+   "degrees": [
+    "1",
+    "b3",
+    "9",
+    "b5"
+   ],
+   "intervals": [
+    9,
+    1,
+    8
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-08",
+   "order": 8,
+   "system": 1,
+   "column": 8,
+   "degrees": [
+    "b7",
+    "b5",
+    "b3",
+    "1"
+   ],
+   "intervals": [
+    4,
+    3,
+    3
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-09",
+   "order": 9,
+   "system": 1,
+   "column": 9,
+   "degrees": [
+    "b7",
+    "b5",
+    "9",
+    "1"
+   ],
+   "intervals": [
+    4,
+    4,
+    2
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-10",
+   "order": 10,
+   "system": 1,
+   "column": 10,
+   "degrees": [
+    "b7",
+    "11",
+    "b3",
+    "b5"
+   ],
+   "intervals": [
+    5,
+    2,
+    9
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-11",
+   "order": 11,
+   "system": 1,
+   "column": 11,
+   "degrees": [
+    "b7",
+    "b3",
+    "9",
+    "b5"
+   ],
+   "intervals": [
+    7,
+    1,
+    8
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-12",
+   "order": 12,
+   "system": 1,
+   "column": 12,
+   "degrees": [
+    "b7",
+    "b3",
+    "1",
+    "b5"
+   ],
+   "intervals": [
+    7,
+    3,
+    6
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-13",
+   "order": 13,
+   "system": 1,
+   "column": 13,
+   "degrees": [
+    "b7",
+    "b5",
+    "b3",
+    "11"
+   ],
+   "intervals": [
+    4,
+    3,
+    10
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-14",
+   "order": 14,
+   "system": 1,
+   "column": 14,
+   "degrees": [
+    "b7",
+    "b5",
+    "1",
+    "11"
+   ],
+   "intervals": [
+    4,
+    6,
+    7
+   ],
+   "highlights": [
+    "red"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-15",
+   "order": 15,
+   "system": 1,
+   "column": 15,
+   "degrees": [
+    "b7",
+    "b5",
+    "9",
+    "11"
+   ],
+   "intervals": [
+    4,
+    4,
+    9
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-16",
+   "order": 16,
+   "system": 1,
+   "column": 16,
+   "degrees": [
+    "b5",
+    "11",
+    "9",
+    "b7"
+   ],
+   "intervals": [
+    1,
+    3,
+    4
+   ],
+   "highlights": [
+    "blue",
+    "red"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-17",
+   "order": 17,
+   "system": 1,
+   "column": 17,
+   "degrees": [
+    "b5",
+    "11",
+    "b3",
+    "b7"
+   ],
+   "intervals": [
+    1,
+    2,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-18",
+   "order": 18,
+   "system": 1,
+   "column": 18,
+   "degrees": [
+    "b5",
+    "b3",
+    "1",
+    "b7"
+   ],
+   "intervals": [
+    3,
+    3,
+    2
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-19",
+   "order": 19,
+   "system": 1,
+   "column": 19,
+   "degrees": [
+    "b5",
+    "b3",
+    "1",
+    "11"
+   ],
+   "intervals": [
+    3,
+    3,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-20",
+   "order": 20,
+   "system": 1,
+   "column": 20,
+   "degrees": [
+    "b5",
+    "b3",
+    "b7",
+    "11"
+   ],
+   "intervals": [
+    3,
+    5,
+    5
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-21",
+   "order": 21,
+   "system": 1,
+   "column": 21,
+   "degrees": [
+    "b5",
+    "9",
+    "b7",
+    "11"
+   ],
+   "intervals": [
+    4,
+    4,
+    5
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s1-22",
+   "order": 22,
+   "system": 1,
+   "column": 22,
+   "degrees": [
+    "b5",
+    "1",
+    "b7",
+    "11"
+   ],
+   "intervals": [
+    6,
+    2,
+    5
+   ],
+   "highlights": [
+    "red",
+    "yellow"
+   ],
+   "optional": false,
+   "verified": false,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-01",
+   "order": 23,
+   "system": 2,
+   "column": 1,
+   "degrees": [
+    "b5",
+    "11",
+    "1",
+    "b3"
+   ],
+   "intervals": [
+    1,
+    5,
+    9
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-02",
+   "order": 24,
+   "system": 2,
+   "column": 2,
+   "degrees": [
+    "b5",
+    "9",
+    "b7",
+    "b3"
+   ],
+   "intervals": [
+    4,
+    4,
+    7
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-03",
+   "order": 25,
+   "system": 2,
+   "column": 3,
+   "degrees": [
+    "b5",
+    "1",
+    "b7",
+    "b3"
+   ],
+   "intervals": [
+    6,
+    2,
+    7
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-04",
+   "order": 26,
+   "system": 2,
+   "column": 4,
+   "degrees": [
+    "b5",
+    "11",
+    "b7",
+    "b3"
+   ],
+   "intervals": [
+    1,
+    7,
+    7
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-05",
+   "order": 27,
+   "system": 2,
+   "column": 5,
+   "degrees": [
+    "b5",
+    "b3",
+    "b7",
+    "9"
+   ],
+   "intervals": [
+    3,
+    5,
+    8
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-06",
+   "order": 28,
+   "system": 2,
+   "column": 6,
+   "degrees": [
+    "b5",
+    "1",
+    "b7",
+    "9"
+   ],
+   "intervals": [
+    6,
+    2,
+    8
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-07",
+   "order": 29,
+   "system": 2,
+   "column": 7,
+   "degrees": [
+    "b5",
+    "1",
+    "11",
+    "9"
+   ],
+   "intervals": [
+    6,
+    7,
+    3
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-08",
+   "order": 30,
+   "system": 2,
+   "column": 8,
+   "degrees": [
+    "b5",
+    "b7",
+    "11",
+    "9"
+   ],
+   "intervals": [
+    8,
+    5,
+    3
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-09",
+   "order": 31,
+   "system": 2,
+   "column": 9,
+   "degrees": [
+    "11",
+    "b3",
+    "1",
+    "b5"
+   ],
+   "intervals": [
+    2,
+    3,
+    6
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-10",
+   "order": 32,
+   "system": 2,
+   "column": 10,
+   "degrees": [
+    "11",
+    "b3",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    2,
+    5,
+    4
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-11",
+   "order": 33,
+   "system": 2,
+   "column": 11,
+   "degrees": [
+    "11",
+    "9",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    3,
+    4,
+    4
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-12",
+   "order": 34,
+   "system": 2,
+   "column": 12,
+   "degrees": [
+    "11",
+    "1",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    5,
+    2,
+    4
+   ],
+   "highlights": [
+    "red"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-13",
+   "order": 35,
+   "system": 2,
+   "column": 13,
+   "degrees": [
+    "11",
+    "9",
+    "b5",
+    "b3"
+   ],
+   "intervals": [
+    3,
+    8,
+    3
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-14",
+   "order": 36,
+   "system": 2,
+   "column": 14,
+   "degrees": [
+    "11",
+    "1",
+    "b5",
+    "b3"
+   ],
+   "intervals": [
+    5,
+    6,
+    3
+   ],
+   "highlights": [
+    "yellow"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-15",
+   "order": 37,
+   "system": 2,
+   "column": 15,
+   "degrees": [
+    "11",
+    "b3",
+    "b5",
+    "9"
+   ],
+   "intervals": [
+    2,
+    9,
+    4
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-16",
+   "order": 38,
+   "system": 2,
+   "column": 16,
+   "degrees": [
+    "11",
+    "1",
+    "b5",
+    "9"
+   ],
+   "intervals": [
+    5,
+    6,
+    4
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-17",
+   "order": 39,
+   "system": 2,
+   "column": 17,
+   "degrees": [
+    "11",
+    "b3",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    2,
+    9,
+    6
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-18",
+   "order": 40,
+   "system": 2,
+   "column": 18,
+   "degrees": [
+    "11",
+    "9",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    3,
+    8,
+    6
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-19",
+   "order": 41,
+   "system": 2,
+   "column": 19,
+   "degrees": [
+    "11",
+    "b7",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    7,
+    4,
+    6
+   ],
+   "highlights": [
+    "red"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-20",
+   "order": 42,
+   "system": 2,
+   "column": 20,
+   "degrees": [
+    "b3",
+    "9",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    1,
+    4,
+    4
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s2-21",
+   "order": 43,
+   "system": 2,
+   "column": 21,
+   "degrees": [
+    "b3",
+    "1",
+    "b7",
+    "b5"
+   ],
+   "intervals": [
+    3,
+    2,
+    4
+   ],
+   "highlights": [],
+   "optional": true,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-01",
+   "order": 44,
+   "system": 3,
+   "column": 1,
+   "degrees": [
+    "b3",
+    "9",
+    "b5",
+    "11"
+   ],
+   "intervals": [
+    1,
+    8,
+    1
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-02",
+   "order": 45,
+   "system": 3,
+   "column": 2,
+   "degrees": [
+    "b3",
+    "1",
+    "b5",
+    "11"
+   ],
+   "intervals": [
+    3,
+    6,
+    1
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-03",
+   "order": 46,
+   "system": 3,
+   "column": 3,
+   "degrees": [
+    "b3",
+    "1",
+    "b5",
+    "9"
+   ],
+   "intervals": [
+    3,
+    6,
+    4
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-04",
+   "order": 47,
+   "system": 3,
+   "column": 4,
+   "degrees": [
+    "b3",
+    "b7",
+    "b5",
+    "9"
+   ],
+   "intervals": [
+    5,
+    4,
+    4
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-05",
+   "order": 48,
+   "system": 3,
+   "column": 5,
+   "degrees": [
+    "b3",
+    "9",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    1,
+    8,
+    6
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-06",
+   "order": 49,
+   "system": 3,
+   "column": 6,
+   "degrees": [
+    "b3",
+    "b7",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    5,
+    4,
+    6
+   ],
+   "highlights": [],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-07",
+   "order": 50,
+   "system": 3,
+   "column": 7,
+   "degrees": [
+    "b3",
+    "b5",
+    "11",
+    "1"
+   ],
+   "intervals": [
+    9,
+    1,
+    5
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-08",
+   "order": 51,
+   "system": 3,
+   "column": 8,
+   "degrees": [
+    "b3",
+    "1",
+    "b5",
+    "b7"
+   ],
+   "intervals": [
+    3,
+    6,
+    8
+   ],
+   "highlights": [
+    "orange"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-09",
+   "order": 52,
+   "system": 3,
+   "column": 9,
+   "degrees": [
+    "9",
+    "1",
+    "b5",
+    "11"
+   ],
+   "intervals": [
+    2,
+    6,
+    1
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-10",
+   "order": 53,
+   "system": 3,
+   "column": 10,
+   "degrees": [
+    "9",
+    "1",
+    "b5",
+    "b3"
+   ],
+   "intervals": [
+    2,
+    6,
+    3
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-11",
+   "order": 54,
+   "system": 3,
+   "column": 11,
+   "degrees": [
+    "9",
+    "b7",
+    "b5",
+    "b3"
+   ],
+   "intervals": [
+    4,
+    4,
+    3
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-12",
+   "order": 55,
+   "system": 3,
+   "column": 12,
+   "degrees": [
+    "9",
+    "b7",
+    "b5",
+    "1"
+   ],
+   "intervals": [
+    4,
+    4,
+    6
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-13",
+   "order": 56,
+   "system": 3,
+   "column": 13,
+   "degrees": [
+    "9",
+    "b5",
+    "b3",
+    "1"
+   ],
+   "intervals": [
+    8,
+    3,
+    3
+   ],
+   "highlights": [
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  },
+  {
+   "id": "loc-s3-14",
+   "order": 57,
+   "system": 3,
+   "column": 14,
+   "degrees": [
+    "9",
+    "1",
+    "b5",
+    "b7"
+   ],
+   "intervals": [
+    2,
+    6,
+    8
+   ],
+   "highlights": [
+    "red",
+    "blue"
+   ],
+   "optional": false,
+   "verified": true,
+   "inManuscript": true
+  }
+ ]
+}
