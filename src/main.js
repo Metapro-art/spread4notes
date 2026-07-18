@@ -281,7 +281,7 @@ function makeCard(data, v) {
   card.id = `v-${v.id}`;
   card.style.background = highlightBg(v.highlights) || "";
 
-  // fila superior: orden · color (multi) · verificado · [borrar solo si no está locked]
+  // fila superior: orden · color (multi) · [borrar solo si no está locked]
   const top = document.createElement("div");
   top.className = "v-top";
   const ord = document.createElement("span");
@@ -291,12 +291,7 @@ function makeCard(data, v) {
   colorBtn.title = "Colores (varios posibles)";
   colorBtn.innerHTML = swatchHtml(v.highlights);
   colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
-  const verBtn = document.createElement("button");
-  verBtn.className = "t t-ver" + (v.verified ? " on" : ""); verBtn.setAttribute("data-pop", "");
-  verBtn.setAttribute("aria-pressed", String(v.verified)); verBtn.title = "Verificado";
-  verBtn.textContent = "✓";
-  verBtn.addEventListener("click", () => { v.verified = !v.verified; saveDoc(data.slug); render(); });
-  top.append(ord, colorBtn, verBtn);
+  top.append(ord, colorBtn);
   // Borrar: SOLO para voicings nuevos (locked === false). Los del manuscrito no.
   if (v.locked === false) {
     const delBtn = document.createElement("button");
