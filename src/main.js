@@ -281,26 +281,27 @@ function makeCard(data, v) {
   card.id = `v-${v.id}`;
   card.style.background = highlightBg(v.highlights) || "";
 
-  // fila superior: orden · (color + borrar solo si el voicing es editable/nuevo)
+  // fila superior: orden · color (editable siempre) · borrar (solo voicings nuevos)
   const top = document.createElement("div");
   top.className = "v-top";
   const ord = document.createElement("span");
   ord.className = "ord"; ord.textContent = v.order;
   top.append(ord);
-  // Los voicings de la BASE (locked) son de SOLO LECTURA: no se edita color ni
-  // grados, no se borran. Solo los NUEVOS (locked === false) se editan y se borran.
+  // Color: EDITABLE siempre (base y nuevos).
+  const colorBtn = document.createElement("button");
+  colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
+  colorBtn.title = "Colores (varios posibles)";
+  colorBtn.innerHTML = swatchHtml(v.highlights);
+  colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
+  top.append(colorBtn);
+  // Borrar: SOLO voicings nuevos. La base (locked) no se borra ni se editan sus grados.
   const editable = v.locked === false;
   if (editable) {
-    const colorBtn = document.createElement("button");
-    colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
-    colorBtn.title = "Colores (varios posibles)";
-    colorBtn.innerHTML = swatchHtml(v.highlights);
-    colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
     const delBtn = document.createElement("button");
     delBtn.className = "t t-del"; delBtn.title = "Borrar voicing";
     delBtn.textContent = "🗑";
     delBtn.addEventListener("click", () => deleteVoicing(data, v));
-    top.append(colorBtn, delBtn);
+    top.append(delBtn);
   }
 
   // grados (top→bottom, relabelados según la variante). Editables solo si el
