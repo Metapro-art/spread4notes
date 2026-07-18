@@ -31,7 +31,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-02",
@@ -54,7 +55,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-03",
@@ -77,7 +79,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-04",
@@ -100,7 +103,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-05",
@@ -121,7 +125,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-06",
@@ -144,7 +149,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-07",
@@ -167,7 +173,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-08",
@@ -188,7 +195,8 @@
    "highlights": [],
    "optional": false,
    "verified": false,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-09",
@@ -211,7 +219,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-10",
@@ -232,7 +241,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-11",
@@ -255,7 +265,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-12",
@@ -276,7 +287,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-13",
@@ -297,7 +309,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-14",
@@ -320,7 +333,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-15",
@@ -343,7 +357,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-16",
@@ -366,7 +381,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-17",
@@ -387,7 +403,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-18",
@@ -410,7 +427,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s1-19",
@@ -431,7 +449,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-01",
@@ -454,7 +473,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-02",
@@ -477,7 +497,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-03",
@@ -500,7 +521,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-04",
@@ -523,7 +545,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-05",
@@ -546,7 +569,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-06",
@@ -567,7 +591,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-07",
@@ -590,7 +615,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-08",
@@ -611,7 +637,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-09",
@@ -634,7 +661,8 @@
    ],
    "optional": false,
    "verified": false,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-10",
@@ -655,7 +683,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-11",
@@ -676,7 +705,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-12",
@@ -699,7 +729,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-13",
@@ -720,7 +751,8 @@
    "highlights": [],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-14",
@@ -743,7 +775,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-15",
@@ -764,7 +797,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-16",
@@ -787,7 +821,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s2-17",
@@ -808,7 +843,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-01",
@@ -831,7 +867,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-02",
@@ -852,7 +889,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-03",
@@ -875,7 +913,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-04",
@@ -896,7 +935,8 @@
    "highlights": [],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-05",
@@ -917,7 +957,8 @@
    "highlights": [],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-06",
@@ -938,7 +979,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-07",
@@ -961,7 +1003,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-08",
@@ -984,7 +1027,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-09",
@@ -1005,7 +1049,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-10",
@@ -1026,7 +1071,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-11",
@@ -1049,7 +1095,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-12",
@@ -1072,7 +1119,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-13",
@@ -1093,7 +1141,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-14",
@@ -1116,7 +1165,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "mix-s3-15",
@@ -1137,7 +1187,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   }
  ]
 }

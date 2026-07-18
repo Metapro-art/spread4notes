@@ -4,7 +4,8 @@
 // siempre, sin advertencias. `tools/validate.js` informa por CLI, no toca la UI.
 //
 // Verdad: el JSON EXPORTADO. localStorage es solo el estado de trabajo.
-// `verified` (transcripción confirmada, se exporta) ≠ `learned` (estudio, no).
+// `verified` = transcripción confirmada por el autor (se exporta).
+// `locked`: los voicings del manuscrito no se borran; los nuevos (locked:false) sí.
 // Grados top→bottom. `highlights` es un array: varios resaltadores por columna.
 
 import { LEGEND } from "./core/legend.js";
@@ -34,7 +35,7 @@ const CHAPTERS = [
     desc: "Funcionan los voicings jónicos. Aquí se ponen únicamente voicings con #11, a veces omitiendo 3ra o 7ma. Sin duplicaciones de notas. El verde marca los voicings que tienen la 5ta.",
   },
   {
-    slug: "locrian", name: "Locrio", file: "data/draft/p05-locrio.json", declared: 58,
+    slug: "locrian", name: "Locrio", file: "data/voicings/p05-locrio.json", declared: 58,
     desc: "Se agregan voicings con b5; de resto, voicings dóricos que no tengan 9na ni 5ta justa. Se omiten voicings con notas duplicadas. El azul marca los voicings con ♮9 (Locrio ♮9).",
   },
 ];
@@ -45,11 +46,8 @@ const STRIPE_ORDER = ["yellow", "orange", "purple", "green", "red", "blue"];
 const TOGGLE_COLORS = ["yellow", "orange", "purple", "green", "red"];
 
 // ---------- persistencia ----------
-const LEARN_KEY = "s4n-learned";
 const docKey = (slug) => `s4n-doc-${slug}`;
 const baseKey = (slug) => `s4n-base-${slug}`;
-const learned = JSON.parse(localStorage.getItem(LEARN_KEY) || "{}");
-const saveLearned = () => localStorage.setItem(LEARN_KEY, JSON.stringify(learned));
 
 const VARIANT_KEY = "s4n-variant";
 const state = { active: "ionian", chapters: {}, intro: null, variant: JSON.parse(localStorage.getItem(VARIANT_KEY) || "{}") };
@@ -66,6 +64,7 @@ function fromBase(base) {
     id: v.id, order: v.order, system: v.system ?? null, column: v.column ?? null,
     degrees: [...v.degrees], highlights: [...asHighlights(v)],
     optional: !!v.optional, verified: !!v.verified, inManuscript: v.inManuscript !== false,
+    locked: v.locked !== false,
   }));
 }
 
@@ -78,7 +77,7 @@ async function loadChapter(ch) {
   const savedSig = localStorage.getItem(baseKey(ch.slug));
   let voicings;
   if (saved && savedSig === sig) {
-    voicings = JSON.parse(saved).map((v) => ({ ...v, highlights: asHighlights(v) }));
+    voicings = JSON.parse(saved).map((v) => ({ ...v, locked: v.locked !== false, highlights: asHighlights(v) }));
   } else {
     voicings = fromBase(base);
     localStorage.setItem(docKey(ch.slug), JSON.stringify(voicings));
@@ -101,11 +100,6 @@ function activeVariant(ch) {
 const variantMap = (ch) => { const av = activeVariant(ch); return av ? av.map : {}; };
 const variantInv = (ch) => { const av = activeVariant(ch); return av ? Object.fromEntries(Object.entries(av.map).map(([k, w]) => [w, k])) : {}; };
 const editScale = (ch, data) => { const av = activeVariant(ch); return av ? av.scale : (data.meta ? data.meta.chordScale : []); };
-
-// ---------- derivados ----------
-const countLearned = (data) => data.voicings.filter((v) => learned[v.id]).length;
-const countVerified = (data) => data.voicings.filter((v) => v.verified).length;
-const firstUnlearned = (data) => data.voicings.find((v) => !learned[v.id]) || null;
 
 // ---------- resaltados: fondo en franjas verticales ----------
 const orderedHls = (hls) => STRIPE_ORDER.filter((c) => hls.includes(c));
@@ -131,9 +125,6 @@ const el = {
   variants: document.getElementById("variants"),
   legend: document.getElementById("legend"),
   grid: document.getElementById("grid"),
-  honesty: document.getElementById("honesty"),
-  where: document.getElementById("where"),
-  goBtn: document.getElementById("go"),
   exportBtn: document.getElementById("export"),
   resetBtn: document.getElementById("reset"),
 };
@@ -185,14 +176,11 @@ function renderLegend() {
 function renderChapters() {
   el.chapters.innerHTML = "";
   for (const ch of CHAPTERS) {
-    const data = state.chapters[ch.slug];
-    const empty = !data || data.voicings.length === 0;
     const b = document.createElement("button");
     b.className = "chapter";
     b.setAttribute("role", "tab");
     b.setAttribute("aria-selected", String(ch.slug === state.active));
-    const count = empty ? "0" : `${countVerified(data)}/${data.voicings.length} ✓`;
-    b.innerHTML = `<span class="cname">${ch.name}</span><span class="ccount">${count}</span>`;
+    b.innerHTML = `<span class="cname">${ch.name}</span>`;
     b.addEventListener("click", () => { state.active = ch.slug; location.hash = ch.slug; closePopover(); render(); });
     el.chapters.appendChild(b);
   }
@@ -265,6 +253,7 @@ function insertAfter(data, order) {
   const nv = {
     id: newId(), order: order + 0.5, system: null, column: null,
     degrees: scale.slice(0, 4), highlights: [], optional: false, verified: false, inManuscript: true,
+    locked: false,
   };
   data.voicings.push(nv);
   renumber(data.voicings);
@@ -277,23 +266,22 @@ function insertAfter(data, order) {
 }
 
 function deleteVoicing(data, v) {
+  if (v.locked !== false) return; // los del manuscrito (locked) no se borran, nunca
   data.voicings = data.voicings.filter((x) => x !== v);
   renumber(data.voicings);
-  delete learned[v.id]; saveLearned();
   saveDoc(data.slug);
   render();
 }
 
 function makeCard(data, v) {
-  const isLearned = !!learned[v.id];
   const dmap = variantMap(data);
   const card = document.createElement("div");
   card.className = "voicing" + (highlightBg(v.highlights) ? " colored" : "") +
-    (v.optional ? " optional" : "") + (v.verified ? " verified" : "") + (isLearned ? " learned" : "");
+    (v.optional ? " optional" : "") + (v.verified ? " verified" : "");
   card.id = `v-${v.id}`;
   card.style.background = highlightBg(v.highlights) || "";
 
-  // fila superior: orden · color (multi) · verificado · menú (⋯)
+  // fila superior: orden · color (multi) · verificado · [borrar solo si no está locked]
   const top = document.createElement("div");
   top.className = "v-top";
   const ord = document.createElement("span");
@@ -308,11 +296,15 @@ function makeCard(data, v) {
   verBtn.setAttribute("aria-pressed", String(v.verified)); verBtn.title = "Verificado";
   verBtn.textContent = "✓";
   verBtn.addEventListener("click", () => { v.verified = !v.verified; saveDoc(data.slug); render(); });
-  const moreBtn = document.createElement("button");
-  moreBtn.className = "t t-more"; moreBtn.setAttribute("data-pop", ""); moreBtn.title = "Más: aprendido, opcional, insertar, borrar";
-  moreBtn.textContent = "⋯";
-  moreBtn.addEventListener("click", () => moreMenu(data, v, moreBtn));
-  top.append(ord, colorBtn, verBtn, moreBtn);
+  top.append(ord, colorBtn, verBtn);
+  // Borrar: SOLO para voicings nuevos (locked === false). Los del manuscrito no.
+  if (v.locked === false) {
+    const delBtn = document.createElement("button");
+    delBtn.className = "t t-del"; delBtn.title = "Borrar voicing";
+    delBtn.textContent = "🗑";
+    delBtn.addEventListener("click", () => deleteVoicing(data, v));
+    top.append(delBtn);
+  }
 
   // grados editables (top→bottom), con el grado RELABELADO según la variante
   const stack = document.createElement("div");
@@ -327,20 +319,8 @@ function makeCard(data, v) {
     stack.appendChild(d);
   });
 
-  if (isLearned) card.setAttribute("title", "Ya me lo sé");
   card.append(top, stack);
   return card;
-}
-
-// Menú "⋯": acciones menos frecuentes, en popover (sin modal).
-function moreMenu(data, v, anchor) {
-  const isLearned = !!learned[v.id];
-  openPopover(anchor, [
-    { html: `${isLearned ? "✓" : "○"}&nbsp; Ya me lo sé`, onPick: () => { if (learned[v.id]) delete learned[v.id]; else learned[v.id] = true; saveLearned(); render(); } },
-    { html: `${v.optional ? "✓" : "○"}&nbsp; Opcional ( )`, onPick: () => { v.optional = !v.optional; saveDoc(data.slug); render(); } },
-    { html: `＋&nbsp; Insertar columna después`, onPick: () => insertAfter(data, v.order) },
-    { html: `🗑&nbsp; Borrar columna`, cls: "danger", onPick: () => deleteVoicing(data, v) },
-  ]);
 }
 
 function renderGrid() {
@@ -364,35 +344,24 @@ function renderGrid() {
     el.grid.appendChild(hint);
     return;
   }
-  data.voicings.sort((a, b) => a.order - b.order);
-  for (const v of data.voicings) el.grid.appendChild(makeCard(data, v));
-}
-
-function renderHonesty() {
-  const data = state.chapters[state.active];
-  const ch = CHAPTERS.find((c) => c.slug === state.active);
-  if (!data || (!data.file && data.voicings.length === 0)) { el.honesty.textContent = ""; return; }
-  const n = data.voicings.length;
-  const decl = ch.declared || n;
-  const falta = decl - n;
-  const ver = countVerified(data);
-  el.honesty.innerHTML =
-    `<b>${n}</b> de <b>${decl}</b> transcritos` +
-    (falta > 0 ? ` — <span class="miss">faltan ${falta}</span>` : falta < 0 ? ` — <span class="miss">${-falta} de más</span>` : ` ✓`) +
-    ` · verificados <b>${ver}</b>/${n}`;
-}
-
-function renderContinuar() {
-  const data = state.chapters[state.active];
-  const next = data && data.voicings.length ? firstUnlearned(data) : null;
-  if (!data || data.voicings.length === 0) {
-    el.where.textContent = ""; el.goBtn.textContent = "Sin voicings"; el.goBtn.disabled = true; el.goBtn.onclick = null;
-  } else if (!next) {
-    el.where.textContent = ""; el.goBtn.textContent = "Todo aprendido ✓"; el.goBtn.disabled = true; el.goBtn.onclick = null;
-  } else {
-    el.where.innerHTML = `vas por el <span class="n">nº ${next.order}</span>`;
-    el.goBtn.textContent = "Continuar →"; el.goBtn.disabled = false;
-    el.goBtn.onclick = () => { const node = document.getElementById(`v-${next.id}`); node.scrollIntoView({ behavior: "smooth", block: "center" }); node.querySelector(".deg")?.focus(); };
+  // Separadores por BAJO: rachas CONSECUTIVAS que comparten degrees[3] (la voz más
+  // grave), recorriendo la lista en el orden que YA tiene. NO se agrupa por todo el
+  // capítulo — un mismo bajo puede dar varios grupos separados, y no se juntan.
+  // Solo VISTA: no toca /data/ ni `order`.
+  const vs = data.voicings.slice().sort((a, b) => a.order - b.order);
+  const dmap = variantMap(data);
+  let i = 0;
+  while (i < vs.length) {
+    const bass = vs[i].degrees[3];
+    let j = i;
+    while (j < vs.length && vs[j].degrees[3] === bass) j++;
+    const n = j - i;
+    const hd = document.createElement("div");
+    hd.className = "bass-group";
+    hd.innerHTML = `<span class="bg-label">bajo</span><span class="bg-deg">${dmap[bass] ?? bass}</span><span class="bg-n">${n} voicing${n === 1 ? "" : "s"}</span>`;
+    el.grid.appendChild(hd);
+    for (let k = i; k < j; k++) el.grid.appendChild(makeCard(data, vs[k]));
+    i = j;
   }
 }
 
@@ -402,8 +371,6 @@ function render() {
   renderChapterDesc();
   renderVariants();
   renderGrid();
-  renderHonesty();
-  renderContinuar();
 }
 
 // ---------- exportar / reimportar ----------
@@ -416,6 +383,7 @@ function exportJSON() {
     degrees: v.degrees, intervals: computeIntervals(v.degrees),
     highlights: v.highlights || [], optional: !!v.optional,
     verified: !!v.verified, inManuscript: v.inManuscript !== false,
+    locked: v.locked !== false,
   }));
   const doc = { mode, chordScale: data.meta.chordScale, source: data.meta.source, verified: voicings.every((v) => v.verified), voicings };
   const blob = new Blob([JSON.stringify(doc, null, 1) + "\n"], { type: "application/json" });

@@ -31,7 +31,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-02",
@@ -55,7 +56,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-03",
@@ -79,7 +81,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-04",
@@ -104,7 +107,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-05",
@@ -127,7 +131,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-06",
@@ -150,7 +155,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-07",
@@ -174,7 +180,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-08",
@@ -198,7 +205,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-09",
@@ -222,7 +230,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-10",
@@ -245,7 +254,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-11",
@@ -269,7 +279,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-12",
@@ -293,7 +304,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-13",
@@ -318,7 +330,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-14",
@@ -339,7 +352,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-15",
@@ -362,7 +376,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-16",
@@ -387,7 +402,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-17",
@@ -408,7 +424,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-18",
@@ -431,7 +448,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s1-19",
@@ -455,7 +473,8 @@
    ],
    "optional": false,
    "verified": false,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-01",
@@ -479,7 +498,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-02",
@@ -504,7 +524,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-03",
@@ -529,7 +550,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-04",
@@ -553,7 +575,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-05",
@@ -576,7 +599,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-06",
@@ -600,7 +624,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-07",
@@ -623,7 +648,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-08",
@@ -646,7 +672,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-09",
@@ -670,7 +697,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-10",
@@ -694,7 +722,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-11",
@@ -719,7 +748,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpfwsut-0",
@@ -742,7 +772,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-12",
@@ -765,7 +796,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-13",
@@ -790,7 +822,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-14",
@@ -815,7 +848,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-15",
@@ -836,7 +870,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-16",
@@ -857,7 +892,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-17",
@@ -880,7 +916,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-18",
@@ -904,7 +941,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-19",
@@ -927,7 +965,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-20",
@@ -950,7 +989,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s2-21",
@@ -975,7 +1015,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-01",
@@ -1000,7 +1041,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-02",
@@ -1025,7 +1067,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-03",
@@ -1048,7 +1091,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-04",
@@ -1072,7 +1116,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-05",
@@ -1095,7 +1140,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-06",
@@ -1119,7 +1165,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-07",
@@ -1143,7 +1190,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-08",
@@ -1167,7 +1215,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-09",
@@ -1191,7 +1240,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-10",
@@ -1216,7 +1266,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-11",
@@ -1241,7 +1292,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-12",
@@ -1264,7 +1316,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-13",
@@ -1288,7 +1341,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-14",
@@ -1311,7 +1365,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-15",
@@ -1335,7 +1390,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-16",
@@ -1360,7 +1416,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-17",
@@ -1385,7 +1442,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-18",
@@ -1410,7 +1468,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-19",
@@ -1434,7 +1493,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-20",
@@ -1459,7 +1519,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-21",
@@ -1484,7 +1545,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-22",
@@ -1508,7 +1570,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-23",
@@ -1531,7 +1594,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s3-24",
@@ -1554,7 +1618,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-01",
@@ -1577,7 +1642,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-02",
@@ -1600,7 +1666,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-03",
@@ -1624,7 +1691,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-04",
@@ -1648,7 +1716,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-05",
@@ -1672,7 +1741,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-06",
@@ -1696,7 +1766,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-07",
@@ -1721,7 +1792,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-08",
@@ -1745,7 +1817,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-09",
@@ -1769,7 +1842,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-10",
@@ -1794,7 +1868,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-11",
@@ -1818,7 +1893,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-12",
@@ -1841,7 +1917,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-13",
@@ -1864,7 +1941,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-14",
@@ -1885,7 +1963,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-15",
@@ -1906,7 +1985,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-16",
@@ -1929,7 +2009,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-17",
@@ -1952,7 +2033,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-18",
@@ -1975,7 +2057,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-19",
@@ -1999,7 +2082,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-20",
@@ -2023,7 +2107,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s4-21",
@@ -2046,7 +2131,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-01",
@@ -2069,7 +2155,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-02",
@@ -2092,7 +2179,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-03",
@@ -2116,7 +2204,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-04",
@@ -2140,7 +2229,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-05",
@@ -2163,7 +2253,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-06",
@@ -2186,7 +2277,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-07",
@@ -2210,7 +2302,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-08",
@@ -2233,7 +2326,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-09",
@@ -2256,7 +2350,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-10",
@@ -2279,7 +2374,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpgfkws-1",
@@ -2300,7 +2396,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-11",
@@ -2321,7 +2418,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpgg930-2",
@@ -2344,7 +2442,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-12",
@@ -2367,7 +2466,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-13",
@@ -2390,7 +2490,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-14",
@@ -2411,7 +2512,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-15",
@@ -2434,7 +2536,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-16",
@@ -2457,7 +2560,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-17",
@@ -2480,7 +2584,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-18",
@@ -2504,7 +2609,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-19",
@@ -2528,7 +2634,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s5-20",
@@ -2551,7 +2658,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpghukc-3",
@@ -2572,7 +2680,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-01",
@@ -2593,7 +2702,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-02",
@@ -2616,7 +2726,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-03",
@@ -2640,7 +2751,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-04",
@@ -2663,7 +2775,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-05",
@@ -2684,7 +2797,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-06",
@@ -2705,7 +2819,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-07",
@@ -2729,7 +2844,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-08",
@@ -2752,7 +2868,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-09",
@@ -2775,7 +2892,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-10",
@@ -2796,7 +2914,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpgkdnp-4",
@@ -2819,7 +2938,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-11",
@@ -2842,7 +2962,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "ins-mrpglx3y-6",
@@ -2865,7 +2986,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-12",
@@ -2888,7 +3010,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-13",
@@ -2911,7 +3034,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-14",
@@ -2935,7 +3059,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-15",
@@ -2958,7 +3083,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-16",
@@ -2979,7 +3105,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-17",
@@ -3000,7 +3127,8 @@
    "highlights": [],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-18",
@@ -3024,7 +3152,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-19",
@@ -3047,7 +3176,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s6-20",
@@ -3072,7 +3202,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-01",
@@ -3096,7 +3227,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-02",
@@ -3120,7 +3252,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-03",
@@ -3144,7 +3277,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-04",
@@ -3167,7 +3301,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-05",
@@ -3190,7 +3325,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-06",
@@ -3213,7 +3349,8 @@
    ],
    "optional": false,
    "verified": false,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-07",
@@ -3237,7 +3374,8 @@
    ],
    "optional": false,
    "verified": false,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-08",
@@ -3260,7 +3398,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-09",
@@ -3283,7 +3422,8 @@
    ],
    "optional": true,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   },
   {
    "id": "lyd-s7-10",
@@ -3308,7 +3448,8 @@
    ],
    "optional": false,
    "verified": true,
-   "inManuscript": true
+   "inManuscript": true,
+   "locked": true
   }
  ]
 }
