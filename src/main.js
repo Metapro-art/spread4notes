@@ -281,37 +281,47 @@ function makeCard(data, v) {
   card.id = `v-${v.id}`;
   card.style.background = highlightBg(v.highlights) || "";
 
-  // fila superior: orden · color (multi) · [borrar solo si no está locked]
+  // fila superior: orden · (color + borrar solo si el voicing es editable/nuevo)
   const top = document.createElement("div");
   top.className = "v-top";
   const ord = document.createElement("span");
   ord.className = "ord"; ord.textContent = v.order;
-  const colorBtn = document.createElement("button");
-  colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
-  colorBtn.title = "Colores (varios posibles)";
-  colorBtn.innerHTML = swatchHtml(v.highlights);
-  colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
-  top.append(ord, colorBtn);
-  // Borrar: SOLO para voicings nuevos (locked === false). Los del manuscrito no.
-  if (v.locked === false) {
+  top.append(ord);
+  // Los voicings de la BASE (locked) son de SOLO LECTURA: no se edita color ni
+  // grados, no se borran. Solo los NUEVOS (locked === false) se editan y se borran.
+  const editable = v.locked === false;
+  if (editable) {
+    const colorBtn = document.createElement("button");
+    colorBtn.className = "t t-color"; colorBtn.setAttribute("data-pop", "");
+    colorBtn.title = "Colores (varios posibles)";
+    colorBtn.innerHTML = swatchHtml(v.highlights);
+    colorBtn.addEventListener("click", () => editColor(data, v, colorBtn));
     const delBtn = document.createElement("button");
     delBtn.className = "t t-del"; delBtn.title = "Borrar voicing";
     delBtn.textContent = "🗑";
     delBtn.addEventListener("click", () => deleteVoicing(data, v));
-    top.append(delBtn);
+    top.append(colorBtn, delBtn);
   }
 
-  // grados editables (top→bottom), con el grado RELABELADO según la variante
+  // grados (top→bottom, relabelados según la variante). Editables solo si el
+  // voicing es nuevo; los de la base se muestran como texto fijo, sin tocar.
   const stack = document.createElement("div");
   stack.className = "deg-stack" + (v.optional ? " paren" : "");
   v.degrees.forEach((g, i) => {
     const shown = dmap[g] ?? g;
-    const d = document.createElement("button");
-    d.className = "deg"; d.setAttribute("data-pop", "");
-    d.setAttribute("aria-label", `Grado voz ${i + 1}: ${shown}. Tocar para cambiar.`);
-    d.textContent = shown;
-    d.addEventListener("click", () => editDegree(data, v, i, d));
-    stack.appendChild(d);
+    if (editable) {
+      const d = document.createElement("button");
+      d.className = "deg"; d.setAttribute("data-pop", "");
+      d.setAttribute("aria-label", `Grado voz ${i + 1}: ${shown}. Tocar para cambiar.`);
+      d.textContent = shown;
+      d.addEventListener("click", () => editDegree(data, v, i, d));
+      stack.appendChild(d);
+    } else {
+      const d = document.createElement("div");
+      d.className = "deg-ro";
+      d.textContent = shown;
+      stack.appendChild(d);
+    }
   });
 
   card.append(top, stack);
