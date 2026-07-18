@@ -339,21 +339,22 @@ function renderGrid() {
     el.grid.appendChild(hint);
     return;
   }
-  // Separadores por BAJO: rachas CONSECUTIVAS que comparten degrees[3] (la voz más
-  // grave), recorriendo la lista en el orden que YA tiene. NO se agrupa por todo el
-  // capítulo — un mismo bajo puede dar varios grupos separados, y no se juntan.
-  // Solo VISTA: no toca /data/ ni `order`.
+  // Separadores por TOP NOTE (voz más AGUDA, degrees[0]): rachas CONSECUTIVAS que
+  // comparten degrees[0], recorriendo la lista en el orden que YA tiene. NO se agrupa
+  // por todo el capítulo — una misma top note puede dar varios grupos separados y no
+  // se juntan. La línea melódica de la voz superior desciende por la escala del modo:
+  // los encabezados, de arriba a abajo, deben BAJAR. Solo VISTA: no toca /data/ ni `order`.
   const vs = data.voicings.slice().sort((a, b) => a.order - b.order);
   const dmap = variantMap(data);
   let i = 0;
   while (i < vs.length) {
-    const bass = vs[i].degrees[3];
+    const top = vs[i].degrees[0];
     let j = i;
-    while (j < vs.length && vs[j].degrees[3] === bass) j++;
+    while (j < vs.length && vs[j].degrees[0] === top) j++;
     const n = j - i;
     const hd = document.createElement("div");
-    hd.className = "bass-group";
-    hd.innerHTML = `<span class="bg-label">bajo</span><span class="bg-deg">${dmap[bass] ?? bass}</span><span class="bg-n">${n} voicing${n === 1 ? "" : "s"}</span>`;
+    hd.className = "top-group";
+    hd.innerHTML = `<span class="bg-label">top</span><span class="bg-deg">${dmap[top] ?? top}</span><span class="bg-n">${n} voicing${n === 1 ? "" : "s"}</span>`;
     el.grid.appendChild(hd);
     for (let k = i; k < j; k++) el.grid.appendChild(makeCard(data, vs[k]));
     i = j;

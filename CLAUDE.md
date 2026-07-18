@@ -274,7 +274,7 @@ El borrador (`data/draft/*.json`) es una lectura **por visión** con columnas fa
 ```
 
 - `degrees` — top→bottom, **grados resueltos** (no dígitos crudos). **Campo canónico.** Todo lo demás es derivado o metadato.
-- `order` — la secuencia del manuscrito. **Es el valor pedagógico del estudio** (la conducción melódica de cada voz). Nunca reordenar por defecto; el orden alterno es opt-in del usuario.
+- `order` — la secuencia del manuscrito. **Es el valor pedagógico del estudio**: el estudio se organiza por la **conducción melódica de la voz superior** (`degrees[0]`), que **desciende por la escala del modo**. Ese es el eje del orden y la razón de "aplicarlos en orden". Nunca reordenar por defecto; el orden alterno es opt-in del usuario. Las agrupaciones de la UI son por **rachas consecutivas de top note** (`degrees[0]`, no el bajo), solo VISTA — no tocan `order`. Leídos de arriba a abajo, los encabezados BAJAN por la escala. Ejemplo (jónico): `1 → 7 → 13 → 5 → 3 → 9` (Do–Si–La–Sol–Mi–Re, sin el 4 avoid).
 - `intervals` — derivado; se recalcula y valida en CI. Si no coincide con `degrees`, el build falla.
 - `highlights` — **array** de colores **observados** (`["yellow","red"]`, `[]` = ninguno). Varios por columna; ninguno excluye a otro. Significado en `src/core/legend.js`, no aquí. Franjas verticales en la UI.
 - `optional` — `true` si la columna está entre paréntesis `( )` en el manuscrito ("se puede omitir por su complejidad"). Observado, literal.

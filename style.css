@@ -133,24 +133,24 @@ main { padding: 16px; }
 }
 .insert-head:hover { color: var(--text); border-color: var(--dim); }
 
-/* ---------- separador por bajo (racha consecutiva; solo VISTA) ---------- */
-.bass-group {
+/* ---------- separador por top note (racha consecutiva; solo VISTA) ---------- */
+.top-group {
   grid-column: 1 / -1;
   display: flex; align-items: baseline; gap: 8px;
   margin: 10px 0 2px; padding: 4px 4px 6px;
   border-bottom: 1px solid var(--edge);
 }
-.bass-group:first-of-type { margin-top: 2px; }
-.bass-group .bg-label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
-.bass-group .bg-deg {
+.top-group:first-of-type { margin-top: 2px; }
+.top-group .bg-label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+.top-group .bg-deg {
   font-family: var(--mono); font-weight: 700; font-size: 16px; color: var(--text);
   font-variant-numeric: tabular-nums;
 }
-.bass-group .bg-n {
+.top-group .bg-n {
   font-family: var(--mono); font-variant-numeric: tabular-nums;
   font-size: 12px; color: var(--dim);
 }
-.bass-group .bg-n::before { content: "· "; }
+.top-group .bg-n::before { content: "· "; }
 
 .voicing {
   position: relative;
